@@ -27,6 +27,8 @@ dependencies:
   shared_preferences: ^2.5.3
   infinite_scroll_pagination: ^5.1.0
   envied: ^1.2.0
+  flutter_screenutil: ^5.9.3
+  kartal: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +47,5 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/lang/en.json
-    - assets/lang/tr.json
+    - assets/lang/
 

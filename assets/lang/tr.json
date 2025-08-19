@@ -1,0 +1,18 @@
+{
+    "auth": {
+        "login": {
+            "title": "Merhaba",
+            "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+            "email": "E-posta",
+            "password": "Şifre",
+            "forgot_password": "Şifremi Unuttum?",
+            "login_button": "Giriş Yap",
+            "register_text": "Hesabınız yok mu?",
+            "register_button": "Kayıt Ol!"
+        }
+    },
+    "dialog": {
+        "ok": "Tamam",
+        "error": "Hata"
+    }
+}

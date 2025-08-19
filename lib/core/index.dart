@@ -4,6 +4,7 @@ export 'enum/index.dart';
 export 'env/index.dart';
 export 'exception/index.dart';
 export 'extension/index.dart';
+export 'init/index.dart';
 export 'init/init_app.dart';
 export 'network/index.dart';
 export 'router/index.dart';

@@ -24,4 +24,14 @@ final class CacheManager implements Cache {
   Future<void> saveString(String key, String value) async {
     await _preferences.setString(key, value);
   }
+
+  @override
+  Future<String?> getToken() async {
+    return _preferences.getString('token');
+  }
+
+  @override
+  Future<void> saveToken(String token) {
+    return _preferences.setString('token', token);
+  }
 }

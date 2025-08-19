@@ -8,12 +8,29 @@ class CustomTheme implements BaseTheme {
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
-      // appBarTheme: _appBarTheme,
-      // cardTheme: _cardTheme,
-      // chipTheme: _chipTheme,
-      //dialogTheme: _dialogTheme,
-      // expansionTileTheme: _expansionTileThemeData,
-      // listTileTheme: _listTileThemeData,
+
+      textTheme: TextTheme(
+        displayLarge: TextStyle(
+          fontSize: ProjectFonts.large.value,
+          fontWeight: FontWeight.w600,
+          color: ColorManager.instance.white,
+        ),
+        displayMedium: TextStyle(
+          fontSize: ProjectFonts.normal.value,
+          fontWeight: FontWeight.w500,
+          color: ColorManager.instance.white,
+        ),
+        bodyLarge: TextStyle(
+          fontSize: ProjectFonts.medium.value,
+          fontWeight: FontWeight.w400,
+          color: ColorManager.instance.white.withAlpha(200),
+        ),
+        bodyMedium: TextStyle(
+          fontSize: ProjectFonts.small.value,
+          fontWeight: FontWeight.w400,
+          color: ColorManager.instance.white.withAlpha(150),
+        ),
+      ),
       filledButtonTheme: _filledButtonTheme(),
       inputDecorationTheme: _inputDecorationTheme,
       brightness: Brightness.dark,
@@ -26,7 +43,7 @@ class CustomTheme implements BaseTheme {
     return FilledButtonThemeData(
       style: FilledButton.styleFrom(
         shape: const RoundedRectangleBorder(
-          borderRadius: ProductRadius.eighteen(),
+          borderRadius: AppRadius.eighteen(),
         ),
         backgroundColor: ColorManager.instance.buttonPrimaryColor,
         foregroundColor: ColorManager.instance.white,
@@ -48,7 +65,7 @@ class CustomTheme implements BaseTheme {
       ),
 
       enabledBorder: OutlineInputBorder(
-        borderRadius: ProductRadius.eighteen(),
+        borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
           color: ColorManager.instance.white.withAlpha(100),
           width: 1,
@@ -56,6 +73,8 @@ class CustomTheme implements BaseTheme {
       ),
     );
   }
+
+  //custom font size
 }
 
 class _CustomColorScheme extends ColorScheme {

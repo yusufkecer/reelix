@@ -1,0 +1,18 @@
+{
+    "auth": {
+        "login": {
+            "title": "Hello",
+            "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+            "email": "Email",
+            "password": "Password",
+            "forgot_password": "Forgot Password?",
+            "login_button": "Login",
+            "register_text": "Don't have an account?",
+            "register_button": "Register"
+        }
+    },
+    "dialog": {
+        "ok": "OK",
+        "error": "Error"
+    }
+}

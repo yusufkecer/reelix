@@ -1,5 +1,5 @@
-final class AssetPath {
-  AssetPath._(); // private constructor, instance oluşturulamaz
+final class BasePaths {
+  BasePaths._();
 
   static const _basePath = 'assets';
   static const lottie = '$_basePath/lottie';
@@ -8,7 +8,20 @@ final class AssetPath {
 }
 
 extension AssetPathExtension on String {
-  String get lottie => '${AssetPath.lottie}/$this.json';
-  String get image => '${AssetPath.image}/$this';
-  String get language => '${AssetPath.language}/$this.json';
+  String get lottie => '${BasePaths.lottie}/$this.json';
+  String get pngImage => '${BasePaths.image}/$this.png';
+  String get language => '${BasePaths.language}/$this.json';
+}
+
+enum AssetPath {
+  google('google'),
+  apple('apple'),
+  facebook('facebook'),
+  mail('message'),
+  password('password'),
+  hide('hide'),
+  loading('loading');
+
+  const AssetPath(this.path);
+  final String path;
 }

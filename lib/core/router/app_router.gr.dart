@@ -11,17 +11,17 @@
 part of 'app_router.dart';
 
 /// generated route for
-/// [Splash]
-class SplashView extends PageRouteInfo<void> {
-  const SplashView({List<PageRouteInfo>? children})
-    : super(SplashView.name, initialChildren: children);
+/// [LoginView]
+class LoginView extends PageRouteInfo<void> {
+  const LoginView({List<PageRouteInfo>? children})
+    : super(LoginView.name, initialChildren: children);
 
-  static const String name = 'SplashView';
+  static const String name = 'LoginView';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const Splash();
+      return const LoginView();
     },
   );
 }

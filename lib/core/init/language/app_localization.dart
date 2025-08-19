@@ -12,7 +12,7 @@ final class AppLocalization extends EasyLocalization {
   }) : super(
          startLocale: Lang.tr.locale,
          supportedLocales: _supportedItems,
-         path: AssetPath.language,
+         path: BasePaths.language,
          useOnlyLangCode: true,
        );
 
