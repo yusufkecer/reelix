@@ -1,19 +1,19 @@
 import 'package:date_app/domain/entity/index.dart';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-part 'login_entity.g.dart';
+part 'auth_entity.g.dart';
 
 @JsonSerializable()
 @immutable
-final class LoginEntity {
+final class AuthEntity {
   final String token;
   final UserEntity user;
 
-  const LoginEntity({
+  const AuthEntity({
     required this.token,
     required this.user,
   });
 
-  factory LoginEntity.fromJson(Map<String, dynamic> json) => _$LoginEntityFromJson(json);
-  Map<String, dynamic> toJson() => _$LoginEntityToJson(this);
+    factory AuthEntity.fromJson(Map<String, dynamic> json) => _$AuthEntityFromJson(json);
+  Map<String, dynamic> toJson() => _$AuthEntityToJson(this);
 }

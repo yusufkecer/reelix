@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-
+import 'package:date_app/feature/login/presentation/login_view.dart';
 import 'package:injectable/injectable.dart';
 
 part 'app_router.gr.dart';

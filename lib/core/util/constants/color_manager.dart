@@ -11,9 +11,9 @@ final class ColorManager {
 
   final Color primaryColor = const Color(0xFF090909);
 
-  final Color softBlack = Colors.black.withAlpha(25);
-  final Color verySoftBlack = Colors.black.withAlpha(50);
+  final Color softBlack = const Color(0x1AFFFFFF);
+  final Color verySoftBlack = const Color(0x33FFFFFF);
   final Color white = Colors.white;
   final Color buttonPrimaryColor = const Color(0xFFE50914);
-  final Color greyText = Colors.white.withAlpha(125);
+  final Color veryDarkWhiteText = const Color(0x80FFFFFF);
 }

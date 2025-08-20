@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @immutable
 final class CustomTextField extends StatelessWidget {
@@ -19,18 +20,22 @@ final class CustomTextField extends StatelessWidget {
   final bool isObscure;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      obscureText: isObscure,
-      decoration: InputDecoration(
-        hintText: hintText,
-        prefixIcon: Image.asset(prefixIcon),
-        suffixIcon: suffixIcon != null
-            ? GestureDetector(
-                onTap: onSuffixIconTap,
-                child: Image.asset(suffixIcon!),
-              )
-            : null,
+    return SizedBox(
+      height: 54.h,
+      width: 324.w,
+      child: TextField(
+        controller: controller,
+        obscureText: isObscure,
+        decoration: InputDecoration(
+          hintText: hintText,
+          prefixIcon: Image.asset(prefixIcon),
+          suffixIcon: suffixIcon != null
+              ? GestureDetector(
+                  onTap: onSuffixIconTap,
+                  child: Image.asset(suffixIcon!),
+                )
+              : null,
+        ),
       ),
     );
   }

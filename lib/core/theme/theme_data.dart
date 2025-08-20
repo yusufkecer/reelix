@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 @lazySingleton
 @immutable
 class CustomTheme implements BaseTheme {
+  @override
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
@@ -23,12 +24,10 @@ class CustomTheme implements BaseTheme {
         bodyLarge: TextStyle(
           fontSize: ProjectFonts.medium.value,
           fontWeight: FontWeight.w400,
-          color: ColorManager.instance.white.withAlpha(200),
         ),
         bodyMedium: TextStyle(
           fontSize: ProjectFonts.small.value,
           fontWeight: FontWeight.w400,
-          color: ColorManager.instance.white.withAlpha(150),
         ),
       ),
       filledButtonTheme: _filledButtonTheme(),
@@ -55,20 +54,36 @@ class CustomTheme implements BaseTheme {
     return InputDecorationTheme(
       filled: true,
       fillColor: ColorManager.instance.softBlack,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
 
       hintStyle: TextStyle(
-        color: ColorManager.instance.white.withAlpha(150),
+        color: ColorManager.instance.veryDarkWhiteText,
+        fontSize: ProjectFonts.small.value,
+        fontWeight: FontWeight.w400,
       ),
       labelStyle: TextStyle(
-        color: ColorManager.instance.white.withAlpha(200),
+        color: ColorManager.instance.veryDarkWhiteText,
+        fontSize: ProjectFonts.small.value,
+        fontWeight: FontWeight.w400,
+      ),
+
+      border: OutlineInputBorder(
+        borderRadius: const AppRadius.eighteen(),
+        borderSide: BorderSide(
+          color: ColorManager.instance.white.withAlpha(100),
+        ),
       ),
 
       enabledBorder: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
           color: ColorManager.instance.white.withAlpha(100),
-          width: 1,
+        ),
+      ),
+
+      focusedBorder: OutlineInputBorder(
+        borderRadius: const AppRadius.eighteen(),
+        borderSide: BorderSide(
+          color: ColorManager.instance.white.withAlpha(100),
         ),
       ),
     );

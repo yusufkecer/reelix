@@ -1,11 +1,11 @@
 {
     "auth": {
         "login": {
-            "title": "Merhaba",
+            "title": "Merhabalar",
             "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
-            "email": "E-posta",
+            "email": "E-Posta",
             "password": "Şifre",
-            "forgot_password": "Şifremi Unuttum?",
+            "forgot_password": "Şifremi unuttum",
             "login_button": "Giriş Yap",
             "register_text": "Hesabınız yok mu?",
             "register_button": "Kayıt Ol!"

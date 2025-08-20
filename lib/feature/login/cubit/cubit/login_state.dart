@@ -2,7 +2,7 @@ part of 'login_cubit.dart';
 
 sealed class LoginState extends Equatable {
   final bool isLoading;
-  final LoginEntity? user;
+  final AuthEntity? user;
 
   const LoginState({this.isLoading = false, this.user});
 
@@ -19,7 +19,7 @@ final class LoginLoading extends LoginState {
 }
 
 final class LoginSuccess extends LoginState {
-  const LoginSuccess({required LoginEntity user}) : super(isLoading: false, user: user);
+  const LoginSuccess({required AuthEntity user}) : super(isLoading: false, user: user);
 }
 
 final class LoginFailure extends LoginState {

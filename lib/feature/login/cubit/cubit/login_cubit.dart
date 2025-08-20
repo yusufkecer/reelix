@@ -1,5 +1,5 @@
 import 'package:date_app/core/index.dart';
-import 'package:date_app/feature/login/domain/entity/login_entity.dart';
+import 'package:date_app/domain/index.dart';
 import 'package:date_app/feature/login/domain/entity/login_params.dart';
 import 'package:date_app/feature/login/domain/use_case/login_use_case.dart';
 import 'package:equatable/equatable.dart';
@@ -22,9 +22,11 @@ final class LoginCubit extends Cubit<LoginState> {
       final user = await _loginUseCase.executeWithParams(params);
 
       if (user == null) {
+        'login failed'.logInfo();
         emit(const LoginFailure('Login failed'));
         return;
       }
+      'login success'.logInfo();
 
       if (user.token.isNotEmpty) {
         await _cacheService.saveToken(user.token);

@@ -18,7 +18,7 @@ enum AssetPath {
   apple('apple'),
   facebook('facebook'),
   mail('message'),
-  password('password'),
+  lock('lock'),
   hide('hide'),
   loading('loading');
 
