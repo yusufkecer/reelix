@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:date_app/feature/login/presentation/login_view.dart';
+import 'package:date_app/feature/register/presentation/register_view.dart';
 import 'package:injectable/injectable.dart';
 
 part 'app_router.gr.dart';
@@ -10,5 +11,6 @@ final class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: LoginView.page, initial: true),
+    AutoRoute(page: RegisterView.page),
   ];
 }

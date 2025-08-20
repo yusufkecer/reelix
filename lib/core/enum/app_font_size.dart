@@ -1,4 +1,4 @@
-enum ProjectFonts {
+enum AppFontSize {
   small(12),
 
   medium(13),
@@ -12,5 +12,5 @@ enum ProjectFonts {
   xxLarge(25);
 
   final double value;
-  const ProjectFonts(this.value);
+  const AppFontSize(this.value);
 }

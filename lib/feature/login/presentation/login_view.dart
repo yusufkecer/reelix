@@ -43,111 +43,88 @@ final class _LoginBody extends StatefulWidget {
 class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: AppPadding.horizontalThirtyNine(),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 300.h),
-              Text(LocaleKeys.auth_login_title.tr(), style: context.general.appTheme.textTheme.displayLarge).tr(),
-              SizedBox(height: 8.h),
-              Text(
-                LocaleKeys.auth_login_subtitle.tr(),
-                style: context.general.appTheme.textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ).tr(),
-              SizedBox(height: 40.h),
-              CustomTextField(
-                controller: emailController,
-                hintText: LocaleKeys.auth_login_email.tr(),
-                prefixIcon: AssetPath.mail.path.pngImage,
-                onSuffixIconTap: () {},
-              ),
-              SizedBox(height: 14.h),
-              ValueListenableBuilder<bool>(
-                valueListenable: obscureNotifier,
-                builder: (context, isObscure, child) {
-                  return CustomTextField(
-                    controller: passwordController,
-                    isObscure: isObscure,
-                    hintText: LocaleKeys.auth_login_password.tr(),
-                    prefixIcon: AssetPath.lock.path.pngImage,
-                    onSuffixIconTap: onSuffixIconTap,
-                    suffixIcon: AssetPath.hide.path.pngImage,
-                  );
-                },
-              ),
-              SizedBox(height: 30.h),
-              Row(
-                children: [
-                  InkWell(
-                    child: Text.rich(
-                      TextSpan(
-                        text: LocaleKeys.auth_login_forgot_password.tr(),
-                        style: context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                          decoration: TextDecoration.underline,
-                          decorationThickness: 2,
-                        ),
+    return Padding(
+      padding: AppPadding.horizontalThirtyNine(),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            VerticalSpace.threeHundred(),
+            TitleSubtitle(
+              title: LocaleKeys.auth_login_title.tr(),
+              subtitle: LocaleKeys.auth_subtitle.tr(),
+            ),
+            VerticalSpace.forty(),
+            CustomTextField(
+              controller: emailController,
+              hintText: LocaleKeys.auth_email.tr(),
+              prefixIcon: AssetPath.mail.path.pngImage,
+            ),
+            VerticalSpace.fourteen(),
+            ValueListenableBuilder<bool>(
+              valueListenable: obscureNotifier,
+              builder: (context, isObscure, child) {
+                return CustomTextField(
+                  controller: passwordController,
+                  isObscure: isObscure,
+                  hintText: LocaleKeys.auth_password.tr(),
+                  prefixIcon: AssetPath.lock.path.pngImage,
+                  onSuffixIconTap: onSuffixIconTap,
+                  suffixIcon: AssetPath.hide.path.pngImage,
+                );
+              },
+            ),
+            VerticalSpace.thirty(),
+            Row(
+              children: [
+                InkWell(
+                  child: Text.rich(
+                    TextSpan(
+                      text: LocaleKeys.auth_login_forgot_password.tr(),
+                      style: context.general.appTheme.textTheme.bodyMedium?.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 2,
                       ),
                     ),
                   ),
-                ],
-              ),
-              SizedBox(height: 24.h),
-              SizedBox(
-                width: context.sized.dynamicWidth(.8),
-                height: 50.h,
-                child: CustomButton(
-                  onPressed: onLoginButtonTap,
-                  child: Text(
-                    LocaleKeys.auth_login_login_button.tr(),
-                  ).tr(),
+                ),
+              ],
+            ),
+            VerticalSpace.twentyFour(),
+            SizedBox(
+              width: context.sized.width,
+              height: SpaceValues.fiftyThree.value.h,
+              child: CustomButton(
+                onPressed: onLoginButtonTap,
+                child: Text(
+                  LocaleKeys.auth_login_login_button.tr(),
                 ),
               ),
-              SizedBox(height: 37.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FastLoginButton(
-                    icon: AssetPath.google.path.pngImage,
-                  ),
-                  SizedBox(width: 10.w),
-                  FastLoginButton(
-                    icon: AssetPath.apple.path.pngImage,
-                  ),
-                  SizedBox(width: 10.w),
-                  FastLoginButton(
-                    icon: AssetPath.facebook.path.pngImage,
-                  ),
-                ],
-              ),
-              SizedBox(height: 32.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    LocaleKeys.auth_login_register_text.tr(),
-                    style: context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                      color: ColorManager.instance.veryDarkWhiteText,
-                    ),
-                  ),
-                  SizedBox(width: 5.w),
-                  InkWell(
-                    onTap: () {},
-                    child: Text(
-                      LocaleKeys.auth_login_register_button.tr(),
-                      style: context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                        color: ColorManager.instance.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 39.h),
-            ],
-          ),
+            ),
+            VerticalSpace.thirtySeven(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FastLoginButton(
+                  icon: AssetPath.google.path.pngImage,
+                ),
+                HorizontalSpace.s(),
+                FastLoginButton(
+                  icon: AssetPath.apple.path.pngImage,
+                ),
+                HorizontalSpace.s(),
+                FastLoginButton(
+                  icon: AssetPath.facebook.path.pngImage,
+                ),
+              ],
+            ),
+            VerticalSpace.thirtyTwo(),
+            CustomRichText(
+              firstText: LocaleKeys.auth_login_register_text.tr(),
+              secondText: LocaleKeys.auth_login_register_button.tr(),
+              onSecondTextTap: onRegisterButtonTap,
+            ),
+          ],
         ),
       ),
     );

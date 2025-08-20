@@ -19,6 +19,12 @@ import 'package:date_app/feature/login/domain/repository/login_repository.dart'
     as _i195;
 import 'package:date_app/feature/login/domain/use_case/login_use_case.dart'
     as _i172;
+import 'package:date_app/feature/register/cubit/cubit/register_cubit.dart'
+    as _i431;
+import 'package:date_app/feature/register/domain/repository/register_repository.dart'
+    as _i286;
+import 'package:date_app/feature/register/domain/use_case/register_use_case.dart'
+    as _i772;
 import 'package:flutter/material.dart' as _i409;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -36,6 +42,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i195.LoginRepository>(
       () => _i195.LoginRepository(gh<_i183.NetworkManager>()),
     );
+    gh.factory<_i286.RegisterRepository>(
+      () => _i286.RegisterRepository(gh<_i183.NetworkManager>()),
+    );
     gh.factory<_i172.LoginUseCase>(
       () => _i172.LoginUseCase(gh<_i195.LoginRepository>()),
     );
@@ -48,6 +57,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i784.LoginCubit>(
       () =>
           _i784.LoginCubit(gh<_i172.LoginUseCase>(), gh<_i183.CacheManager>()),
+    );
+    gh.factory<_i772.RegisterUseCase>(
+      () => _i772.RegisterUseCase(gh<_i286.RegisterRepository>()),
+    );
+    gh.factory<_i431.RegisterCubit>(
+      () => _i431.RegisterCubit(
+        gh<_i772.RegisterUseCase>(),
+        gh<_i183.CacheManager>(),
+      ),
     );
     return this;
   }

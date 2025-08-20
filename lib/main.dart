@@ -1,5 +1,4 @@
 import 'package:date_app/core/index.dart';
-import 'package:date_app/core/init/language/app_localization.dart';
 import 'package:date_app/injection/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

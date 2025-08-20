@@ -6,8 +6,8 @@ final class CustomTextField extends StatelessWidget {
   const CustomTextField({
     required this.hintText,
     required this.prefixIcon,
-    required this.onSuffixIconTap,
     required this.controller,
+    this.onSuffixIconTap,
     this.suffixIcon,
     this.isObscure = false,
     super.key,
@@ -15,7 +15,7 @@ final class CustomTextField extends StatelessWidget {
   final String hintText;
   final String prefixIcon;
   final String? suffixIcon;
-  final VoidCallback onSuffixIconTap;
+  final VoidCallback? onSuffixIconTap;
   final TextEditingController controller;
   final bool isObscure;
   @override

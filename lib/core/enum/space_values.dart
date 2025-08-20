@@ -1,11 +1,24 @@
 enum SpaceValues {
   xxs(4),
+  five(5),
   xs(8),
   s(10),
   ss(12),
-  m(16),
+  fourteen(14),
+  sixteen(16),
+
   l(20),
-  xl(24);
+  xl(24),
+  twentyFour(24),
+  thirty(30),
+  thirtyTwo(32),
+  thirtySeven(37),
+  thirtyEight(38),
+  thirtyNine(39),
+  forty(40),
+  fiftyThree(53),
+  oneHundredThirtyEight(138),
+  threeHundred(300);
 
   final double value;
 

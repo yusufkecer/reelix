@@ -25,3 +25,19 @@ class LoginView extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [Register]
+class RegisterView extends PageRouteInfo<void> {
+  const RegisterView({List<PageRouteInfo>? children})
+    : super(RegisterView.name, initialChildren: children);
+
+  static const String name = 'RegisterView';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const Register();
+    },
+  );
+}

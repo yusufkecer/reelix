@@ -23,6 +23,11 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
     obscureNotifier.value = !obscureNotifier.value;
   }
 
+  void onRegisterButtonTap() {
+    context.general.unfocus();
+    context.pushRoute(const RegisterView());
+  }
+
   void onLoginButtonTap() {
     final loginCubit = context.read<LoginCubit>();
     final check = checkValues();

@@ -23,7 +23,7 @@ final class RegisterCubit extends Cubit<RegisterState> {
 
       if (user == null) {
         'register failed'.logInfo();
-        emit(const RegisterFailure("Registration failed"));
+        emit(const RegisterFailure('Registration failed'));
         return;
       }
       'register success'.logInfo();

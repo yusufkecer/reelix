@@ -5,4 +5,3 @@ export 'dialogs/index.dart';
 export 'model/index.dart';
 export 'space/horizontal.dart';
 export 'space/vertical.dart';
-export 'widget/index.dart';

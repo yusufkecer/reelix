@@ -1,14 +1,25 @@
 {
     "auth": {
+        "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+        "email": "Email",
+        "password": "Password",
         "login": {
             "title": "Hello",
-            "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
-            "email": "Email",
-            "password": "Password",
             "forgot_password": "Forgot Password?",
             "login_button": "Login",
             "register_text": "Don't have an account?",
             "register_button": "Register"
+        },
+        "register": {
+            "title": "Welcome",
+            "name": "Name",
+            "password_again": "Password Again",
+            "register_button": "Sign Up Now",
+            "agreement": {
+                "agreement_part_1": "User Agreement",
+                "agreement_part_2": "I have read and agree to.",
+                "agreement_part_3": "Please read this agreement before continuing."
+            }
         }
     },
     "dialog": {

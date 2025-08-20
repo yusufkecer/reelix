@@ -12,7 +12,7 @@ final class RegisterUseCase implements BaseUseCase<AuthEntity, AuthEntity, Regis
 
   @override
   Future<AuthEntity?> executeWithParams(RegisterParams params) async {
-    return await _repository.executeWithParams(params);
+    return _repository.executeWithParams(params);
   }
 
   @override

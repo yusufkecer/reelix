@@ -1,14 +1,27 @@
 {
     "auth": {
+        "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
+        "email": "E-Posta",
+        "password": "Şifre",
         "login": {
             "title": "Merhabalar",
-            "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique eleifend at.",
-            "email": "E-Posta",
-            "password": "Şifre",
             "forgot_password": "Şifremi unuttum",
             "login_button": "Giriş Yap",
-            "register_text": "Hesabınız yok mu?",
+            "register_text": "Bir hesabın yok mu?",
             "register_button": "Kayıt Ol!"
+        },
+        "register": {
+            "title": "Hoşgeldiniz",
+            "name": "Ad Soyad",
+            "password_again": "Şifre Tekrar",
+            "register_button": "Şimdi Kayıt Ol",
+            "agreement": {
+                "agreement_part_1": "Kullanıcı sözleşmesini",
+                "agreement_part_2": "okudum ve kabul ediyorum.",
+                "agreement_part_3": "Bu sözelşmeyi okuyarak devam ediniz lütfen."
+            },
+            "login_text": "Bir hesabın var mı?",
+            "login_button": "Giriş Yap!"
         }
     },
     "dialog": {

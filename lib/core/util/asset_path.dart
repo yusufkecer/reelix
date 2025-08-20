@@ -20,6 +20,7 @@ enum AssetPath {
   mail('message'),
   lock('lock'),
   hide('hide'),
+  user('user'),
   loading('loading');
 
   const AssetPath(this.path);

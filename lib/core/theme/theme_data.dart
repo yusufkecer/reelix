@@ -9,27 +9,30 @@ class CustomTheme implements BaseTheme {
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
-
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: ColorManager.instance.white,
+      ),
       textTheme: TextTheme(
         displayLarge: TextStyle(
-          fontSize: ProjectFonts.large.value,
+          fontSize: AppFontSize.large.value,
           fontWeight: FontWeight.w600,
           color: ColorManager.instance.white,
         ),
         displayMedium: TextStyle(
-          fontSize: ProjectFonts.normal.value,
+          fontSize: AppFontSize.normal.value,
           fontWeight: FontWeight.w500,
           color: ColorManager.instance.white,
         ),
         bodyLarge: TextStyle(
-          fontSize: ProjectFonts.medium.value,
+          fontSize: AppFontSize.medium.value,
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: TextStyle(
-          fontSize: ProjectFonts.small.value,
+          fontSize: AppFontSize.small.value,
           fontWeight: FontWeight.w400,
         ),
       ),
+
       filledButtonTheme: _filledButtonTheme(),
       inputDecorationTheme: _inputDecorationTheme,
       brightness: Brightness.dark,
@@ -57,12 +60,12 @@ class CustomTheme implements BaseTheme {
 
       hintStyle: TextStyle(
         color: ColorManager.instance.veryDarkWhiteText,
-        fontSize: ProjectFonts.small.value,
+        fontSize: AppFontSize.small.value,
         fontWeight: FontWeight.w400,
       ),
       labelStyle: TextStyle(
         color: ColorManager.instance.veryDarkWhiteText,
-        fontSize: ProjectFonts.small.value,
+        fontSize: AppFontSize.small.value,
         fontWeight: FontWeight.w400,
       ),
 
@@ -93,5 +96,8 @@ class CustomTheme implements BaseTheme {
 }
 
 class _CustomColorScheme extends ColorScheme {
-  _CustomColorScheme() : super.dark(primary: ColorManager.instance.primaryColor);
+  _CustomColorScheme()
+    : super.dark(
+        primary: ColorManager.instance.primaryColor,
+      );
 }

@@ -11,7 +11,5 @@ AuthEntity _$AuthEntityFromJson(Map<String, dynamic> json) => AuthEntity(
   user: UserEntity.fromJson(json['user'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$AuthEntityToJson(AuthEntity instance) => <String, dynamic>{
-  'token': instance.token,
-  'user': instance.user,
-};
+Map<String, dynamic> _$AuthEntityToJson(AuthEntity instance) =>
+    <String, dynamic>{'token': instance.token, 'user': instance.user};

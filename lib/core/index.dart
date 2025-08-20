@@ -10,3 +10,4 @@ export 'network/index.dart';
 export 'router/index.dart';
 export 'theme/index.dart';
 export 'util/index.dart';
+export 'widget/index.dart';
