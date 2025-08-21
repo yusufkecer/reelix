@@ -29,7 +29,7 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
   }
 
   void onLoginButtonTap() {
-    if (!checkValues()) {
+    if (checkValues()) {
       showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
       return;
     }

@@ -13,20 +13,27 @@ final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, Lo
 
   @override
   Future<AuthEntity?> executeWithParams(LoginParams params) async {
-    final response = await _networkManager.post<Map<String, dynamic>>(
+    final response = await _networkManager.post<Map<String, dynamic>?>(
       'user/login',
       body: params.toJson(),
     );
-    'response: $response'.logInfo('Login Repository');
+    'response1: $response'.logInfo('Login Repository');
+    print("response: alsdfşialsdkf");
+    print(response.runtimeType);
+    if (response == null) {
+      return const AuthEntity();
+    }
     final responseData = response['response'] as Map<String, dynamic>;
+
     if (responseData['code'] != 200) {
       final authEntity = AuthEntity.fromJson(responseData);
       return authEntity;
+    } else {
+      final data = response['data'] as Map<String, dynamic>;
+      final user = UserEntity.fromJson(data);
+      final authEntity = AuthEntity.fromJson(data)..copyWith(user: user);
+      return authEntity;
     }
-    final data = response['data'] as Map<String, dynamic>;
-    final user = UserEntity.fromJson(data);
-    final authEntity = AuthEntity.fromJson(data)..copyWith(user: user);
-    return authEntity;
   }
 
   @override

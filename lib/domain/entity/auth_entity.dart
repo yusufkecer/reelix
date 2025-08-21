@@ -12,8 +12,8 @@ final class AuthEntity {
   final String? message;
 
   const AuthEntity({
-    required this.token,
-    required this.user,
+     this.token,
+     this.user,
     this.message,
   });
 

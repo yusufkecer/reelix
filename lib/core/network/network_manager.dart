@@ -29,10 +29,26 @@ final class NetworkManager implements BaseNetwork {
     _dio.interceptors.addAll([
       InterceptorsWrapper(
         onRequest: (options, handler) async {
+          'Full URL: ${options.uri.toString()}'.logInfo('Network Request');
+          'Request Method: ${options.method}'.logInfo('Network Request');
+          'Request Headers: ${options.headers}'.logInfo('Network Request');
+          'Request Data: ${options.data}'.logInfo('Network Request');
           await _addAuthToken(options);
           return handler.next(options);
         },
+        onResponse: (response, handler) {
+          'Response Status: ${response.statusCode}'.logInfo('Network Response');
+          'Response Headers: ${response.headers}'.logInfo('Network Response');
+          'Response Data: ${response.data}'.logInfo('Network Response');
+          'Response Data Type: ${response.data.runtimeType}'.logInfo('Network Response');
+          return handler.next(response);
+        },
         onError: (DioException e, handler) {
+          'Error Type: ${e.type}'.logError('Network Error');
+          'Error Message: ${e.message}'.logError('Network Error');
+          'Error Response: ${e.response}'.logError('Network Error');
+          'Error Response Data: ${e.response?.data}'.logError('Network Error');
+          'Error Response Status: ${e.response?.statusCode}'.logError('Network Error');
           handler.next(_mapDioError(e) as DioException);
         },
       ),
