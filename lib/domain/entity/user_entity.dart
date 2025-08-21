@@ -1,7 +1,7 @@
-import 'package:date_app/core/index.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:reelix/core/index.dart';
 
 part 'user_entity.g.dart';
 
@@ -9,7 +9,7 @@ part 'user_entity.g.dart';
 @immutable
 final class UserEntity extends Equatable implements BaseModel<UserEntity> {
   @override
-  final int id;
+  final String id;
   final String email;
   final String name;
 

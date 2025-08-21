@@ -1,14 +1,14 @@
-import 'package:date_app/core/index.dart';
-import 'package:date_app/injection/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reelix/core/index.dart';
+import 'package:reelix/injection/locator.dart';
 
 Future<void> main() async {
   await InitApp.init();
   runApp(
     ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(402, 844),
       minTextAdapt: true,
       splitScreenMode: true,
       child: AppLocalization(

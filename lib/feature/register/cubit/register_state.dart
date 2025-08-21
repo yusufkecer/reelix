@@ -24,7 +24,7 @@ final class RegisterLoading extends RegisterState {
 }
 
 final class RegisterSuccess extends RegisterState {
-  const RegisterSuccess(UserEntity user) : super(isLoading: false, user: user);
+  const RegisterSuccess(UserEntity? user) : super(isLoading: false, user: user);
 }
 
 final class RegisterFailure extends RegisterState {

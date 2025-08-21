@@ -1,4 +1,4 @@
-name: date_app
+name: reelix
 description: "A new Flutter project."
 
 publish_to: 'none'
@@ -29,6 +29,7 @@ dependencies:
   envied: ^1.2.0
   flutter_screenutil: ^5.9.3
   kartal: ^4.2.0
+  bloc: ^9.0.0
 
 dev_dependencies:
   flutter_test:

@@ -29,23 +29,32 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
   }
 
   void onLoginButtonTap() {
-    final loginCubit = context.read<LoginCubit>();
-    final check = checkValues();
-    if (check) {
+    if (!checkValues()) {
+      showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
       return;
     }
     showLoadingDialog(context);
-    loginCubit.login(
-      params: LoginParams(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      ),
+    final params = LoginParams(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
     );
+    context.read<LoginCubit>().login(params: params);
     context.pop();
-    if (loginCubit.state is LoginSuccess) {
+    checkState();
+  }
+
+  void checkState() {
+    if (context.read<LoginCubit>().state is LoginSuccess) {
+      'login success'.logInfo();
       // TODO: Navigate to home screen
-    } else {
-      // TODO: Show error message
+    }
+    if (context.read<LoginCubit>().state is LoginFailure) {
+      'login failure ${context.read<LoginCubit>().state}'.logInfo();
+      if (context.read<LoginCubit>().state.errorMessage == 'INVALID_CREDENTIALS') {
+        showErrorDialog(context, LocaleKeys.error_invalid_credentials.tr());
+      } else {
+        showErrorDialog(context, LocaleKeys.error_login_error.tr());
+      }
     }
   }
 }

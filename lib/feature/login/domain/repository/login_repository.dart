@@ -1,8 +1,8 @@
-import 'package:date_app/core/index.dart';
-import 'package:date_app/domain/index.dart';
-import 'package:date_app/feature/login/domain/entity/login_params.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:reelix/core/index.dart';
+import 'package:reelix/domain/index.dart';
+import 'package:reelix/feature/login/domain/entity/login_params.dart';
 
 @injectable
 @immutable
@@ -17,7 +17,16 @@ final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, Lo
       'user/login',
       body: params.toJson(),
     );
-    return AuthEntity.fromJson(response);
+    'response: $response'.logInfo('Login Repository');
+    final responseData = response['response'] as Map<String, dynamic>;
+    if (responseData['code'] != 200) {
+      final authEntity = AuthEntity.fromJson(responseData);
+      return authEntity;
+    }
+    final data = response['data'] as Map<String, dynamic>;
+    final user = UserEntity.fromJson(data);
+    final authEntity = AuthEntity.fromJson(data)..copyWith(user: user);
+    return authEntity;
   }
 
   @override

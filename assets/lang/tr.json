@@ -26,6 +26,17 @@
     },
     "dialog": {
         "ok": "Tamam",
+        "cancel": "İptal",
         "error": "Hata"
+    },
+    "error": {
+        "register_error": "Kayıt başarısız oldu. Lütfen tekrar deneyiniz.",
+        "fill_all_fields": "Lütfen tüm alanları doldurunuz.",
+        "error_message_passwords_not_match": "Şifreler eşleşmiyor. Lütfen tekrar deneyiniz.",
+        "password_too_short": "Şifre çok kısa. Lütfen daha uzun bir şifre giriniz.",
+        "email_already_in_use": "Bu e-posta adresi zaten kullanılıyor. Lütfen başka bir e-posta adresi giriniz.",
+        "email_invalid": "Geçersiz e-posta adresi. Lütfen geçerli bir e-posta adresi giriniz.",
+        "invalid_credentials": "Geçersiz kimlik bilgileri. Lütfen tekrar deneyiniz.",
+        "login_error": "Giriş yapılırken bir hata oluştu. Lütfen tekrar deneyiniz."
     }
 }

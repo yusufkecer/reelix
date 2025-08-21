@@ -24,6 +24,17 @@
     },
     "dialog": {
         "ok": "OK",
+        "cancel": "Cancel",
         "error": "Error"
+    },
+    "error": {
+        "register_error": "Registration failed. Please try again.",
+        "fill_all_fields": "Please fill in all fields.",
+        "error_message_passwords_not_match": "Passwords do not match. Please try again.",
+        "password_too_short": "Password is too short. Please enter a longer password.",
+        "email_already_in_use": "This email address is already in use. Please enter a different email address.",
+        "email_invalid": "Invalid email address. Please enter a valid email address.",
+        "invalid_credentials": "Invalid credentials. Please try again.",
+        "login_error": "An error occurred while logging in. Please try again."
     }
 }

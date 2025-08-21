@@ -1,9 +1,9 @@
-import 'package:date_app/core/index.dart';
-import 'package:date_app/domain/index.dart';
-import 'package:date_app/feature/login/domain/entity/login_params.dart';
-import 'package:date_app/feature/login/domain/repository/login_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:reelix/core/index.dart';
+import 'package:reelix/domain/index.dart';
+import 'package:reelix/feature/login/domain/entity/login_params.dart';
+import 'package:reelix/feature/login/domain/repository/login_repository.dart';
 
 @injectable
 @immutable

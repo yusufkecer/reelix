@@ -1,8 +1,8 @@
-import 'package:date_app/core/index.dart';
-import 'package:date_app/domain/index.dart';
-import 'package:date_app/feature/register/domain/entity/params_entity.dart';
-import 'package:date_app/feature/register/domain/repository/register_repository.dart';
 import 'package:injectable/injectable.dart';
+import 'package:reelix/core/index.dart';
+import 'package:reelix/domain/index.dart';
+import 'package:reelix/feature/register/domain/entity/params_entity.dart';
+import 'package:reelix/feature/register/domain/repository/register_repository.dart';
 
 @injectable
 final class RegisterUseCase implements BaseUseCase<AuthEntity, AuthEntity, RegisterParams> {

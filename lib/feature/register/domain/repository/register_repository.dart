@@ -1,6 +1,6 @@
-import 'package:date_app/core/index.dart';
-import 'package:date_app/domain/index.dart';
-import 'package:date_app/feature/register/domain/entity/params_entity.dart';
+import 'package:reelix/core/index.dart';
+import 'package:reelix/domain/index.dart';
+import 'package:reelix/feature/register/domain/entity/params_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -17,7 +17,16 @@ final class RegisterRepository implements BaseRepository<AuthEntity, AuthEntity,
       'user/register',
       body: params.toJson(),
     );
-    return AuthEntity.fromJson(response);
+    'response: $response'.logInfo('Register Repository');
+    final responseData = response['response'] as Map<String, dynamic>;
+    if (responseData['code'] != 200) {
+      final authEntity = AuthEntity.fromJson(responseData);
+      return authEntity;
+    }
+    final data = response['data'] as Map<String, dynamic>;
+    final user = UserEntity.fromJson(data);
+    final authEntity = AuthEntity.fromJson(data)..copyWith(user: user);
+    return authEntity;
   }
 
   @override

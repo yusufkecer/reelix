@@ -1,4 +1,4 @@
-# Date App
+# Reelix
 
 A new Flutter project.
 

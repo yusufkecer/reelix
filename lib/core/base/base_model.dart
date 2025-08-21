@@ -8,5 +8,5 @@ abstract interface class BaseModel<T> implements _IdModel {
 
 @immutable
 abstract interface class _IdModel {
-  int? get id;
+  String? get id;
 }

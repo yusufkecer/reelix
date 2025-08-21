@@ -1,6 +1,6 @@
-import 'package:date_app/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reelix/core/index.dart';
 
 @immutable
 final class FastLoginButton extends StatelessWidget {

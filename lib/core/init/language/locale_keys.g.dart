@@ -23,7 +23,17 @@ abstract class  LocaleKeys {
   static const auth_register = 'auth.register';
   static const auth = 'auth';
   static const dialog_ok = 'dialog.ok';
+  static const dialog_cancel = 'dialog.cancel';
   static const dialog_error = 'dialog.error';
   static const dialog = 'dialog';
+  static const error_register_error = 'error.register_error';
+  static const error_fill_all_fields = 'error.fill_all_fields';
+  static const error_error_message_passwords_not_match = 'error.error_message_passwords_not_match';
+  static const error_password_too_short = 'error.password_too_short';
+  static const error_email_already_in_use = 'error.email_already_in_use';
+  static const error_email_invalid = 'error.email_invalid';
+  static const error_invalid_credentials = 'error.invalid_credentials';
+  static const error_login_error = 'error.login_error';
+  static const error = 'error';
 
 }

@@ -1,6 +1,7 @@
-import 'package:date_app/core/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:injectable/injectable.dart';
+import 'package:reelix/core/index.dart';
 
 @lazySingleton
 @immutable
@@ -9,6 +10,7 @@ class CustomTheme implements BaseTheme {
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
+      textButtonTheme: _textButtonTheme,
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: ColorManager.instance.white,
       ),
@@ -55,9 +57,9 @@ class CustomTheme implements BaseTheme {
 
   InputDecorationTheme get _inputDecorationTheme {
     return InputDecorationTheme(
+      contentPadding: EdgeInsets.symmetric(vertical: 16.h),
       filled: true,
       fillColor: ColorManager.instance.softBlack,
-
       hintStyle: TextStyle(
         color: ColorManager.instance.veryDarkWhiteText,
         fontSize: AppFontSize.small.value,
@@ -72,27 +74,33 @@ class CustomTheme implements BaseTheme {
       border: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
-          color: ColorManager.instance.white.withAlpha(100),
+          color: ColorManager.instance.verySoftBlack,
         ),
       ),
 
       enabledBorder: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
-          color: ColorManager.instance.white.withAlpha(100),
+          color: ColorManager.instance.verySoftBlack,
         ),
       ),
 
       focusedBorder: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
-          color: ColorManager.instance.white.withAlpha(100),
+          color: ColorManager.instance.verySoftBlack,
         ),
       ),
     );
   }
 
-  //custom font size
+  TextButtonThemeData get _textButtonTheme {
+    return TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: ColorManager.instance.white,
+      ),
+    );
+  }
 }
 
 class _CustomColorScheme extends ColorScheme {

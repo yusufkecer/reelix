@@ -1,6 +1,6 @@
 {
-    "name": "Date App",
-    "short_name": "Date App",
+    "name": "Reelix",
+    "short_name": "Reelix",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

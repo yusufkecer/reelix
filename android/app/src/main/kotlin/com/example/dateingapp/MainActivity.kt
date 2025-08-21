@@ -1,4 +1,4 @@
-package com.example.dateapp
+package com.example.reelix
 
 import io.flutter.embedding.android.FlutterActivity
 

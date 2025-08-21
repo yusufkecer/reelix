@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:date_app/core/index.dart';
-import 'package:date_app/feature/register/cubit/cubit/register_cubit.dart';
-import 'package:date_app/injection/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kartal/kartal.dart';
+import 'package:reelix/core/index.dart';
+import 'package:reelix/feature/register/cubit/register_cubit.dart';
+import 'package:reelix/feature/register/domain/entity/params_entity.dart';
+import 'package:reelix/injection/locator.dart';
 
-part 'register_vew_model.dart';
+part 'register_view_model.dart';
 part 'widgets/agreement_widget.dart';
 
 @RoutePage(name: 'RegisterView')
@@ -34,7 +35,7 @@ final class _RegisterBody extends StatefulWidget {
   State<_RegisterBody> createState() => __RegisterBodyState();
 }
 
-class __RegisterBodyState extends State<_RegisterBody> with RegisterViewMixin {
+class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterViewMixin {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -74,11 +75,16 @@ class __RegisterBodyState extends State<_RegisterBody> with RegisterViewMixin {
               },
             ),
             VerticalSpace.fourteen(),
-            CustomTextField(
-              isObscure: isObscureNotifier.value,
-              controller: confirmPasswordController,
-              hintText: LocaleKeys.auth_register_password_again.tr(),
-              prefixIcon: AssetPath.lock.path.pngImage,
+            ValueListenableBuilder<bool>(
+              valueListenable: isObscureNotifier,
+              builder: (context, isObscure, child) {
+                return CustomTextField(
+                  isObscure: isObscureNotifier.value,
+                  controller: confirmPasswordController,
+                  hintText: LocaleKeys.auth_register_password_again.tr(),
+                  prefixIcon: AssetPath.lock.path.pngImage,
+                );
+              },
             ),
             VerticalSpace.sixteen(),
             const _AgreementWidget(),
