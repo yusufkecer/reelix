@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-@immutable
-final class ColorManager {
-  static final ColorManager instance = ColorManager._internal();
+final class AppColor {
+  static final AppColor instance = AppColor._internal();
 
-  factory ColorManager() {
+  factory AppColor() {
     return instance;
   }
-  ColorManager._internal();
+  AppColor._internal();
 
   final Color primaryColor = const Color(0xFF090909);
 

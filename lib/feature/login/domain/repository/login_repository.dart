@@ -17,9 +17,6 @@ final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, Lo
       'user/login',
       body: params.toJson(),
     );
-    'response1: $response'.logInfo('Login Repository');
-    print("response: alsdfşialsdkf");
-    print(response.runtimeType);
     if (response == null) {
       return const AuthEntity();
     }

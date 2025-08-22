@@ -16,8 +16,11 @@ enum SpaceValues {
   thirtyEight(38),
   thirtyNine(39),
   forty(40),
+  fortySeven(47),
+  fifty(50),
   fiftyThree(53),
   oneHundredThirtyEight(138),
+  twoHundredFifty(250),
   threeHundred(300);
 
   final double value;

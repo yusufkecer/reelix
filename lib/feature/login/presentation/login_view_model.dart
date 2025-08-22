@@ -28,7 +28,7 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
     context.pushRoute(const RegisterView());
   }
 
-  void onLoginButtonTap() {
+  Future<void> onLoginButtonTap() async {
     if (checkValues()) {
       showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
       return;
@@ -38,8 +38,10 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     );
-    context.read<LoginCubit>().login(params: params);
-    context.pop();
+    await context.read<LoginCubit>().login(params: params);
+    if (mounted) {
+      context.pop();
+    }
     checkState();
   }
 

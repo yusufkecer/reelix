@@ -29,26 +29,13 @@ final class NetworkManager implements BaseNetwork {
     _dio.interceptors.addAll([
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          'Full URL: ${options.uri.toString()}'.logInfo('Network Request');
-          'Request Method: ${options.method}'.logInfo('Network Request');
-          'Request Headers: ${options.headers}'.logInfo('Network Request');
-          'Request Data: ${options.data}'.logInfo('Network Request');
           await _addAuthToken(options);
           return handler.next(options);
         },
         onResponse: (response, handler) {
-          'Response Status: ${response.statusCode}'.logInfo('Network Response');
-          'Response Headers: ${response.headers}'.logInfo('Network Response');
-          'Response Data: ${response.data}'.logInfo('Network Response');
-          'Response Data Type: ${response.data.runtimeType}'.logInfo('Network Response');
           return handler.next(response);
         },
         onError: (DioException e, handler) {
-          'Error Type: ${e.type}'.logError('Network Error');
-          'Error Message: ${e.message}'.logError('Network Error');
-          'Error Response: ${e.response}'.logError('Network Error');
-          'Error Response Data: ${e.response?.data}'.logError('Network Error');
-          'Error Response Status: ${e.response?.statusCode}'.logError('Network Error');
           handler.next(_mapDioError(e) as DioException);
         },
       ),
@@ -79,6 +66,40 @@ final class NetworkManager implements BaseNetwork {
       'sending data to: $path'.logInfo('Network Request');
       final response = await _dio.post<T>(path, data: body);
       'response: $response'.logInfo('Network Request');
+      return _parseResponse<T>(response);
+    } on DioException catch (e) {
+      throw _mapDioError(e);
+    }
+  }
+
+  @override
+  Future<T> uploadFile<T>(
+    String path, {
+    required String filePath,
+    String? fieldName,
+    Map<String, dynamic>? additionalData,
+  }) async {
+    try {
+      'uploading file to: $path'.logInfo('Network Request');
+      'file path: $filePath'.logInfo('Network Request');
+      'field name: $fieldName'.logInfo('Network Request');
+
+      final formData = FormData.fromMap({
+        fieldName ?? 'file': await MultipartFile.fromFile(filePath),
+        ...?additionalData,
+      });
+
+      final response = await _dio.post<T>(
+        path,
+        data: formData,
+        options: Options(
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        ),
+      );
+
+      'upload response: $response'.logInfo('Network Request');
       return _parseResponse<T>(response);
     } on DioException catch (e) {
       throw _mapDioError(e);

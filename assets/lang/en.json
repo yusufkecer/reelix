@@ -36,5 +36,11 @@
         "email_invalid": "Invalid email address. Please enter a valid email address.",
         "invalid_credentials": "Invalid credentials. Please try again.",
         "login_error": "An error occurred while logging in. Please try again."
+    },
+    "upload_photo": {
+        "title": "Upload Your Photos",
+        "explain": "Resources out incentivize relaxation floor loss cc.",
+        "button": "Continue",
+        "appbar_title": "Upload Photo"
     }
 }

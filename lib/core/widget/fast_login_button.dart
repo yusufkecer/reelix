@@ -28,9 +28,9 @@ final class _CustomDecoration extends BoxDecoration {
   _CustomDecoration()
     : super(
         border: Border.all(
-          color: ColorManager.instance.verySoftBlack,
+          color: AppColor.instance.verySoftBlack,
         ),
-        color: ColorManager.instance.softBlack,
+        color: AppColor.instance.softBlack,
         borderRadius: const AppRadius.eighteen(),
       );
 }

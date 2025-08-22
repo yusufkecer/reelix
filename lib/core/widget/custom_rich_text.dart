@@ -30,7 +30,7 @@ final class CustomRichText extends StatelessWidget {
             style:
                 firstTextStyle ??
                 context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                  color: ColorManager.instance.veryDarkWhiteText,
+                  color: AppColor.instance.veryDarkWhiteText,
                 ),
           ),
           WidgetSpan(
@@ -41,7 +41,7 @@ final class CustomRichText extends StatelessWidget {
             style:
                 secondTextStyle ??
                 context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                  color: ColorManager.instance.white,
+                  color: AppColor.instance.white,
                 ),
             recognizer: TapGestureRecognizer()..onTap = onSecondTextTap,
           ),

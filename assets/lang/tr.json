@@ -38,5 +38,11 @@
         "email_invalid": "Geçersiz e-posta adresi. Lütfen geçerli bir e-posta adresi giriniz.",
         "invalid_credentials": "Geçersiz kimlik bilgileri. Lütfen tekrar deneyiniz.",
         "login_error": "Giriş yapılırken bir hata oluştu. Lütfen tekrar deneyiniz."
+    },
+    "upload_photo": {
+        "title": "Fotoğraflarınızı Yükleyin",
+        "explain": "Resources out incentivize relaxation floor loss cc.",
+        "button": "Devam Et",
+        "appbar_title": "Profil Detayı"
     }
 }
