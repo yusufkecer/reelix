@@ -5,7 +5,7 @@ import 'package:reelix/feature/register/domain/entity/params_entity.dart';
 import 'package:reelix/feature/register/domain/repository/register_repository.dart';
 
 @injectable
-final class RegisterUseCase implements BaseUseCase<AuthEntity, AuthEntity, RegisterParams> {
+final class RegisterUseCase implements BaseUseCase<AuthEntity, AuthEntity, RegisterParams, RegisterParams> {
   final RegisterRepository _repository;
 
   const RegisterUseCase(this._repository);
@@ -16,7 +16,7 @@ final class RegisterUseCase implements BaseUseCase<AuthEntity, AuthEntity, Regis
   }
 
   @override
-  Future<AuthEntity?>? execute() {
+  Future<AuthEntity?>? execute(RegisterParams params) async {
     throw UnimplementedError();
   }
 }

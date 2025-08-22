@@ -1,10 +1,10 @@
 part of '../upload_photo_view.dart';
 
 @immutable
-final class UploadButton extends StatelessWidget {
-  final String? image;
+final class _SelectPhotoButton extends StatelessWidget {
+  final XFile? image;
   final VoidCallback? onTap;
-  const UploadButton({super.key, this.image, this.onTap});
+  const _SelectPhotoButton({this.image, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +14,18 @@ final class UploadButton extends StatelessWidget {
         height: 164.h,
         width: 169.w,
         decoration: _CustomDecoration(),
-        child: image == null ? Image.asset(
-          AssetPath.addPhoto.path.pngImage,
-          width: 85.25.w,
-          height: 85.25.h,
-        ) : Image.network(
-          image!,
-          width: 85.25.w,
-          height: 85.25.h,
-        ),
+        child: image == null
+            ? Image.asset(
+                AssetPath.addPhoto.path.pngImage,
+                width: 85.25.w,
+                height: 85.25.h,
+              )
+            : Image.file(
+                File(image!.path),
+                fit: BoxFit.cover,
+                width: 85.25.w,
+                height: 85.25.h,
+              ),
       ),
     );
   }
@@ -31,7 +34,7 @@ final class UploadButton extends StatelessWidget {
 final class _CustomDecoration extends BoxDecoration {
   _CustomDecoration()
     : super(
-        color: AppColor.instance.verySoftBlack,
+        color: AppColor.instance.softBlack,
         borderRadius: const AppRadius.thirtyOne(),
         border: Border.all(
           color: AppColor.instance.verySoftBlack,

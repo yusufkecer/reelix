@@ -39,6 +39,12 @@ abstract class  LocaleKeys {
   static const upload_photo_explain = 'upload_photo.explain';
   static const upload_photo_button = 'upload_photo.button';
   static const upload_photo_appbar_title = 'upload_photo.appbar_title';
+  static const upload_photo_failed_to_upload = 'upload_photo.failed_to_upload';
+  static const upload_photo_failed_to_select_image = 'upload_photo.failed_to_select_image';
+  static const upload_photo_image_source_selection_dialog_title = 'upload_photo.image_source_selection_dialog.title';
+  static const upload_photo_image_source_selection_dialog_option1 = 'upload_photo.image_source_selection_dialog.option1';
+  static const upload_photo_image_source_selection_dialog_option2 = 'upload_photo.image_source_selection_dialog.option2';
+  static const upload_photo_image_source_selection_dialog = 'upload_photo.image_source_selection_dialog';
   static const upload_photo = 'upload_photo';
 
 }

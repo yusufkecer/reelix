@@ -58,7 +58,7 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
             CustomTextField(
               controller: emailController,
               hintText: LocaleKeys.auth_email.tr(),
-              prefixIcon: AssetPath.mail.path.pngImage,
+              prefixIcon: AssetPath.mail.path.svgImage,
             ),
             VerticalSpace.fourteen(),
             ValueListenableBuilder<bool>(
@@ -68,9 +68,9 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
                   controller: passwordController,
                   isObscure: isObscure,
                   hintText: LocaleKeys.auth_password.tr(),
-                  prefixIcon: AssetPath.lock.path.pngImage,
+                  prefixIcon: AssetPath.lock.path.svgImage,
                   onSuffixIconTap: onSuffixIconTap,
-                  suffixIcon: AssetPath.hide.path.pngImage,
+                  suffixIcon: AssetPath.hide.path.svgImage,
                 );
               },
             ),
@@ -106,15 +106,15 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FastLoginButton(
-                  icon: AssetPath.google.path.pngImage,
+                  icon: AssetPath.google.path.svgImage,
                 ),
                 HorizontalSpace.s(),
                 FastLoginButton(
-                  icon: AssetPath.apple.path.pngImage,
+                  icon: AssetPath.apple.path.svgImage,
                 ),
                 HorizontalSpace.s(),
                 FastLoginButton(
-                  icon: AssetPath.facebook.path.pngImage,
+                  icon: AssetPath.facebook.path.svgImage,
                 ),
               ],
             ),

@@ -52,13 +52,13 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
             CustomTextField(
               controller: nameController,
               hintText: LocaleKeys.auth_register_name.tr(),
-              prefixIcon: AssetPath.user.path.pngImage,
+              prefixIcon: AssetPath.user.path.svgImage,
             ),
             VerticalSpace.fourteen(),
             CustomTextField(
               controller: emailController,
               hintText: LocaleKeys.auth_email.tr(),
-              prefixIcon: AssetPath.mail.path.pngImage,
+              prefixIcon: AssetPath.mail.path.svgImage,
             ),
             VerticalSpace.fourteen(),
             ValueListenableBuilder<bool>(
@@ -67,9 +67,9 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
                 return CustomTextField(
                   controller: passwordController,
                   isObscure: isObscure,
-                  suffixIcon: AssetPath.hide.path.pngImage,
+                  suffixIcon: AssetPath.hide.path.svgImage,
                   hintText: LocaleKeys.auth_password.tr(),
-                  prefixIcon: AssetPath.lock.path.pngImage,
+                  prefixIcon: AssetPath.lock.path.svgImage,
                   onSuffixIconTap: onSuffixIconTap,
                 );
               },
@@ -82,7 +82,7 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
                   isObscure: isObscureNotifier.value,
                   controller: confirmPasswordController,
                   hintText: LocaleKeys.auth_register_password_again.tr(),
-                  prefixIcon: AssetPath.lock.path.pngImage,
+                  prefixIcon: AssetPath.lock.path.svgImage,
                 );
               },
             ),

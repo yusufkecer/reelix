@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:reelix/core/index.dart';
 
 @immutable
@@ -16,7 +17,7 @@ final class FastLoginButton extends StatelessWidget {
       decoration: _CustomDecoration(),
       child: Padding(
         padding: const AppPadding.allTwenty(),
-        child: Image.asset(
+        child: SvgPicture.asset(
           icon,
         ),
       ),

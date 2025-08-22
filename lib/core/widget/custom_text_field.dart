@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kartal/kartal.dart';
+import 'package:flutter_svg/svg.dart';
 
 @immutable
 final class CustomTextField extends StatelessWidget {
@@ -21,30 +21,26 @@ final class CustomTextField extends StatelessWidget {
   final bool isObscure;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: context.sized.width,
-      height: 54.h,
-      child: TextField(
-        controller: controller,
-        obscureText: isObscure,
-        decoration: InputDecoration(
-          hintText: hintText,
-          prefixIcon: Image.asset(
-            prefixIcon,
-            width: 13.w,
-            height: 17.h,
-          ),
-          suffixIcon: suffixIcon != null
-              ? GestureDetector(
-                  onTap: onSuffixIconTap,
-                  child: Image.asset(
-                    suffixIcon!,
-                    width: 13.w,
-                    height: 17.h,
-                  ),
-                )
-              : null,
+    return TextField(
+      controller: controller,
+      obscureText: isObscure,
+      decoration: InputDecoration(
+        hintText: hintText,
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(left: 25.w, right: 10.w),
+          child: SvgPicture.asset(prefixIcon),
         ),
+        suffixIcon: suffixIcon != null
+            ? Padding(
+                padding: EdgeInsets.only(right: 25.w),
+                child: GestureDetector(
+                  onTap: onSuffixIconTap,
+                  child: SvgPicture.asset(
+                    suffixIcon!,
+                  ),
+                ),
+              )
+            : null,
       ),
     );
   }

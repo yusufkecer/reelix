@@ -7,7 +7,7 @@ import 'package:reelix/feature/login/domain/repository/login_repository.dart';
 
 @injectable
 @immutable
-final class LoginUseCase implements BaseUseCase<AuthEntity, AuthEntity, LoginParams> {
+final class LoginUseCase implements BaseUseCase<AuthEntity, AuthEntity, LoginParams, LoginParams> {
   final LoginRepository _repository;
 
   const LoginUseCase(this._repository);
@@ -18,7 +18,7 @@ final class LoginUseCase implements BaseUseCase<AuthEntity, AuthEntity, LoginPar
   }
 
   @override
-  Future<AuthEntity?>? execute() {
+  Future<AuthEntity?>? execute(LoginParams params) {
     throw UnimplementedError();
   }
 }

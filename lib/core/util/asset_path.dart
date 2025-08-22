@@ -10,6 +10,7 @@ final class BasePaths {
 extension AssetPathExtension on String {
   String get lottie => '${BasePaths.lottie}/$this.json';
   String get pngImage => '${BasePaths.image}/$this.png';
+  String get svgImage => '${BasePaths.image}/$this.svg';
   String get language => '${BasePaths.language}/$this.json';
 }
 
@@ -22,6 +23,7 @@ enum AssetPath {
   hide('hide'),
   user('user'),
   addPhoto('plus'),
+  back('back'),
   loading('loading');
 
   const AssetPath(this.path);

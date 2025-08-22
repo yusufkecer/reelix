@@ -13,14 +13,14 @@ final class FastLoginWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FastLoginButton(
-          icon: AssetPath.google.path.pngImage,
+          icon: AssetPath.google.path.svgImage,
         ),
 
         FastLoginButton(
-          icon: AssetPath.apple.path.pngImage,
+          icon: AssetPath.apple.path.svgImage,
         ),
         FastLoginButton(
-          icon: AssetPath.facebook.path.pngImage,
+          icon: AssetPath.facebook.path.svgImage,
         ),
       ],
     );
