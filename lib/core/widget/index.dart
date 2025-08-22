@@ -5,4 +5,5 @@ export 'custom_rich_text.dart';
 export 'custom_text_field.dart';
 export 'fast_login_button.dart';
 export 'fast_login_widget.dart';
+export 'selection_dialogs.dart';
 export 'title_subtitle.dart';

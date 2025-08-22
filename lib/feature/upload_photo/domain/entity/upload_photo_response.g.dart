@@ -1,0 +1,19 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'upload_photo_response.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+UploadPhotoResponse _$UploadPhotoResponseFromJson(Map<String, dynamic> json) => UploadPhotoResponse(
+  photoUrl: json['photoUrl'] as String,
+  message: json['message'] as String?,
+);
+
+Map<String, dynamic> _$UploadPhotoResponseToJson(
+  UploadPhotoResponse instance,
+) => <String, dynamic>{
+  'photoUrl': instance.photoUrl,
+  'message': instance.message,
+};

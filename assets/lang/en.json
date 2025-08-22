@@ -41,6 +41,14 @@
         "title": "Upload Your Photos",
         "explain": "Resources out incentivize relaxation floor loss cc.",
         "button": "Continue",
-        "appbar_title": "Upload Photo"
+        "appbar_title": "Upload Photo",
+        "failed_to_upload": "Failed to upload photo. Please try again.",
+        "failed_to_select_image": "Failed to select image. Please try again.",
+        "photo_uploaded_successfully": "Photo uploaded successfully.",
+        "image_source_selection_dialog": {
+            "title": "Select Image Source",
+            "option1": "Camera",
+            "option2": "Gallery"
+        }
     }
 }

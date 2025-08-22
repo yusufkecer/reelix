@@ -24,6 +24,15 @@ final class UploadImageSuccess extends UploadImageState {
   List<Object?> get props => [imageUrl];
 }
 
+final class UploadImageSuccessWithFile extends UploadImageState {
+  final XFile imageFile;
+
+  const UploadImageSuccessWithFile(this.imageFile);
+
+  @override
+  List<Object?> get props => [imageFile];
+}
+
 final class UploadImageFailure extends UploadImageState {
   final String message;
   const UploadImageFailure(this.message);

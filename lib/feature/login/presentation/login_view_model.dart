@@ -52,7 +52,7 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
     }
     if (context.read<LoginCubit>().state is LoginFailure) {
       'login failure ${context.read<LoginCubit>().state}'.logInfo();
-      if (context.read<LoginCubit>().state.errorMessage == 'INVALID_CREDENTIALS') {
+      if (context.read<LoginCubit>().state.errorMessage == CustomErrors.invalidCredentials.value) {
         showErrorDialog(context, LocaleKeys.error_invalid_credentials.tr());
       } else {
         showErrorDialog(context, LocaleKeys.error_login_error.tr());

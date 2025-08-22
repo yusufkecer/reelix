@@ -62,11 +62,11 @@ mixin RegisterViewMixin on State<_RegisterBody>, Dialogs {
       'register success'.logInfo();
     }
     if (context.read<RegisterCubit>().state is RegisterFailure) {
-      if (context.read<RegisterCubit>().state.errorMessage == 'PASSWORD_TOO_SHORT') {
+      if (context.read<RegisterCubit>().state.errorMessage == CustomErrors.passwordTooShort.value) {
         showErrorDialog(context, LocaleKeys.error_password_too_short.tr());
-      } else if (context.read<RegisterCubit>().state.errorMessage == 'USER_EXISTS') {
+      } else if (context.read<RegisterCubit>().state.errorMessage == CustomErrors.userExists.value) {
         showErrorDialog(context, LocaleKeys.error_email_already_in_use.tr());
-      } else if (context.read<RegisterCubit>().state.errorMessage == 'INVALID_EMAIL_FORMAT') {
+      } else if (context.read<RegisterCubit>().state.errorMessage == CustomErrors.invalidEmailFormat.value) {
         showErrorDialog(context, LocaleKeys.error_email_invalid.tr());
       } else {
         showErrorDialog(context, LocaleKeys.error_register_error.tr());
