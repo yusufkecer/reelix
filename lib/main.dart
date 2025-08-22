@@ -12,14 +12,14 @@ Future<void> main() async {
       minTextAdapt: true,
       splitScreenMode: true,
       child: AppLocalization(
-        child: const DateApp(),
+        child: const Reelix(),
       ),
     ),
   );
 }
 
-class DateApp extends StatelessWidget {
-  const DateApp({super.key});
+class Reelix extends StatelessWidget {
+  const Reelix({super.key});
 
   @override
   Widget build(BuildContext context) {

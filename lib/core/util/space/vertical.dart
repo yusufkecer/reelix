@@ -49,11 +49,20 @@ final class VerticalSpace extends SizedBox {
   /// 40px
   VerticalSpace.forty({super.key}) : super(height: SpaceValues.forty.value.h);
 
+  /// 47px
+  VerticalSpace.fortySeven({super.key}) : super(height: SpaceValues.fortySeven.value.h);
+
+  /// 50px
+  VerticalSpace.fifty({super.key}) : super(height: SpaceValues.fifty.value.h);
+
   /// 53px
   VerticalSpace.fiftyThree({super.key}) : super(height: SpaceValues.fiftyThree.value.h);
 
   /// 138px
   VerticalSpace.oneHundredThirtyEight({super.key}) : super(height: SpaceValues.oneHundredThirtyEight.value.h);
+
+  /// 250px
+  VerticalSpace.twoHundredFifty({super.key}) : super(height: SpaceValues.twoHundredFifty.value.h);
 
   /// 300px
   VerticalSpace.threeHundred({super.key}) : super(height: SpaceValues.threeHundred.value.h);

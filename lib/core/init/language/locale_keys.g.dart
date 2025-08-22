@@ -35,5 +35,10 @@ abstract class  LocaleKeys {
   static const error_invalid_credentials = 'error.invalid_credentials';
   static const error_login_error = 'error.login_error';
   static const error = 'error';
+  static const upload_photo_title = 'upload_photo.title';
+  static const upload_photo_explain = 'upload_photo.explain';
+  static const upload_photo_button = 'upload_photo.button';
+  static const upload_photo_appbar_title = 'upload_photo.appbar_title';
+  static const upload_photo = 'upload_photo';
 
 }

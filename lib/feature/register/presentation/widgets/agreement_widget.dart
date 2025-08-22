@@ -9,7 +9,7 @@ final class _AgreementWidget extends StatelessWidget {
     return RichText(
       text: TextSpan(
         style: context.general.appTheme.textTheme.bodyMedium?.copyWith(
-          color: ColorManager.instance.veryDarkWhiteText,
+          color: AppColor.instance.veryDarkWhiteText,
         ),
         children: [
           TextSpan(text: LocaleKeys.auth_register_agreement_agreement_part_1.tr()),

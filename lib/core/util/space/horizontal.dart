@@ -1,6 +1,6 @@
-import 'package:reelix/core/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reelix/core/index.dart';
 
 @immutable
 final class HorizontalSpace extends SizedBox {
@@ -46,8 +46,17 @@ final class HorizontalSpace extends SizedBox {
   /// 40px
   HorizontalSpace.forty({super.key}) : super(width: SpaceValues.forty.value.w);
 
+  /// 47px
+  HorizontalSpace.fortySeven({super.key}) : super(width: SpaceValues.fortySeven.value.w);
+
+  /// 50px
+  HorizontalSpace.fifty({super.key}) : super(width: SpaceValues.fifty.value.w);
+
   /// 53px
   HorizontalSpace.fiftyThree({super.key}) : super(width: SpaceValues.fiftyThree.value.w);
+
+  /// 250px
+  HorizontalSpace.twoHundredFifty({super.key}) : super(width: SpaceValues.twoHundredFifty.value.w);
 
   /// 300px
   HorizontalSpace.threeHundred({super.key}) : super(width: SpaceValues.threeHundred.value.w);

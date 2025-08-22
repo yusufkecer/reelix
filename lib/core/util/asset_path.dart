@@ -21,6 +21,7 @@ enum AssetPath {
   lock('lock'),
   hide('hide'),
   user('user'),
+  addPhoto('plus'),
   loading('loading');
 
   const AssetPath(this.path);

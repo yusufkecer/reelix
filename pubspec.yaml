@@ -30,7 +30,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   kartal: ^4.2.0
   bloc: ^9.0.0
-
+  image_picker: ^1.2.0
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter

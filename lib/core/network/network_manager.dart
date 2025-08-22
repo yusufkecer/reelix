@@ -32,6 +32,9 @@ final class NetworkManager implements BaseNetwork {
           await _addAuthToken(options);
           return handler.next(options);
         },
+        onResponse: (response, handler) {
+          return handler.next(response);
+        },
         onError: (DioException e, handler) {
           handler.next(_mapDioError(e) as DioException);
         },
@@ -63,6 +66,40 @@ final class NetworkManager implements BaseNetwork {
       'sending data to: $path'.logInfo('Network Request');
       final response = await _dio.post<T>(path, data: body);
       'response: $response'.logInfo('Network Request');
+      return _parseResponse<T>(response);
+    } on DioException catch (e) {
+      throw _mapDioError(e);
+    }
+  }
+
+  @override
+  Future<T> uploadFile<T>(
+    String path, {
+    required String filePath,
+    String? fieldName,
+    Map<String, dynamic>? additionalData,
+  }) async {
+    try {
+      'uploading file to: $path'.logInfo('Network Request');
+      'file path: $filePath'.logInfo('Network Request');
+      'field name: $fieldName'.logInfo('Network Request');
+
+      final formData = FormData.fromMap({
+        fieldName ?? 'file': await MultipartFile.fromFile(filePath),
+        ...?additionalData,
+      });
+
+      final response = await _dio.post<T>(
+        path,
+        data: formData,
+        options: Options(
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        ),
+      );
+
+      'upload response: $response'.logInfo('Network Request');
       return _parseResponse<T>(response);
     } on DioException catch (e) {
       throw _mapDioError(e);

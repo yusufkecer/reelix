@@ -10,27 +10,28 @@ class CustomTheme implements BaseTheme {
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
+      appBarTheme: _appBarTheme,
       textButtonTheme: _textButtonTheme,
       textSelectionTheme: TextSelectionThemeData(
-        cursorColor: ColorManager.instance.white,
+        cursorColor: AppColor.instance.white,
       ),
       textTheme: TextTheme(
         displayLarge: TextStyle(
-          fontSize: AppFontSize.large.value,
+          fontSize: AppFontSize.large.value.sp,
           fontWeight: FontWeight.w600,
-          color: ColorManager.instance.white,
+          color: AppColor.instance.white,
         ),
         displayMedium: TextStyle(
-          fontSize: AppFontSize.normal.value,
+          fontSize: AppFontSize.normal.value.sp,
           fontWeight: FontWeight.w500,
-          color: ColorManager.instance.white,
+          color: AppColor.instance.white,
         ),
         bodyLarge: TextStyle(
-          fontSize: AppFontSize.medium.value,
+          fontSize: AppFontSize.medium.value.sp,
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: TextStyle(
-          fontSize: AppFontSize.small.value,
+          fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -38,8 +39,20 @@ class CustomTheme implements BaseTheme {
       filledButtonTheme: _filledButtonTheme(),
       inputDecorationTheme: _inputDecorationTheme,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: ColorManager.instance.primaryColor,
+      scaffoldBackgroundColor: AppColor.instance.primaryColor,
       colorScheme: _CustomColorScheme(),
+    );
+  }
+
+  AppBarTheme get _appBarTheme {
+    return AppBarTheme(
+      elevation: 0,
+      backgroundColor: AppColor.instance.primaryColor,
+      titleTextStyle: TextStyle(
+        fontSize: AppFontSize.normal.value.sp,
+        fontWeight: FontWeight.w500,
+        color: AppColor.instance.white,
+      ),
     );
   }
 
@@ -49,8 +62,8 @@ class CustomTheme implements BaseTheme {
         shape: const RoundedRectangleBorder(
           borderRadius: AppRadius.eighteen(),
         ),
-        backgroundColor: ColorManager.instance.buttonPrimaryColor,
-        foregroundColor: ColorManager.instance.white,
+        backgroundColor: AppColor.instance.buttonPrimaryColor,
+        foregroundColor: AppColor.instance.white,
       ),
     );
   }
@@ -59,14 +72,14 @@ class CustomTheme implements BaseTheme {
     return InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(vertical: 16.h),
       filled: true,
-      fillColor: ColorManager.instance.softBlack,
+      fillColor: AppColor.instance.softBlack,
       hintStyle: TextStyle(
-        color: ColorManager.instance.veryDarkWhiteText,
+        color: AppColor.instance.veryDarkWhiteText,
         fontSize: AppFontSize.small.value,
         fontWeight: FontWeight.w400,
       ),
       labelStyle: TextStyle(
-        color: ColorManager.instance.veryDarkWhiteText,
+        color: AppColor.instance.veryDarkWhiteText,
         fontSize: AppFontSize.small.value,
         fontWeight: FontWeight.w400,
       ),
@@ -74,21 +87,21 @@ class CustomTheme implements BaseTheme {
       border: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
-          color: ColorManager.instance.verySoftBlack,
+          color: AppColor.instance.verySoftBlack,
         ),
       ),
 
       enabledBorder: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
-          color: ColorManager.instance.verySoftBlack,
+          color: AppColor.instance.verySoftBlack,
         ),
       ),
 
       focusedBorder: OutlineInputBorder(
         borderRadius: const AppRadius.eighteen(),
         borderSide: BorderSide(
-          color: ColorManager.instance.verySoftBlack,
+          color: AppColor.instance.verySoftBlack,
         ),
       ),
     );
@@ -97,7 +110,7 @@ class CustomTheme implements BaseTheme {
   TextButtonThemeData get _textButtonTheme {
     return TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: ColorManager.instance.white,
+        foregroundColor: AppColor.instance.white,
       ),
     );
   }
@@ -106,6 +119,6 @@ class CustomTheme implements BaseTheme {
 class _CustomColorScheme extends ColorScheme {
   _CustomColorScheme()
     : super.dark(
-        primary: ColorManager.instance.primaryColor,
+        primary: AppColor.instance.primaryColor,
       );
 }
