@@ -31,8 +31,7 @@ dependencies:
   kartal: ^4.2.0
   bloc: ^9.0.0
   image_picker: ^1.2.0
-  image_picker_platform_interface: ^2.11.0
-    
+  flutter_svg: ^2.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

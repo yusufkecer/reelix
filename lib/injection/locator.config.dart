@@ -32,9 +32,9 @@ import 'package:reelix/feature/register/domain/use_case/register_use_case.dart'
 import 'package:reelix/feature/upload_photo/cubit/upload_image_cubit.dart'
     as _i423;
 import 'package:reelix/feature/upload_photo/domain/repository/upload_photo_repository.dart'
-    as _i546;
+    as _i434;
 import 'package:reelix/feature/upload_photo/domain/use_case/upload_photo_use_case.dart'
-    as _i641;
+    as _i406;
 import 'package:reelix/injection/app_module.dart' as _i141;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -67,11 +67,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i766.RegisterRepository>(
       () => _i766.RegisterRepository(gh<_i395.NetworkManager>()),
     );
-    gh.factory<_i546.UploadPhotoRepository>(
-      () => _i546.UploadPhotoRepository(gh<_i395.NetworkManager>()),
+    gh.factory<_i434.UploadPhotoRepository>(
+      () => _i434.UploadPhotoRepository(gh<_i395.NetworkManager>()),
     );
-    gh.factory<_i641.UploadPhotoUseCase>(
-      () => _i641.UploadPhotoUseCase(gh<_i546.UploadPhotoRepository>()),
+    gh.factory<_i406.UploadPhotoUseCase>(
+      () => _i406.UploadPhotoUseCase(gh<_i434.UploadPhotoRepository>()),
     );
     gh.factory<_i442.RegisterUseCase>(
       () => _i442.RegisterUseCase(gh<_i766.RegisterRepository>()),
@@ -89,7 +89,7 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.factory<_i423.UploadImageCubit>(
-      () => _i423.UploadImageCubit(gh<_i641.UploadPhotoUseCase>()),
+      () => _i423.UploadImageCubit(gh<_i406.UploadPhotoUseCase>()),
     );
     return this;
   }

@@ -7,7 +7,7 @@ part of 'upload_photo_response.dart';
 // **************************************************************************
 
 UploadPhotoResponse _$UploadPhotoResponseFromJson(Map<String, dynamic> json) => UploadPhotoResponse(
-  photoUrl: json['photoUrl'] as String,
+  photoUrl: json['photoUrl'] as String?,
   message: json['message'] as String?,
 );
 

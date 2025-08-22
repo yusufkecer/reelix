@@ -15,15 +15,14 @@ mixin UploadPhotoViewModel on State<_UploadPhotoViewBody>, Dialogs {
     );
 
     if (source != null) {
-      await uploadImageCubit.selectProfileImage(source);
+      await uploadImageCubit.selectImage(source);
     }
   }
 
   void onTapContinueButton() {
+    final cubit = context.read<UploadImageCubit>();
     if (selectedImage != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Continue to next step')),
-      );
+      cubit.uploadImage(selectedImage!);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please select an image first')),

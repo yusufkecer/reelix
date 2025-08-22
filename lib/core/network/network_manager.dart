@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
@@ -73,24 +75,24 @@ final class NetworkManager implements BaseNetwork {
   }
 
   @override
-  Future<T> uploadFile<T>(
-    String path, {
-    required String filePath,
+  Future<Map<String, dynamic>> uploadFile(
+    File file, {
+    required String endpoint,
     String? fieldName,
     Map<String, dynamic>? additionalData,
   }) async {
     try {
-      'uploading file to: $path'.logInfo('Network Request');
-      'file path: $filePath'.logInfo('Network Request');
+      'uploading file to: ${file.path}'.logInfo('Network Request');
+      'endpoint: $endpoint'.logInfo('Network Request');
       'field name: $fieldName'.logInfo('Network Request');
 
       final formData = FormData.fromMap({
-        fieldName ?? 'file': await MultipartFile.fromFile(filePath),
+        fieldName ?? 'file': await MultipartFile.fromFile(file.path),  // file.path kullan
         ...?additionalData,
       });
 
-      final response = await _dio.post<T>(
-        path,
+      final response = await _dio.post<Map<String, dynamic>>(
+        endpoint,  // endpoint kullan
         data: formData,
         options: Options(
           headers: {
@@ -100,7 +102,7 @@ final class NetworkManager implements BaseNetwork {
       );
 
       'upload response: $response'.logInfo('Network Request');
-      return _parseResponse<T>(response);
+      return response.data ?? {};
     } on DioException catch (e) {
       throw _mapDioError(e);
     }

@@ -48,7 +48,7 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
   void checkState() {
     if (context.read<LoginCubit>().state is LoginSuccess) {
       'login success'.logInfo();
-      // TODO: Navigate to home screen
+      context.pushRoute(const UploadPhotoView());
     }
     if (context.read<LoginCubit>().state is LoginFailure) {
       'login failure ${context.read<LoginCubit>().state}'.logInfo();

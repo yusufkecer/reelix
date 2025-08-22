@@ -34,7 +34,7 @@ final class _SelectPhotoButton extends StatelessWidget {
 final class _CustomDecoration extends BoxDecoration {
   _CustomDecoration()
     : super(
-        color: AppColor.instance.verySoftBlack,
+        color: AppColor.instance.softBlack,
         borderRadius: const AppRadius.thirtyOne(),
         border: Border.all(
           color: AppColor.instance.verySoftBlack,

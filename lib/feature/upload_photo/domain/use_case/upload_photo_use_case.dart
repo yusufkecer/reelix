@@ -7,13 +7,13 @@ import 'package:reelix/feature/upload_photo/domain/repository/upload_photo_repos
 
 @injectable
 @immutable
-final class UploadPhotoUseCase implements BaseUseCase<XFile, UploadPhotoResponse, String, ImageSource> {
+final class UploadPhotoUseCase implements BaseUseCase<XFile, UploadPhotoResponse, XFile, ImageSource> {
   final UploadPhotoRepository _repository;
 
   const UploadPhotoUseCase(this._repository);
 
   @override
-  Future<UploadPhotoResponse?>? executeWithParams(String path) {
+  Future<UploadPhotoResponse?>? executeWithParams(XFile path) {
     return _repository.executeWithParams(path);
   }
 

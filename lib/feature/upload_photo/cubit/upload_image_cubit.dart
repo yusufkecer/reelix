@@ -14,29 +14,32 @@ final class UploadImageCubit extends Cubit<UploadImageState> {
 
   UploadImageCubit(this._uploadImageUseCase) : super(const UploadImageInitial());
 
-  Future<void> selectProfileImage(ImageSource source) async {
+  Future<void> selectImage(ImageSource source) async {
     try {
       emit(const UploadImageLoading());
 
       final imageFile = await _uploadImageUseCase.execute(source);
       if (imageFile != null) {
+        'image file: ${imageFile.path}'.logInfo('UploadImageCubit');
         emit(UploadImageSuccessWithFile(imageFile));
       } else {
+        'image file is null'.logInfo('UploadImageCubit');
         emit(UploadImageFailure(LocaleKeys.upload_photo_failed_to_select_image.tr()));
       }
     } on Exception catch (e) {
+      'error selecting image: $e'.logError('UploadImageCubit');
       emit(UploadImageFailure(e.toString()));
     }
   }
 
-  Future<void> uploadProfileImage(String imagePath) async {
+  Future<void> uploadImage(XFile imagePath) async {
     try {
       emit(const UploadImageLoading());
-
+      'uploading image: ${imagePath.path}'.logInfo('UploadImageCubit');
       final result = await _uploadImageUseCase.executeWithParams(imagePath);
-
-      if (result != null) {
-        emit(UploadImageSuccess(result.photoUrl));
+      'result: $result'.logInfo('UploadImageCubit');
+      if (result != null && result.photoUrl != null) {
+        emit(UploadImageSuccess(result.photoUrl!));
       } else {
         emit(UploadImageFailure(LocaleKeys.upload_photo_failed_to_upload.tr()));
       }

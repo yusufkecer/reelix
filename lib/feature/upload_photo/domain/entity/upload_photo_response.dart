@@ -7,11 +7,11 @@ part 'upload_photo_response.g.dart';
 @JsonSerializable()
 @immutable
 final class UploadPhotoResponse extends Equatable {
-  final String photoUrl;
+  final String? photoUrl;
   final String? message;
 
   const UploadPhotoResponse({
-    required this.photoUrl,
+    this.photoUrl,
 
     this.message,
   });

@@ -10,7 +10,6 @@ class CustomTheme implements BaseTheme {
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
-      appBarTheme: _appBarTheme,
       textButtonTheme: _textButtonTheme,
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: AppColor.instance.white,
@@ -44,18 +43,6 @@ class CustomTheme implements BaseTheme {
     );
   }
 
-  AppBarTheme get _appBarTheme {
-    return AppBarTheme(
-      elevation: 0,
-      backgroundColor: AppColor.instance.primaryColor,
-      titleTextStyle: TextStyle(
-        fontSize: AppFontSize.normal.value.sp,
-        fontWeight: FontWeight.w500,
-        color: AppColor.instance.white,
-      ),
-    );
-  }
-
   FilledButtonThemeData _filledButtonTheme() {
     return FilledButtonThemeData(
       style: FilledButton.styleFrom(
@@ -72,6 +59,14 @@ class CustomTheme implements BaseTheme {
     return InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(vertical: 16.h),
       filled: true,
+      prefixIconConstraints: BoxConstraints(
+        minWidth: 25.w,
+        minHeight: 17.h,
+      ),
+      suffixIconConstraints: BoxConstraints(
+        minWidth: 25.w,
+        minHeight: 17.h,
+      ),
       fillColor: AppColor.instance.softBlack,
       hintStyle: TextStyle(
         color: AppColor.instance.veryDarkWhiteText,

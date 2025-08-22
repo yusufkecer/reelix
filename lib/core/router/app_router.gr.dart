@@ -41,3 +41,19 @@ class RegisterView extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [UploadPhoto]
+class UploadPhotoView extends PageRouteInfo<void> {
+  const UploadPhotoView({List<PageRouteInfo>? children})
+    : super(UploadPhotoView.name, initialChildren: children);
+
+  static const String name = 'UploadPhotoView';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UploadPhoto();
+    },
+  );
+}

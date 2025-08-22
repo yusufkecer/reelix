@@ -37,6 +37,9 @@ final class VerticalSpace extends SizedBox {
   /// 32px
   VerticalSpace.thirtyTwo({super.key}) : super(height: SpaceValues.thirtyTwo.value.h);
 
+  /// 35px
+  VerticalSpace.thirtyFive({super.key}) : super(height: SpaceValues.thirtyFive.value.h);
+
   /// 37px
   VerticalSpace.thirtySeven({super.key}) : super(height: SpaceValues.thirtySeven.value.h);
 
