@@ -34,6 +34,10 @@ class CustomTheme implements BaseTheme {
           fontSize: AppFontSize.medium.value.sp,
           fontWeight: FontWeight.w400,
         ),
+        titleMedium: TextStyle(
+          fontSize: AppFontSize.medium.value.sp,
+          fontWeight: FontWeight.w700,
+        ),
         bodyMedium: TextStyle(
           fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w400,

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
 import 'package:reelix/core/index.dart';
+import 'package:reelix/feature/movies/presentation/movies_view.dart';
 
 part 'home_view_model.dart';
 part 'widgets/custom_navbar.dart';
@@ -32,13 +33,10 @@ class _HomeState extends State<Home> with _HomeViewModel {
                 _currentIndex.value = index;
               },
               children: [
+                const Movies(),
                 Container(
                   height: context.sized.height,
                   color: Colors.blue,
-                ),
-                Container(
-                  height: context.sized.height,
-                  color: Colors.red,
                 ),
               ],
             ),

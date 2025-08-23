@@ -6,7 +6,7 @@ import 'package:reelix/core/index.dart';
 final class VerticalSpace extends SizedBox {
   /// 4px
   VerticalSpace.xxs({super.key}) : super(height: SizeValues.xxs.value.h);
-
+  VerticalSpace.six({super.key}) : super(height: SizeValues.six.value.h);
   /// 8px
   VerticalSpace.xs({super.key}) : super(height: SizeValues.xs.value.h);
 

@@ -57,6 +57,9 @@
         "navbar": {
             "home": "Ana Sayfa",
             "profile": "Profil"
+        },
+        "movies": {
+            "more": "Daha Fazlası"
         }
     }
 }

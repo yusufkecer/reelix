@@ -55,6 +55,9 @@
         "navbar": {
             "home": "Home",
             "profile": "Profile"
+        },
+        "movies": {
+            "more": "More"
         }
     }
 }

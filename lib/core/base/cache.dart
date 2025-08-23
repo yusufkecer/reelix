@@ -6,7 +6,7 @@ abstract interface class Cache {
   Future<String?> getString(String key);
 
   Future<void> saveToken(String token);
-  Future<String?> getToken();
+  Future<String?>? getToken();
 
   Future<void> delete(String key);
 

@@ -50,6 +50,8 @@ abstract class  LocaleKeys {
   static const home_navbar_home = 'home.navbar.home';
   static const home_navbar_profile = 'home.navbar.profile';
   static const home_navbar = 'home.navbar';
+  static const home_movies_more = 'home.movies.more';
+  static const home_movies = 'home.movies';
   static const home = 'home';
 
 }

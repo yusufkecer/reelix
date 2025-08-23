@@ -12,6 +12,24 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
     return false;
   }
 
+  void checkToken() {
+    final token = Locator.sl<CacheManager>().getToken();
+    if (token != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.router.pushAndPopUntil(
+          const HomeView(),
+          predicate: (route) => false,
+        );
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkToken();
+  }
+
   @override
   void dispose() {
     emailController.dispose();

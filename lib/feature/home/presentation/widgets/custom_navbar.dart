@@ -19,11 +19,12 @@ final class CustomNavbar extends StatelessWidget {
           height: SizeValues.seventy.value.h,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+              stops: const [0.0, 0.6],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
               colors: [
-                AppColor.instance.transparent,
                 AppColor.instance.black,
+                AppColor.instance.transparent,
               ],
             ),
           ),

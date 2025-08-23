@@ -3,6 +3,7 @@ enum SizeValues {
   onePointFive(1.5),
 
   xxs(4),
+  six(6),
   five(5),
   xs(8),
   s(10),
@@ -11,6 +12,7 @@ enum SizeValues {
   sixteen(16),
   twentyTwo(22),
   twentyThree(23),
+  fortyNine(49),
   fortyOne(41),
   fortyFourPointThreeFour(44.34),
   l(20),
