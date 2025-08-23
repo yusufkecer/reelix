@@ -1,9 +1,10 @@
 part of '../movies_view.dart';
 
 @immutable
-final class FavoriteButton extends StatelessWidget {
-  const FavoriteButton({super.key, required this.onTap});
+final class _FavoriteButton extends StatelessWidget {
+  const _FavoriteButton({required this.onTap, required this.isFavorite, super.key});
   final VoidCallback onTap;
+  final bool isFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,10 @@ final class FavoriteButton extends StatelessWidget {
             color: AppColor.instance.verySoftBlack,
             width: SizeValues.one.value.w,
           ),
+        ),
+        child: Icon(
+          isFavorite ? Icons.favorite : Icons.favorite_border,
+          color: AppColor.instance.softBlack,
         ),
       ),
     );

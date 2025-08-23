@@ -16,7 +16,7 @@ final class CustomNavbar extends StatelessWidget {
       children: [
         Container(
           width: context.sized.width,
-          height: 70.h,
+          height: SizeValues.seventy.value.h,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -29,7 +29,7 @@ final class CustomNavbar extends StatelessWidget {
           ),
         ),
         Container(
-          height: 71.h,
+          height: SizeValues.seventy.value.h,
           width: context.sized.width,
           decoration: BoxDecoration(
             color: AppColor.instance.primaryColor,

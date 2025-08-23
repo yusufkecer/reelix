@@ -28,6 +28,7 @@ enum SizeValues {
   fifty(50),
   fiftyThree(53),
   sixty(60),
+  seventy(70),
   seventyTwo(72),
   eightyFivePointTwoFive(85.25),
   oneHundredTwentyFive(125),
