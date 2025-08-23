@@ -15,4 +15,8 @@ final class AppColor {
   final Color white = Colors.white;
   final Color buttonPrimaryColor = const Color(0xFFE50914);
   final Color veryDarkWhiteText = const Color(0x80FFFFFF);
+  final Color lightTransparent = const Color(0x00000033);
+
+  final Color black = Colors.black;
+  final Color transparent = Colors.transparent;
 }

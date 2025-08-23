@@ -9,7 +9,7 @@ final class FastLoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: 10.w,
+      spacing: SizeValues.s.value.w,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FastLoginButton(

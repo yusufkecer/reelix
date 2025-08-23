@@ -5,68 +5,81 @@ import 'package:reelix/core/index.dart';
 @immutable
 final class VerticalSpace extends SizedBox {
   /// 4px
-  VerticalSpace.xxs({super.key}) : super(height: SpaceValues.xxs.value.h);
+  VerticalSpace.xxs({super.key}) : super(height: SizeValues.xxs.value.h);
 
   /// 8px
-  VerticalSpace.xs({super.key}) : super(height: SpaceValues.xs.value.h);
+  VerticalSpace.xs({super.key}) : super(height: SizeValues.xs.value.h);
 
   /// 10px
-  VerticalSpace.s({super.key}) : super(height: SpaceValues.s.value.h);
+  VerticalSpace.s({super.key}) : super(height: SizeValues.s.value.h);
 
   /// 12px
-  VerticalSpace.ss({super.key}) : super(height: SpaceValues.ss.value.h);
+  VerticalSpace.ss({super.key}) : super(height: SizeValues.ss.value.h);
 
   /// 16px
-  VerticalSpace.sixteen({super.key}) : super(height: SpaceValues.sixteen.value.h);
+  VerticalSpace.sixteen({super.key})
+    : super(height: SizeValues.sixteen.value.h);
 
   /// 20px
-  VerticalSpace.l({super.key}) : super(height: SpaceValues.l.value.h);
+  VerticalSpace.l({super.key}) : super(height: SizeValues.l.value.h);
 
   /// 24px
-  VerticalSpace.xl({super.key}) : super(height: SpaceValues.xl.value.h);
+  VerticalSpace.xl({super.key}) : super(height: SizeValues.xl.value.h);
 
   /// 24px
-  VerticalSpace.twentyFour({super.key}) : super(height: SpaceValues.twentyFour.value.h);
+  VerticalSpace.twentyFour({super.key})
+    : super(height: SizeValues.twentyFour.value.h);
 
   /// 14px
-  VerticalSpace.fourteen({super.key}) : super(height: SpaceValues.fourteen.value.h);
+  VerticalSpace.fourteen({super.key})
+    : super(height: SizeValues.fourteen.value.h);
 
   /// 30px
-  VerticalSpace.thirty({super.key}) : super(height: SpaceValues.thirty.value.h);
+  VerticalSpace.thirty({super.key}) : super(height: SizeValues.thirty.value.h);
 
   /// 32px
-  VerticalSpace.thirtyTwo({super.key}) : super(height: SpaceValues.thirtyTwo.value.h);
+  VerticalSpace.thirtyTwo({super.key})
+    : super(height: SizeValues.thirtyTwo.value.h);
 
   /// 35px
-  VerticalSpace.thirtyFive({super.key}) : super(height: SpaceValues.thirtyFive.value.h);
+  VerticalSpace.thirtyFive({super.key})
+    : super(height: SizeValues.thirtyFive.value.h);
 
   /// 37px
-  VerticalSpace.thirtySeven({super.key}) : super(height: SpaceValues.thirtySeven.value.h);
+  VerticalSpace.thirtySeven({super.key})
+    : super(height: SizeValues.thirtySeven.value.h);
 
   /// 38px
-  VerticalSpace.thirtyEight({super.key}) : super(height: SpaceValues.thirtyEight.value.h);
+  VerticalSpace.thirtyEight({super.key})
+    : super(height: SizeValues.thirtyEight.value.h);
 
   /// 39px
-  VerticalSpace.thirtyNine({super.key}) : super(height: SpaceValues.thirtyNine.value.h);
+  VerticalSpace.thirtyNine({super.key})
+    : super(height: SizeValues.thirtyNine.value.h);
 
   /// 40px
-  VerticalSpace.forty({super.key}) : super(height: SpaceValues.forty.value.h);
+  VerticalSpace.forty({super.key}) : super(height: SizeValues.forty.value.h);
 
   /// 47px
-  VerticalSpace.fortySeven({super.key}) : super(height: SpaceValues.fortySeven.value.h);
+  VerticalSpace.fortySeven({super.key})
+    : super(height: SizeValues.fortySeven.value.h);
 
   /// 50px
-  VerticalSpace.fifty({super.key}) : super(height: SpaceValues.fifty.value.h);
+  VerticalSpace.fifty({super.key}) : super(height: SizeValues.fifty.value.h);
 
   /// 53px
-  VerticalSpace.fiftyThree({super.key}) : super(height: SpaceValues.fiftyThree.value.h);
+  VerticalSpace.fiftyThree({super.key})
+    : super(height: SizeValues.fiftyThree.value.h);
 
   /// 138px
-  VerticalSpace.oneHundredThirtyEight({super.key}) : super(height: SpaceValues.oneHundredThirtyEight.value.h);
+  VerticalSpace.oneHundredThirtyEight({super.key})
+    : super(height: SizeValues.oneHundredThirtyEight.value.h);
 
   /// 250px
-  VerticalSpace.twoHundredFifty({super.key}) : super(height: SpaceValues.twoHundredFifty.value.h);
+  VerticalSpace.twoHundredFifty({super.key})
+    : super(height: SizeValues.twoHundredFifty.value.h);
 
   /// 300px
-  VerticalSpace.threeHundred({super.key}) : super(height: SpaceValues.threeHundred.value.h);
+  VerticalSpace.threeHundred({super.key})
+    : super(height: SizeValues.threeHundred.value.h);
 }

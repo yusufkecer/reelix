@@ -12,8 +12,8 @@ final class FastLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60.w,
-      height: 60.h,
+      width: SizeValues.sixty.value.w,
+      height: SizeValues.sixty.value.h,
       decoration: _CustomDecoration(),
       child: Padding(
         padding: const AppPadding.allTwenty(),
@@ -32,6 +32,6 @@ final class _CustomDecoration extends BoxDecoration {
           color: AppColor.instance.verySoftBlack,
         ),
         color: AppColor.instance.softBlack,
-        borderRadius: const AppRadius.eighteen(),
+        borderRadius: AppRadius.eighteen(),
       );
 }

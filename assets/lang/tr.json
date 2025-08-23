@@ -52,5 +52,11 @@
             "option1": "Kamera",
             "option2": "Galeri"
         }
+    },
+    "home": {
+        "navbar": {
+            "home": "Ana Sayfa",
+            "profile": "Profil"
+        }
     }
 }

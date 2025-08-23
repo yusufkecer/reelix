@@ -22,7 +22,7 @@ final class CustomAppBar extends StatelessWidget {
           style: context.general.textTheme.displayMedium,
           textAlign: TextAlign.center,
         ),
-        SizedBox(width: SpaceValues.fortyFourPointThreeFour.value.w),
+        SizedBox(width: SizeValues.fortyFourPointThreeFour.value.w),
       ],
     );
   }

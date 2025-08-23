@@ -4,7 +4,8 @@ mixin RegisterViewMixin on State<_RegisterBody>, Dialogs {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final ValueNotifier<bool> isObscureNotifier = ValueNotifier(true);
 
   @override
@@ -62,11 +63,14 @@ mixin RegisterViewMixin on State<_RegisterBody>, Dialogs {
       'register success'.logInfo();
     }
     if (context.read<RegisterCubit>().state is RegisterFailure) {
-      if (context.read<RegisterCubit>().state.errorMessage == CustomErrors.passwordTooShort.value) {
+      if (context.read<RegisterCubit>().state.errorMessage ==
+          CustomErrors.passwordTooShort.value) {
         showErrorDialog(context, LocaleKeys.error_password_too_short.tr());
-      } else if (context.read<RegisterCubit>().state.errorMessage == CustomErrors.userExists.value) {
+      } else if (context.read<RegisterCubit>().state.errorMessage ==
+          CustomErrors.userExists.value) {
         showErrorDialog(context, LocaleKeys.error_email_already_in_use.tr());
-      } else if (context.read<RegisterCubit>().state.errorMessage == CustomErrors.invalidEmailFormat.value) {
+      } else if (context.read<RegisterCubit>().state.errorMessage ==
+          CustomErrors.invalidEmailFormat.value) {
         showErrorDialog(context, LocaleKeys.error_email_invalid.tr());
       } else {
         showErrorDialog(context, LocaleKeys.error_register_error.tr());
@@ -74,5 +78,3 @@ mixin RegisterViewMixin on State<_RegisterBody>, Dialogs {
     }
   }
 }
-//test1asdasd123@gmail.com
-//testasdtest
