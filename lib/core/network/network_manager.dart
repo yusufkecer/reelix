@@ -11,7 +11,9 @@ final class NetworkManager implements BaseNetwork {
   final Dio _dio;
   final CacheManager _cacheManager;
 
-  NetworkManager({required Dio dio, required CacheManager cacheManager}) : _dio = dio, _cacheManager = cacheManager {
+  NetworkManager({required Dio dio, required CacheManager cacheManager})
+    : _dio = dio,
+      _cacheManager = cacheManager {
     _setupDio();
   }
 
@@ -55,7 +57,10 @@ final class NetworkManager implements BaseNetwork {
   Future<T> get<T>(String path, {Map<String, dynamic>? queryParameters}) async {
     try {
       'fetching data from: $path'.logInfo('Network Request');
-      final response = await _dio.get<T>(path, queryParameters: queryParameters);
+      final response = await _dio.get<T>(
+        path,
+        queryParameters: queryParameters,
+      );
       return _parseResponse<T>(response);
     } on DioException catch (e) {
       throw _mapDioError(e);
@@ -87,12 +92,14 @@ final class NetworkManager implements BaseNetwork {
       'field name: $fieldName'.logInfo('Network Request');
 
       final formData = FormData.fromMap({
-        fieldName ?? 'file': await MultipartFile.fromFile(file.path),  // file.path kullan
+        fieldName ?? 'file': await MultipartFile.fromFile(
+          file.path,
+        ), // file.path kullan
         ...?additionalData,
       });
 
       final response = await _dio.post<Map<String, dynamic>>(
-        endpoint,  // endpoint kullan
+        endpoint, // endpoint kullan
         data: formData,
         options: Options(
           headers: {
@@ -110,7 +117,10 @@ final class NetworkManager implements BaseNetwork {
 
   T _parseResponse<T>(Response<T> response) {
     if (response.data == null) {
-      throw NetworkException(message: 'Empty response', code: response.statusCode);
+      throw NetworkException(
+        message: 'Empty response',
+        code: response.statusCode,
+      );
     }
 
     return response.data as T;

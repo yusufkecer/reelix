@@ -3,6 +3,7 @@ part of 'home_view.dart';
 mixin _HomeViewModel on State<Home> {
   final ValueNotifier<int> _currentIndex = ValueNotifier(0);
   final PageController _pageController = PageController();
+
   @override
   void dispose() {
     _pageController.dispose();

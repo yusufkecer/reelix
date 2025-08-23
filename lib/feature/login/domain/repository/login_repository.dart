@@ -34,7 +34,7 @@ final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, Lo
   }
 
   @override
-  Future<AuthEntity?>? execute() {
+  Future<AuthEntity?>? execute(LoginParams params) {
     throw UnimplementedError();
   }
 }

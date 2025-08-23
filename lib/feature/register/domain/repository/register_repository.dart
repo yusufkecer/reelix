@@ -30,7 +30,7 @@ final class RegisterRepository implements BaseRepository<AuthEntity, AuthEntity,
   }
 
   @override
-  Future<AuthEntity?>? execute() {
+  Future<AuthEntity?>? execute(RegisterParams params) {
     throw UnimplementedError();
   }
 }
