@@ -10,7 +10,6 @@ final class _MovieContent extends StatelessWidget {
   final String description;
   @override
   Widget build(BuildContext context) {
-    print(LocaleKeys.home_movies_more.tr().length);
     return Padding(
       padding: AppPadding.horizontalThirtyFour(),
       child: Row(

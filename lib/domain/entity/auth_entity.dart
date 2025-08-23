@@ -12,8 +12,8 @@ final class AuthEntity {
   final String? message;
 
   const AuthEntity({
-     this.token,
-     this.user,
+    this.token,
+    this.user,
     this.message,
   });
 
@@ -21,8 +21,13 @@ final class AuthEntity {
     String? token,
     UserEntity? user,
     String? message,
-  }) => AuthEntity(token: token ?? this.token, user: user ?? this.user, message: message ?? this.message);
+  }) => AuthEntity(
+    token: token ?? this.token,
+    user: user ?? this.user,
+    message: message ?? this.message,
+  );
 
-  factory AuthEntity.fromJson(Map<String, dynamic> json) => _$AuthEntityFromJson(json);
+  factory AuthEntity.fromJson(Map<String, dynamic> json) =>
+      _$AuthEntityFromJson(json);
   Map<String, dynamic> toJson() => _$AuthEntityToJson(this);
 }

@@ -7,12 +7,16 @@ part 'movie_entity.g.dart';
 
 @JsonSerializable()
 @immutable
-final class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
+class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
   @override
   final String? id;
+  @JsonKey(name: 'Title')
   final String? title;
+  @JsonKey(name: 'Plot')
   final String? description;
+  @JsonKey(name: 'Poster')
   final String? posterUrl;
+  @JsonKey(name: 'IsFavorite')
   final bool? isFavorite;
 
   const MovieEntity({
@@ -27,8 +31,7 @@ final class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
       _$MovieEntityFromJson(json);
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [id, title, description, posterUrl, isFavorite];
 
   @override
   Map<String, dynamic> toJson() => _$MovieEntityToJson(this);

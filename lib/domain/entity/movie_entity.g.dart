@@ -8,17 +8,17 @@ part of 'movie_entity.dart';
 
 MovieEntity _$MovieEntityFromJson(Map<String, dynamic> json) => MovieEntity(
   id: json['id'] as String?,
-  title: json['title'] as String?,
-  description: json['description'] as String?,
-  posterUrl: json['posterUrl'] as String?,
-  isFavorite: json['isFavorite'] as bool?,
+  title: json['Title'] as String?,
+  description: json['Plot'] as String?,
+  posterUrl: json['Poster'] as String?,
+  isFavorite: json['IsFavorite'] as bool?,
 );
 
 Map<String, dynamic> _$MovieEntityToJson(MovieEntity instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
-      'description': instance.description,
-      'posterUrl': instance.posterUrl,
-      'isFavorite': instance.isFavorite,
+      'Title': instance.title,
+      'Plot': instance.description,
+      'Poster': instance.posterUrl,
+      'IsFavorite': instance.isFavorite,
     };

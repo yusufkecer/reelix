@@ -59,7 +59,8 @@
             "profile": "Profil"
         },
         "movies": {
-            "more": "Daha Fazlası"
+            "more": "Daha Fazlası",
+            "error": "Bir hata oluştu. Lütfen tekrar deneyiniz."
         }
     }
 }

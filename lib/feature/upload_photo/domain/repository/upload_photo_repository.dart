@@ -6,7 +6,8 @@ import 'package:reelix/core/index.dart';
 import 'package:reelix/feature/upload_photo/domain/entity/upload_photo_response.dart';
 
 @injectable
-final class UploadPhotoRepository implements BaseRepository<UploadPhotoResponse, UploadPhotoResponse, XFile> {
+final class UploadPhotoRepository
+    implements BaseRepository<UploadPhotoResponse, UploadPhotoResponse, XFile> {
   final NetworkManager _networkManager;
 
   const UploadPhotoRepository(this._networkManager);
@@ -32,7 +33,7 @@ final class UploadPhotoRepository implements BaseRepository<UploadPhotoResponse,
   }
 
   @override
-  Future<UploadPhotoResponse?>? execute() {
+  Future<UploadPhotoResponse?>? execute(XFile params) {
     throw UnimplementedError();
   }
 }

@@ -1,7 +1,7 @@
 part of '../home_view.dart';
 
 @immutable
-final class CustomNavbar extends StatelessWidget {
+final class CustomNavbar extends StatefulWidget {
   final void Function(int) onTapHome;
   final void Function(int) onTapProfile;
   const CustomNavbar({
@@ -10,6 +10,11 @@ final class CustomNavbar extends StatelessWidget {
     super.key,
   });
 
+  @override
+  State<CustomNavbar> createState() => _CustomNavbarState();
+}
+
+class _CustomNavbarState extends State<CustomNavbar> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,7 +47,7 @@ final class CustomNavbar extends StatelessWidget {
                 _CustomNavbarItem(
                   icon: AssetPath.home.path.svgImage,
                   label: LocaleKeys.home_navbar_home.tr(),
-                  onTap: onTapHome,
+                  onTap: widget.onTapHome,
                   currentIndex: 0,
                 ),
                 HorizontalSpace.sixteen(),
@@ -50,7 +55,7 @@ final class CustomNavbar extends StatelessWidget {
                   currentIndex: 1,
                   icon: AssetPath.profile.path.svgImage,
                   label: LocaleKeys.home_navbar_profile.tr(),
-                  onTap: onTapProfile,
+                  onTap: widget.onTapProfile,
                 ),
               ],
             ),
@@ -109,5 +114,26 @@ final class _CustomNavbarItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _KeepAliveWrapper extends StatefulWidget {
+  final Widget child;
+
+  const _KeepAliveWrapper({required this.child});
+
+  @override
+  State<_KeepAliveWrapper> createState() => _KeepAliveWrapperState();
+}
+
+class _KeepAliveWrapperState extends State<_KeepAliveWrapper>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return widget.child;
   }
 }

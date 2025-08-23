@@ -57,7 +57,8 @@
             "profile": "Profile"
         },
         "movies": {
-            "more": "More"
+            "more": "More",
+            "error": "An error occurred. Please try again."
         }
     }
 }

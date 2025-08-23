@@ -1,12 +1,12 @@
 part of 'movie_cubit.dart';
 
 sealed class MovieState extends Equatable {
-  final List<MovieEntity>? movies;
+  final MoviesEntity? moviesEntity;
 
-  const MovieState({this.movies});
+  const MovieState({this.moviesEntity});
 
   @override
-  List<Object> get props => [movies ?? []];
+  List<Object> get props => [moviesEntity ?? []];
 }
 
 final class MovieInitial extends MovieState {}
@@ -14,7 +14,7 @@ final class MovieInitial extends MovieState {}
 final class MovieLoading extends MovieState {}
 
 final class MovieLoaded extends MovieState {
-  const MovieLoaded({super.movies});
+  const MovieLoaded({super.moviesEntity});
 }
 
 final class MovieError extends MovieState {

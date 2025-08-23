@@ -29,14 +29,17 @@ class _HomeState extends State<Home> with _HomeViewModel {
             valueListenable: _currentIndex,
             builder: (context, value, child) => PageView(
               controller: _pageController,
+              key: const PageStorageKey('home_page_view'),
               onPageChanged: (index) {
                 _currentIndex.value = index;
               },
               children: [
-                const Movies(),
-                Container(
-                  height: context.sized.height,
-                  color: Colors.blue,
+                const _KeepAliveWrapper(child: Movies()),
+                _KeepAliveWrapper(
+                  child: Container(
+                    height: context.sized.height,
+                    color: Colors.blue,
+                  ),
                 ),
               ],
             ),
@@ -53,3 +56,5 @@ class _HomeState extends State<Home> with _HomeViewModel {
     );
   }
 }
+
+
