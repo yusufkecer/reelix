@@ -36,15 +36,15 @@ class _MoviesState extends State<Movies> with Dialogs, MoviesViewModel {
                     imageUrl: state.moviesEntity?.movies?.first.posterUrl ?? '',
                   ),
                   Positioned(
-                    bottom: 171.h,
-                    right: 16.w,
+                    bottom: SizeValues.oneHundredSeventyOne.value.h,
+                    right: SizeValues.sixteen.value.w,
                     child: _FavoriteButton(
                       onTap: () {},
                       isFavorite: false,
                     ),
                   ),
                   Positioned(
-                    bottom: 97.h,
+                    bottom: SizeValues.ninetySeven.value.h,
                     child: _MovieContent(
                       title: state.moviesEntity?.movies?.first.title ?? '',
                       description:

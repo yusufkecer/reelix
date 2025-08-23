@@ -37,6 +37,8 @@ enum SizeValues {
   oneHundredSixtyFour(164),
   oneHundredSixtyNine(169),
   oneHundredThirtyEight(138),
+  ninetySeven(97),
+  oneHundredSeventyOne(171),
 
   threeHundred(300),
   twoHundredFifty(372);
