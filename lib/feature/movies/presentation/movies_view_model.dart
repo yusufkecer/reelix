@@ -1,0 +1,1 @@
+part of 'movies_view.dart';

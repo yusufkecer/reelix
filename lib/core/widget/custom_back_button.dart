@@ -12,20 +12,20 @@ final class CustomBackButton extends StatelessWidget {
     return InkWell(
       onTap: () => context.router.maybePop(),
       child: Ink(
-        width: SpaceValues.fortyFourPointThreeFour.value.w,
-        height: SpaceValues.fortyFourPointThreeFour.value.h,
+        width: SizeValues.fortyFourPointThreeFour.value.w,
+        height: SizeValues.fortyFourPointThreeFour.value.h,
         decoration: BoxDecoration(
           color: AppColor.instance.softBlack,
           shape: BoxShape.circle,
           border: Border.all(
             color: AppColor.instance.verySoftBlack,
-            width: 1,
+            width: SizeValues.one.value.w,
           ),
         ),
         child: Image.asset(
           AssetPath.back.path.pngImage,
-          width: 24.w,
-          height: 24.h,
+          width: SizeValues.twentyFour.value.w,
+          height: SizeValues.twentyFour.value.h,
         ),
       ),
     );

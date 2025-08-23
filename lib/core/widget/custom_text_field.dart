@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:reelix/core/index.dart';
 
 @immutable
 final class CustomTextField extends StatelessWidget {
@@ -27,12 +27,12 @@ final class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: Padding(
-          padding: EdgeInsets.only(left: 25.w, right: 10.w),
+          padding: AppPadding.textFieldPadding(),
           child: SvgPicture.asset(prefixIcon),
         ),
         suffixIcon: suffixIcon != null
             ? Padding(
-                padding: EdgeInsets.only(right: 25.w),
+                padding: AppPadding.rightTwentyFive(),
                 child: GestureDetector(
                   onTap: onSuffixIconTap,
                   child: SvgPicture.asset(

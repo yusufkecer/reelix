@@ -20,6 +20,11 @@ class CustomTheme implements BaseTheme {
           fontWeight: FontWeight.w600,
           color: AppColor.instance.white,
         ),
+        displaySmall: TextStyle(
+          fontSize: AppFontSize.small.value.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColor.instance.white,
+        ),
         displayMedium: TextStyle(
           fontSize: AppFontSize.normal.value.sp,
           fontWeight: FontWeight.w500,
@@ -29,13 +34,17 @@ class CustomTheme implements BaseTheme {
           fontSize: AppFontSize.medium.value.sp,
           fontWeight: FontWeight.w400,
         ),
+        titleMedium: TextStyle(
+          fontSize: AppFontSize.medium.value.sp,
+          fontWeight: FontWeight.w700,
+        ),
         bodyMedium: TextStyle(
           fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w400,
         ),
       ),
 
-      filledButtonTheme: _filledButtonTheme(),
+      filledButtonTheme: _filledButtonTheme,
       inputDecorationTheme: _inputDecorationTheme,
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColor.instance.primaryColor,
@@ -43,10 +52,10 @@ class CustomTheme implements BaseTheme {
     );
   }
 
-  FilledButtonThemeData _filledButtonTheme() {
+  FilledButtonThemeData get _filledButtonTheme {
     return FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: AppRadius.eighteen(),
         ),
         backgroundColor: AppColor.instance.buttonPrimaryColor,
@@ -57,7 +66,7 @@ class CustomTheme implements BaseTheme {
 
   InputDecorationTheme get _inputDecorationTheme {
     return InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(vertical: 16.h),
+      contentPadding: EdgeInsets.symmetric(vertical: 19.h),
       filled: true,
       prefixIconConstraints: BoxConstraints(
         minWidth: 25.w,
@@ -80,21 +89,21 @@ class CustomTheme implements BaseTheme {
       ),
 
       border: OutlineInputBorder(
-        borderRadius: const AppRadius.eighteen(),
+        borderRadius: AppRadius.eighteen(),
         borderSide: BorderSide(
           color: AppColor.instance.verySoftBlack,
         ),
       ),
 
       enabledBorder: OutlineInputBorder(
-        borderRadius: const AppRadius.eighteen(),
+        borderRadius: AppRadius.eighteen(),
         borderSide: BorderSide(
           color: AppColor.instance.verySoftBlack,
         ),
       ),
 
       focusedBorder: OutlineInputBorder(
-        borderRadius: const AppRadius.eighteen(),
+        borderRadius: AppRadius.eighteen(),
         borderSide: BorderSide(
           color: AppColor.instance.verySoftBlack,
         ),
@@ -111,7 +120,8 @@ class CustomTheme implements BaseTheme {
   }
 }
 
-class _CustomColorScheme extends ColorScheme {
+@immutable
+final class _CustomColorScheme extends ColorScheme {
   _CustomColorScheme()
     : super.dark(
         primary: AppColor.instance.primaryColor,

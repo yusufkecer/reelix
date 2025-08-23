@@ -81,10 +81,11 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
                   child: Text.rich(
                     TextSpan(
                       text: LocaleKeys.auth_login_forgot_password.tr(),
-                      style: context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 2,
-                      ),
+                      style: context.general.appTheme.textTheme.bodyMedium
+                          ?.copyWith(
+                            decoration: TextDecoration.underline,
+                            decorationThickness: 2,
+                          ),
                     ),
                   ),
                 ),
@@ -93,7 +94,7 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
             VerticalSpace.twentyFour(),
             SizedBox(
               width: context.sized.width,
-              height: SpaceValues.fiftyThree.value.h,
+              height: SizeValues.fiftyThree.value.h,
               child: CustomButton(
                 onPressed: onLoginButtonTap,
                 child: Text(

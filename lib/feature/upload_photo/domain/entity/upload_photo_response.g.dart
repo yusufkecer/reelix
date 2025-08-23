@@ -6,10 +6,11 @@ part of 'upload_photo_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UploadPhotoResponse _$UploadPhotoResponseFromJson(Map<String, dynamic> json) => UploadPhotoResponse(
-  photoUrl: json['photoUrl'] as String?,
-  message: json['message'] as String?,
-);
+UploadPhotoResponse _$UploadPhotoResponseFromJson(Map<String, dynamic> json) =>
+    UploadPhotoResponse(
+      photoUrl: json['photoUrl'] as String?,
+      message: json['message'] as String?,
+    );
 
 Map<String, dynamic> _$UploadPhotoResponseToJson(
   UploadPhotoResponse instance,

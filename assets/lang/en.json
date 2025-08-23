@@ -50,5 +50,14 @@
             "option1": "Camera",
             "option2": "Gallery"
         }
+    },
+    "home": {
+        "navbar": {
+            "home": "Home",
+            "profile": "Profile"
+        },
+        "movies": {
+            "more": "More"
+        }
     }
 }

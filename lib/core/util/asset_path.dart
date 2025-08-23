@@ -24,7 +24,10 @@ enum AssetPath {
   user('user'),
   addPhoto('plus'),
   back('back'),
-  loading('loading');
+  home('home'),
+  profile('profile'),
+  loading('loading'),
+  logo('logo');
 
   const AssetPath(this.path);
   final String path;

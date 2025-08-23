@@ -43,7 +43,8 @@ final class _UploadPhotoViewBody extends StatefulWidget {
   State<_UploadPhotoViewBody> createState() => _UploadPhotoViewBodyState();
 }
 
-class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody> with Dialogs, UploadPhotoViewModel {
+class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody>
+    with Dialogs, UploadPhotoViewModel {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UploadImageCubit, UploadImageState>(
@@ -82,10 +83,12 @@ class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody> with Dialogs
                     ),
                     VerticalSpace.twoHundredFifty(),
                     SizedBox(
-                      height: SpaceValues.fifty.value.h,
+                      height: SizeValues.fifty.value.h,
                       width: context.sized.width,
                       child: CustomButton(
-                        onPressed: (state is UploadImageLoading) ? null : onTapContinueButton,
+                        onPressed: (state is UploadImageLoading)
+                            ? null
+                            : onTapContinueButton,
                         child: Text(LocaleKeys.upload_photo_button.tr()),
                       ),
                     ),

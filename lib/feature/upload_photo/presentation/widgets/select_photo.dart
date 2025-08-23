@@ -11,20 +11,20 @@ final class _SelectPhotoButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Ink(
-        height: 164.h,
-        width: 169.w,
+        height: SizeValues.oneHundredSixtyFour.value.h,
+        width: SizeValues.oneHundredSixtyNine.value.w,
         decoration: _CustomDecoration(),
         child: image == null
             ? Image.asset(
                 AssetPath.addPhoto.path.pngImage,
-                width: 85.25.w,
-                height: 85.25.h,
+                width: SizeValues.eightyFivePointTwoFive.value.w,
+                height: SizeValues.eightyFivePointTwoFive.value.h,
               )
             : Image.file(
                 File(image!.path),
                 fit: BoxFit.cover,
-                width: 85.25.w,
-                height: 85.25.h,
+                width: SizeValues.eightyFivePointTwoFive.value.w,
+                height: SizeValues.eightyFivePointTwoFive.value.h,
               ),
       ),
     );
@@ -35,10 +35,10 @@ final class _CustomDecoration extends BoxDecoration {
   _CustomDecoration()
     : super(
         color: AppColor.instance.softBlack,
-        borderRadius: const AppRadius.thirtyOne(),
+        borderRadius: AppRadius.thirtyOne(),
         border: Border.all(
           color: AppColor.instance.verySoftBlack,
-          width: 1.5.w,
+          width: SizeValues.onePointFive.value.w,
         ),
       );
 }

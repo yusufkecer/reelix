@@ -1,15 +1,24 @@
-enum SpaceValues {
+enum SizeValues {
+  one(1),
+  onePointFive(1.5),
+
   xxs(4),
+  six(6),
   five(5),
   xs(8),
   s(10),
   ss(12),
   fourteen(14),
   sixteen(16),
+  twentyTwo(22),
+  twentyThree(23),
+  fortyNine(49),
+  fortyOne(41),
   fortyFourPointThreeFour(44.34),
   l(20),
   xl(24),
   twentyFour(24),
+  twentyEight(28),
   thirty(30),
   thirtyTwo(32),
   thirtyFive(35),
@@ -20,6 +29,13 @@ enum SpaceValues {
   fortySeven(47),
   fifty(50),
   fiftyThree(53),
+  sixty(60),
+  seventy(70),
+  seventyTwo(72),
+  eightyFivePointTwoFive(85.25),
+  oneHundredTwentyFive(125),
+  oneHundredSixtyFour(164),
+  oneHundredSixtyNine(169),
   oneHundredThirtyEight(138),
 
   threeHundred(300),
@@ -27,5 +43,5 @@ enum SpaceValues {
 
   final double value;
 
-  const SpaceValues(this.value);
+  const SizeValues(this.value);
 }

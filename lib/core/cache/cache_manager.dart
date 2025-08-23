@@ -26,7 +26,7 @@ final class CacheManager implements Cache {
   }
 
   @override
-  Future<String?> getToken() async {
+  Future<String?>? getToken() async {
     return _preferences.getString('token');
   }
 
