@@ -1,13 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:reelix/core/index.dart';
 import 'package:reelix/domain/entity/movie_entity.dart';
+import 'package:reelix/feature/movies/domain/entity/favorite_entity.dart';
 import 'package:reelix/feature/movies/domain/entity/movies_entity.dart';
 
 @injectable
 @immutable
 final class MovieRepository
-    implements BaseRepository<MoviesEntity, MoviesEntity, String, int> {
+    implements BaseRepository<MoviesEntity, FavoriteEntity, String, int> {
   const MovieRepository(this._networkManager);
   final NetworkManager _networkManager;
 
@@ -67,13 +70,11 @@ final class MovieRepository
   }
 
   @override
-  Future<MoviesEntity?> executeWithParams(String param) async {
-    final response = await _networkManager.get<Map<String, dynamic>?>(
-      '/movie/favorite',
-      queryParameters: {
-        'movieId': param,
-      },
+  Future<FavoriteEntity?> executeWithParams(String param) async {
+    final response = await _networkManager.post<Map<String, dynamic>?>(
+      '/movie/favorite/$param',
     );
+    log('response: $response');
 
     if (response == null) {
       'response is null'.logInfo();
@@ -81,8 +82,15 @@ final class MovieRepository
     }
 
     final responseData = response['response'] as Map<String, dynamic>;
-    final messageEntity = MoviesEntity.fromJson(responseData);
 
-    return messageEntity;
+    if (responseData['code'] != 200) {
+      return null;
+    }
+
+    final data = response['data'] as Map<String, dynamic>;
+    final movie = data['movie'] as Map<String, dynamic>;
+    final favoriteEntity = FavoriteEntity.fromJson(movie);
+
+    return favoriteEntity;
   }
 }

@@ -42,6 +42,18 @@ class MovieCubit extends Cubit<MovieState> {
   }
 
   Future<void> addFavorite(String movieId) async {
-    await _movieUseCase.executeWithParams(movieId);
+    final favorite = await _movieUseCase.executeWithParams(movieId);
+    if (favorite != null) {
+      final newMoviesEntity = state.moviesEntity?.copyWithMovies(
+        movies: state.moviesEntity?.movies?.map((movie) {
+          if (movie.id == movieId) {
+            return movie.copyWith(isFavorite: favorite.isFavorite);
+          }
+          return movie;
+        }).toList(),
+      );
+
+      emit(MovieLoaded(moviesEntity: newMoviesEntity));
+    }
   }
 }

@@ -9,7 +9,6 @@ final class CacheImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    'imageUrl: $imageUrl'.logInfo();
     return CachedNetworkImage(
       imageUrl: imageUrl,
       fit: BoxFit.cover,

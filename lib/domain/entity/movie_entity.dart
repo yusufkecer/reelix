@@ -16,7 +16,7 @@ class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
   final String? description;
   @JsonKey(name: 'Poster')
   final String? posterUrl;
-  @JsonKey(name: 'IsFavorite')
+  @JsonKey(name: 'isFavorite')
   final bool? isFavorite;
 
   const MovieEntity({
