@@ -1,6 +1,6 @@
 part of 'upload_photo_view.dart';
 
-mixin UploadPhotoViewModel on State<_UploadPhotoViewBody>, Dialogs {
+mixin _UploadPhotoViewModel on State<_UploadPhotoViewBody>, Dialogs {
   XFile? selectedImage;
 
   Future<void> onTapUploadButton() async {
@@ -8,8 +8,10 @@ mixin UploadPhotoViewModel on State<_UploadPhotoViewBody>, Dialogs {
     final source = await showImageSourceSelectionDialog(
       context,
       title: LocaleKeys.upload_photo_image_source_selection_dialog_title.tr(),
-      option1: LocaleKeys.upload_photo_image_source_selection_dialog_option1.tr(),
-      option2: LocaleKeys.upload_photo_image_source_selection_dialog_option2.tr(),
+      option1: LocaleKeys.upload_photo_image_source_selection_dialog_option1
+          .tr(),
+      option2: LocaleKeys.upload_photo_image_source_selection_dialog_option2
+          .tr(),
       onOption1Tap: () => context.pop(ImageSource.camera),
       onOption2Tap: () => context.pop(ImageSource.gallery),
     );

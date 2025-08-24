@@ -6,11 +6,11 @@ part 'favorite_entity.g.dart';
 
 @JsonSerializable()
 @immutable
-class FavoriteEntity extends Equatable {
+final class FavoriteEntity extends Equatable {
   final bool isFavorite;
   final String? message;
 
-  const FavoriteEntity({required this.isFavorite,  this.message});
+  const FavoriteEntity({required this.isFavorite, this.message});
 
   factory FavoriteEntity.fromJson(Map<String, dynamic> json) =>
       _$FavoriteEntityFromJson(json);

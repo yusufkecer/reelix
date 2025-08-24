@@ -11,6 +11,7 @@ import 'package:reelix/core/index.dart';
 import 'package:reelix/feature/upload_photo/cubit/upload_image_cubit.dart';
 import 'package:reelix/injection/locator.dart';
 
+part 'widgets/custom_app_bar.dart';
 part 'widgets/select_photo.dart';
 part 'upload_photo_view_model.dart';
 
@@ -44,7 +45,7 @@ final class _UploadPhotoViewBody extends StatefulWidget {
 }
 
 class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody>
-    with Dialogs, UploadPhotoViewModel {
+    with Dialogs, _UploadPhotoViewModel {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UploadImageCubit, UploadImageState>(
@@ -60,7 +61,7 @@ class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody>
           child: Column(
             children: [
               VerticalSpace.fifty(),
-              CustomAppBar(title: LocaleKeys.upload_photo_appbar_title.tr()),
+              _CustomAppBar(title: LocaleKeys.upload_photo_app_bar_title.tr()),
               Padding(
                 padding: AppPadding.horizontalThirtyNine(),
                 child: Column(

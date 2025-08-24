@@ -10,14 +10,14 @@ part 'login_state.dart';
 
 @injectable
 final class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._loginUseCase, this._cacheService) : super(const LoginInitial());
+  LoginCubit(this._loginUseCase, this._cacheService)
+    : super(const LoginInitial());
 
   final LoginUseCase _loginUseCase;
   final CacheManager _cacheService;
 
   Future<void> login({required LoginParams params}) async {
     try {
-      'login'.logInfo('Login Request');
       emit(const LoginLoading());
 
       final user = await _loginUseCase.executeWithParams(params);

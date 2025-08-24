@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppPadding extends EdgeInsets {
   const AppPadding.allTwenty() : super.all(20);
   const AppPadding.allEight() : super.all(8);
+  const AppPadding.allNine() : super.all(9);
   const AppPadding.allTen() : super.all(10);
   AppPadding.horizontalThirtyFour() : super.symmetric(horizontal: 34.w);
   const AppPadding.allTwentyFour() : super.all(24);

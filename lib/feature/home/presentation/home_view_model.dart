@@ -10,7 +10,7 @@ mixin _HomeViewModel on State<Home> {
     super.dispose();
   }
 
-  void onTapHome(int index) {
+  void _onTapHome(int index) {
     _currentIndex.value = index;
     _pageController.animateToPage(
       index,
@@ -19,7 +19,7 @@ mixin _HomeViewModel on State<Home> {
     );
   }
 
-  void onTapProfile(int index) {
+  void _onTapProfile(int index) {
     _currentIndex.value = index;
     _pageController.animateToPage(
       index,

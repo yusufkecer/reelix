@@ -38,6 +38,10 @@ class CustomTheme implements BaseTheme {
           fontSize: AppFontSize.medium.value.sp,
           fontWeight: FontWeight.w700,
         ),
+        titleSmall: TextStyle(
+          fontSize: AppFontSize.small.value.sp,
+          fontWeight: FontWeight.w600,
+        ),
         bodyMedium: TextStyle(
           fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w400,
@@ -54,6 +58,7 @@ class CustomTheme implements BaseTheme {
 
   FilledButtonThemeData get _filledButtonTheme {
     return FilledButtonThemeData(
+      
       style: FilledButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: AppRadius.eighteen(),

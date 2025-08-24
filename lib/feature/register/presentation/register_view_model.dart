@@ -1,64 +1,64 @@
 part of 'register_view.dart';
 
-mixin RegisterViewMixin on State<_RegisterBody>, Dialogs {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
+mixin _RegisterViewMixin on State<_RegisterBody>, Dialogs {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
       TextEditingController();
-  final ValueNotifier<bool> isObscureNotifier = ValueNotifier(true);
+  final ValueNotifier<bool> _isObscureNotifier = ValueNotifier(true);
 
   @override
   void dispose() {
-    nameController.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
   void onSuffixIconTap() {
-    isObscureNotifier.value = !isObscureNotifier.value;
+    _isObscureNotifier.value = !_isObscureNotifier.value;
   }
 
-  bool checkValues() {
-    if (nameController.text.isEmpty ||
-        emailController.text.isEmpty ||
-        passwordController.text.isEmpty ||
-        confirmPasswordController.text.isEmpty) {
+  bool _checkValues() {
+    if (_nameController.text.isEmpty ||
+        _emailController.text.isEmpty ||
+        _passwordController.text.isEmpty ||
+        _confirmPasswordController.text.isEmpty) {
       return false;
     }
 
-    if (passwordController.text != confirmPasswordController.text) {
+    if (_passwordController.text != _confirmPasswordController.text) {
       return false;
     }
 
     return true;
   }
 
-  void onLoginButtonTap() {
+  void _onLoginButtonTap() {
     context.pop();
   }
 
-  Future<void> onRegisterButtonPressed() async {
-    if (!checkValues()) {
+  Future<void> _onRegisterButtonPressed() async {
+    if (!_checkValues()) {
       showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
       return;
     }
     showLoadingDialog(context);
     final params = RegisterParams(
-      name: nameController.text,
-      email: emailController.text,
-      password: passwordController.text,
+      name: _nameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
     );
     await context.read<RegisterCubit>().register(params);
     if (mounted) {
       context.pop();
     }
-    checkState();
+    _checkState();
   }
 
-  void checkState() {
+  void _checkState() {
     if (context.read<RegisterCubit>().state is RegisterSuccess) {
       'register success'.logInfo();
     }

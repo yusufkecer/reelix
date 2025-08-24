@@ -20,5 +20,5 @@ Map<String, dynamic> _$MovieEntityToJson(MovieEntity instance) =>
       'Title': instance.title,
       'Plot': instance.description,
       'Poster': instance.posterUrl,
-      'IsFavorite': instance.isFavorite,
+      'isFavorite': instance.isFavorite,
     };

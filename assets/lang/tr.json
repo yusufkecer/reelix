@@ -43,7 +43,7 @@
         "title": "Fotoğraflarınızı Yükleyin",
         "explain": "Resources out incentivize relaxation floor loss cc.",
         "button": "Devam Et",
-        "appbar_title": "Profil Detayı",
+        "app_bar_title": "Profil Detayı",
         "failed_to_upload": "Fotoğraf yüklenemedi. Lütfen tekrar deneyiniz.",
         "failed_to_select_image": "Fotoğraf seçilemedi. Lütfen tekrar deneyiniz.",
         "photo_uploaded_successfully": "Fotoğraf başarıyla yüklendi.",
@@ -62,5 +62,9 @@
             "more": "Daha Fazlası",
             "error": "Bir hata oluştu. Lütfen tekrar deneyiniz."
         }
+    },
+    "profile": {
+        "limited_offer": "Sınırlı Teklif",
+        "add_photo": "Fotoğraf Ekle"
     }
 }

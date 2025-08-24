@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
 import 'package:reelix/core/index.dart';
 import 'package:reelix/feature/movies/presentation/movies_view.dart';
+import 'package:reelix/feature/profile/presentation/profile_view.dart';
 
 part 'home_view_model.dart';
 part 'widgets/custom_navbar.dart';
@@ -33,22 +34,17 @@ class _HomeState extends State<Home> with _HomeViewModel {
               onPageChanged: (index) {
                 _currentIndex.value = index;
               },
-              children: [
-                const _KeepAliveWrapper(child: Movies()),
-                _KeepAliveWrapper(
-                  child: Container(
-                    height: context.sized.height,
-                    color: Colors.blue,
-                  ),
-                ),
+              children: const [
+                _KeepAliveWrapper(child: Movies()),
+                _KeepAliveWrapper(child: ProfileView()),
               ],
             ),
           ),
           Positioned(
             bottom: 0,
             child: CustomNavbar(
-              onTapHome: onTapHome,
-              onTapProfile: onTapProfile,
+              onTapHome: _onTapHome,
+              onTapProfile: _onTapProfile,
             ),
           ),
         ],
@@ -56,5 +52,3 @@ class _HomeState extends State<Home> with _HomeViewModel {
     );
   }
 }
-
-

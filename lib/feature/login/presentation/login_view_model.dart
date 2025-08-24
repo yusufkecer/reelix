@@ -1,18 +1,18 @@
 part of 'login_view.dart';
 
 mixin LoginViewMixin on State<_LoginBody>, Dialogs {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final ValueNotifier<bool> obscureNotifier = ValueNotifier(true);
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final ValueNotifier<bool> _obscureNotifier = ValueNotifier(true);
 
-  bool checkValues() {
-    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+  bool _checkValues() {
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
       return true;
     }
     return false;
   }
 
-  void checkToken() {
+  void _checkToken() {
     final token = Locator.sl<CacheManager>().getToken();
     if (token != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -27,43 +27,43 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
   @override
   void initState() {
     super.initState();
-    checkToken();
+    _checkToken();
   }
 
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
-  void onSuffixIconTap() {
-    obscureNotifier.value = !obscureNotifier.value;
+  void _onSuffixIconTap() {
+    _obscureNotifier.value = !_obscureNotifier.value;
   }
 
-  void onRegisterButtonTap() {
+  void _onRegisterButtonTap() {
     context.general.unfocus();
     context.pushRoute(const RegisterView());
   }
 
-  Future<void> onLoginButtonTap() async {
-    if (checkValues()) {
+  Future<void> _onLoginButtonTap() async {
+    if (_checkValues()) {
       showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
       return;
     }
     showLoadingDialog(context);
     final params = LoginParams(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
     );
     await context.read<LoginCubit>().login(params: params);
     if (mounted) {
       context.pop();
     }
-    checkState();
+    _checkState();
   }
 
-  void checkState() {
+  void _checkState() {
     if (context.read<LoginCubit>().state is LoginSuccess) {
       'login success'.logInfo();
       context.pushRoute(const HomeView());

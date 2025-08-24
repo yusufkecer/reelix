@@ -38,7 +38,7 @@ abstract class  LocaleKeys {
   static const upload_photo_title = 'upload_photo.title';
   static const upload_photo_explain = 'upload_photo.explain';
   static const upload_photo_button = 'upload_photo.button';
-  static const upload_photo_appbar_title = 'upload_photo.appbar_title';
+  static const upload_photo_app_bar_title = 'upload_photo.app_bar_title';
   static const upload_photo_failed_to_upload = 'upload_photo.failed_to_upload';
   static const upload_photo_failed_to_select_image = 'upload_photo.failed_to_select_image';
   static const upload_photo_photo_uploaded_successfully = 'upload_photo.photo_uploaded_successfully';
@@ -54,5 +54,8 @@ abstract class  LocaleKeys {
   static const home_movies_error = 'home.movies.error';
   static const home_movies = 'home.movies';
   static const home = 'home';
+  static const profile_limited_offer = 'profile.limited_offer';
+  static const profile_add_photo = 'profile.add_photo';
+  static const profile = 'profile';
 
 }
