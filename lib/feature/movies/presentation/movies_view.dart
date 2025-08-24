@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:kartal/kartal.dart';
 import 'package:reelix/core/index.dart';
-import 'package:reelix/domain/entity/movie_entity.dart';
 import 'package:reelix/feature/movies/cubit/movie_cubit.dart';
 import 'package:reelix/injection/locator.dart';
 
@@ -44,48 +42,71 @@ class _MovieListState extends State<_MovieList> with MoviesViewModel {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieCubit, MovieState>(
       builder: (context, state) {
-        return PagingListener(
-          controller: _pagingController,
-          builder: (context, state, fetchNextPage) {
-            return PagedPageView<int, MovieEntity>(
-              scrollDirection: Axis.vertical,
-              state: state,
-              fetchNextPage: fetchNextPage,
-              builderDelegate: PagedChildBuilderDelegate<MovieEntity>(
-                itemBuilder: (context, item, index) => SizedBox.expand(
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      CacheImage(
-                        imageUrl: item.posterUrl ?? '',
-                      ),
-
-                      Positioned(
-                        bottom: SizeValues.oneHundredSeventyOne.value.h,
-                        right: SizeValues.sixteen.value.w,
-                        child: _FavoriteButton(
-                          onTap: () {},
-                          isFavorite: false,
-                        ),
-                      ),
-
-                      Positioned(
-                        bottom: SizeValues.ninetySeven.value.h,
-                        left: SizeValues.sixteen.value.w,
-                        right: SizeValues.sixteen.value.w,
-                        child: _MovieContent(
-                          title: item.title ?? '',
-                          description: item.description ?? '',
-                        ),
-                      ),
-
-                      if (state is MovieLoading)
-                        const Center(
-                          child: CustomLoading(),
-                        ),
-                    ],
-                  ),
-                ),
+        return ValueListenableBuilder(
+          valueListenable: _isLoading,
+          builder: (context, value, child) {
+            return NotificationListener(
+              onNotification: (notification) {
+                if (notification is ScrollUpdateNotification) {
+                  fetchPage(page);
+                }
+                return true;
+              },
+              child: PageView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  page = index;
+                  return _isLoading.value || state.moviesEntity?.movies == null
+                      ? Center(
+                          child: ColoredBox(
+                            color: AppColor.instance.primaryColor,
+                            child: const CustomLoading(),
+                          ),
+                        )
+                      : SizedBox.expand(
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              CacheImage(
+                                imageUrl:
+                                    state
+                                        .moviesEntity
+                                        ?.movies?[index]
+                                        .posterUrl ??
+                                    '',
+                              ),
+                              Positioned(
+                                bottom: SizeValues.oneHundredSeventyOne.value.h,
+                                right: SizeValues.sixteen.value.w,
+                                child: _FavoriteButton(
+                                  onTap: () {},
+                                  isFavorite: false,
+                                ),
+                              ),
+                              Positioned(
+                                bottom: SizeValues.ninetySeven.value.h,
+                                left: SizeValues.sixteen.value.w,
+                                right: SizeValues.sixteen.value.w,
+                                child: _MovieContent(
+                                  title:
+                                      state
+                                          .moviesEntity
+                                          ?.movies?[index]
+                                          .title ??
+                                      '',
+                                  description:
+                                      state
+                                          .moviesEntity
+                                          ?.movies?[index]
+                                          .description ??
+                                      '',
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                },
               ),
             );
           },

@@ -1,22 +1,29 @@
 part of 'movies_view.dart';
 
 mixin MoviesViewModel on State<_MovieList> {
-  late final _pagingController = PagingController<int, MovieEntity>(
-    
-    getNextPageKey: (state) =>
-        state.lastPageIsEmpty ? null : state.nextIntPageKey,
-    fetchPage: fetchPage,
-  );
-
+  final ValueNotifier<bool> _isLoading = ValueNotifier(false);
   @override
   void dispose() {
-    _pagingController.dispose();
     super.dispose();
   }
 
-  Future<List<MovieEntity>> fetchPage(int page) async {
-    final movieCubit = context.read<MovieCubit>()..page = page + 1;
-    await movieCubit.getMovies(movieCubit.page);
-    return movieCubit.state.moviesEntity?.movies ?? [];
+  @override
+  void initState() {
+    super.initState();
+    fetchPage(2);
+  }
+
+
+
+  Future<void> fetchPage(int page) async {
+    final movieCubit = context.read<MovieCubit>();
+
+    if (_isLoading.value ||
+        (movieCubit.state.moviesEntity?.movies?.length ?? 0) > page) {
+      return;
+    }
+    _isLoading.value = true;
+    await movieCubit.getMovies(page + 1);
+    _isLoading.value = false;
   }
 }
