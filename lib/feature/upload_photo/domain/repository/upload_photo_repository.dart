@@ -7,7 +7,7 @@ import 'package:reelix/feature/upload_photo/domain/entity/upload_photo_response.
 
 @injectable
 final class UploadPhotoRepository
-    implements BaseRepository<UploadPhotoResponse, UploadPhotoResponse, XFile> {
+    implements BaseRepository<UploadPhotoResponse, UploadPhotoResponse, XFile, XFile> {
   final NetworkManager _networkManager;
 
   const UploadPhotoRepository(this._networkManager);
@@ -33,7 +33,7 @@ final class UploadPhotoRepository
   }
 
   @override
-  Future<UploadPhotoResponse?>? execute(XFile params) {
+  Future<UploadPhotoResponse?>? execute({XFile? param}) {
     throw UnimplementedError();
   }
 }

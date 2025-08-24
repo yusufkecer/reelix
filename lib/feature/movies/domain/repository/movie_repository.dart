@@ -1,25 +1,27 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:reelix/core/index.dart';
 import 'package:reelix/domain/entity/movie_entity.dart';
+import 'package:reelix/feature/movies/domain/entity/favorite_entity.dart';
 import 'package:reelix/feature/movies/domain/entity/movies_entity.dart';
 
 @injectable
 @immutable
 final class MovieRepository
-    implements BaseRepository<MoviesEntity, MoviesEntity, int> {
+    implements BaseRepository<MoviesEntity, FavoriteEntity, String, int> {
   const MovieRepository(this._networkManager);
   final NetworkManager _networkManager;
 
   @override
-  Future<MoviesEntity?> execute(int params) async {
+  Future<MoviesEntity?> execute({int? param}) async {
     final response = await _networkManager.get<Map<String, dynamic>?>(
       '/movie/list',
       queryParameters: {
-        'page': params,
+        'page': param,
       },
     );
-    'response: $response'.logInfo();
 
     if (response == null) {
       'response is null'.logInfo();
@@ -27,46 +29,68 @@ final class MovieRepository
     }
 
     final responseData = response['response'] as Map<String, dynamic>;
-    final moviesEntity = MoviesEntity.fromJson(responseData);
+    final messageEntity = MoviesEntity.fromJson(responseData);
     final data = response['data'] as Map<String, dynamic>;
 
     if (data.isEmpty && responseData['code'] != 200) {
-      'data is empty'.logInfo();
-      return moviesEntity;
-    }
-    'data: $data'.logInfo();
-
-    final movieData = data['movies'].first as Map<String, dynamic>;
-    'movieData: $movieData'.logInfo();
-
-    if (movieData.isEmpty) {
-      'movies is empty'.logInfo();
-      return moviesEntity;
+      return messageEntity;
     }
 
-    final movies = MovieEntity.fromJson(movieData);
+    final moviesList = data['movies'] as List<dynamic>;
 
-    'movies: $movies'.logInfo();
+    if (moviesList.isEmpty) {
+      return messageEntity;
+    }
 
-    final copyWith = moviesEntity.copyWith(movies: [movies]);
-    final posterUrl = copyWith.movies?.first.posterUrl;
-    final replacedPosterUrl = posterUrl?.replaceAll('http://', 'https://');
+    final pagination = data['pagination'] as Map<String, dynamic>;
+    final moviesEntity = MoviesEntity.fromJson(pagination);
+    final updatedMovies = <MovieEntity>[];
 
-    final updatedMovie = MovieEntity(
-      id: copyWith.movies?.first.id,
-      title: copyWith.movies?.first.title,
-      description: copyWith.movies?.first.description,
-      posterUrl: replacedPosterUrl,
-      isFavorite: copyWith.movies?.first.isFavorite,
-    );
+    for (final movieData in moviesList) {
+      if (movieData is Map<String, dynamic>) {
+        final movie = MovieEntity.fromJson(movieData);
 
-    final replacedCopyWith = copyWith.copyWith(movies: [updatedMovie]);
+        if (movie.posterUrl != null && movie.posterUrl!.startsWith('http://')) {
+          final updatedMovie = movie.copyWith(
+            posterUrl: movie.posterUrl!.replaceAll('http://', 'https://'),
+          );
+          updatedMovies.add(updatedMovie);
+        } else {
+          updatedMovies.add(movie);
+        }
+      }
+    }
 
-    return replacedCopyWith;
+    'updatedMovies length: ${updatedMovies.length}'.logInfo();
+    'updatedMovies: $updatedMovies'.logInfo();
+
+    final result = moviesEntity.copyWithMovies(movies: updatedMovies);
+
+    return result;
   }
 
   @override
-  Future<MoviesEntity?> executeWithParams(int params) async {
-    return execute(params);
+  Future<FavoriteEntity?> executeWithParams(String param) async {
+    final response = await _networkManager.post<Map<String, dynamic>?>(
+      '/movie/favorite/$param',
+    );
+    log('response: $response');
+
+    if (response == null) {
+      'response is null'.logInfo();
+      return null;
+    }
+
+    final responseData = response['response'] as Map<String, dynamic>;
+
+    if (responseData['code'] != 200) {
+      return null;
+    }
+
+    final data = response['data'] as Map<String, dynamic>;
+    final movie = data['movie'] as Map<String, dynamic>;
+    final favoriteEntity = FavoriteEntity.fromJson(movie);
+
+    return favoriteEntity;
   }
 }

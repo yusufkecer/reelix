@@ -5,7 +5,7 @@ import 'package:reelix/core/index.dart';
 @immutable
 final class CacheImage extends StatelessWidget {
   final String imageUrl;
-  const CacheImage({super.key, required this.imageUrl});
+  const CacheImage({required this.imageUrl, super.key});
 
   @override
   Widget build(BuildContext context) {

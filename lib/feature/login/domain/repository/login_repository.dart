@@ -6,7 +6,7 @@ import 'package:reelix/feature/login/domain/entity/login_params.dart';
 
 @injectable
 @immutable
-final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, LoginParams> {
+final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, LoginParams,LoginParams> {
   final NetworkManager _networkManager;
 
   const LoginRepository(this._networkManager);
@@ -34,7 +34,7 @@ final class LoginRepository implements BaseRepository<AuthEntity, AuthEntity, Lo
   }
 
   @override
-  Future<AuthEntity?>? execute(LoginParams params) {
+  Future<AuthEntity?>? execute({LoginParams? param}) {
     throw UnimplementedError();
   }
 }

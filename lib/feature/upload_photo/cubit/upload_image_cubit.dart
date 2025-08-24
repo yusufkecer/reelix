@@ -18,7 +18,7 @@ final class UploadImageCubit extends Cubit<UploadImageState> {
     try {
       emit(const UploadImageLoading());
 
-      final imageFile = await _uploadImageUseCase.execute(source);
+      final imageFile = await _uploadImageUseCase.execute(param: source);
       if (imageFile != null) {
         'image file: ${imageFile.path}'.logInfo('UploadImageCubit');
         emit(UploadImageSuccessWithFile(imageFile));
