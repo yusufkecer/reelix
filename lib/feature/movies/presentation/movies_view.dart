@@ -45,69 +45,60 @@ class _MovieListState extends State<_MovieList> with MoviesViewModel {
         return ValueListenableBuilder(
           valueListenable: _isLoading,
           builder: (context, value, child) {
-            return NotificationListener(
-              onNotification: (notification) {
-                if (notification is ScrollUpdateNotification) {
-                  fetchPage(page);
-                }
-                return true;
+            return PageView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: state.moviesEntity?.totalCount ?? 0,
+              onPageChanged: (index) async {
+                await fetchPage(index);
               },
-              child: PageView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  page = index;
-                  return _isLoading.value || state.moviesEntity?.movies == null
-                      ? Center(
-                          child: ColoredBox(
-                            color: AppColor.instance.primaryColor,
-                            child: const CustomLoading(),
-                          ),
-                        )
-                      : SizedBox.expand(
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              CacheImage(
-                                imageUrl:
+              itemBuilder: (context, index) {
+                return _isLoading.value || state.moviesEntity?.movies == null
+                    ? Center(
+                        child: ColoredBox(
+                          color: AppColor.instance.primaryColor,
+                          child: const CustomLoading(),
+                        ),
+                      )
+                    : SizedBox.expand(
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            CacheImage(
+                              imageUrl:
+                                  state
+                                      .moviesEntity
+                                      ?.movies?[index]
+                                      .posterUrl ??
+                                  '',
+                            ),
+                            Positioned(
+                              bottom: SizeValues.oneHundredSeventyOne.value.h,
+                              right: SizeValues.sixteen.value.w,
+                              child: _FavoriteButton(
+                                onTap: () => _addFavorite(index),
+                                isFavorite: false,
+                              ),
+                            ),
+                            Positioned(
+                              bottom: SizeValues.ninetySeven.value.h,
+                              left: SizeValues.sixteen.value.w,
+                              right: SizeValues.sixteen.value.w,
+                              child: _MovieContent(
+                                title:
+                                    state.moviesEntity?.movies?[index].title ??
+                                    '',
+                                description:
                                     state
                                         .moviesEntity
                                         ?.movies?[index]
-                                        .posterUrl ??
+                                        .description ??
                                     '',
                               ),
-                              Positioned(
-                                bottom: SizeValues.oneHundredSeventyOne.value.h,
-                                right: SizeValues.sixteen.value.w,
-                                child: _FavoriteButton(
-                                  onTap: () {},
-                                  isFavorite: false,
-                                ),
-                              ),
-                              Positioned(
-                                bottom: SizeValues.ninetySeven.value.h,
-                                left: SizeValues.sixteen.value.w,
-                                right: SizeValues.sixteen.value.w,
-                                child: _MovieContent(
-                                  title:
-                                      state
-                                          .moviesEntity
-                                          ?.movies?[index]
-                                          .title ??
-                                      '',
-                                  description:
-                                      state
-                                          .moviesEntity
-                                          ?.movies?[index]
-                                          .description ??
-                                      '',
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                },
-              ),
+                            ),
+                          ],
+                        ),
+                      );
+              },
             );
           },
         );

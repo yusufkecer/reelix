@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
@@ -13,29 +11,26 @@ part 'movie_state.dart';
 
 @injectable
 class MovieCubit extends Cubit<MovieState> {
-  MovieCubit({required this.movieUseCase}) : super(MovieInitial()) {
-    getMovies(page);
+  MovieCubit({required MovieUseCase movieUseCase})
+    : _movieUseCase = movieUseCase,
+      super(MovieInitial()) {
+    getMovies(1);
   }
 
-  int page = 1;
-  List<MovieEntity> movieList = [];
+  final List<MovieEntity> _movieList = [];
 
-  final MovieUseCase movieUseCase;
+  final MovieUseCase _movieUseCase;
 
   Future<void> getMovies(int page) async {
-    'get movies $page'.logInfo();
-
     try {
-      emit(MovieLoading());
-      final movies = await movieUseCase.execute(page);
+      'getMovies: $page'.logInfo();
+
+      final movies = await _movieUseCase.execute(param: page);
 
       if (movies?.movies != null) {
-        movieList.add(movies!.movies!.first);
-        'movieList: ${jsonEncode(movieList)}'.logInfo();
-        final newMoviesEntity = movies.copyWith(
-          movies: [
-            ...movieList,
-          ],
+        _movieList.addAll(movies!.movies!);
+        final newMoviesEntity = movies.copyWithMovies(
+          movies: _movieList,
         );
         emit(MovieLoaded(moviesEntity: newMoviesEntity));
       } else {
@@ -44,5 +39,9 @@ class MovieCubit extends Cubit<MovieState> {
     } on Exception catch (e) {
       emit(MovieError(error: e.toString()));
     }
+  }
+
+  Future<void> addFavorite(String movieId) async {
+    await _movieUseCase.executeWithParams(movieId);
   }
 }

@@ -7,17 +7,17 @@ import 'package:reelix/feature/movies/domain/repository/movie_repository.dart';
 @injectable
 @immutable
 final class MovieUseCase
-    implements BaseUseCase<MoviesEntity, MoviesEntity, int, int> {
+    implements BaseUseCase<MoviesEntity, MoviesEntity, String, int> {
   const MovieUseCase(this._repository);
 
   final MovieRepository _repository;
   @override
-  Future<MoviesEntity?>? execute(int param) async {
-    return  _repository.execute(param);
+  Future<MoviesEntity?>? execute({int? param}) async {
+    return _repository.execute(param: param);
   }
 
   @override
-  Future<MoviesEntity?>? executeWithParams(int params) {
+  Future<MoviesEntity?>? executeWithParams(String params) {
     return _repository.executeWithParams(params);
   }
 }

@@ -5,5 +5,5 @@ import 'package:flutter/material.dart';
 ///and [Params] for the parameters type and [Param] for the parameter type
 abstract interface class BaseUseCase<T, U, Params, Param> {
   Future<U?>? executeWithParams(Params params);
-  Future<T?>? execute(Param param);
+  Future<T?>? execute({Param? param});
 }

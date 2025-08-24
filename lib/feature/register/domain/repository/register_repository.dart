@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import 'package:reelix/core/index.dart';
 import 'package:reelix/domain/index.dart';
 import 'package:reelix/feature/register/domain/entity/params_entity.dart';
-import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 
 @injectable
 @immutable
-final class RegisterRepository implements BaseRepository<AuthEntity, AuthEntity, RegisterParams> {
+final class RegisterRepository implements BaseRepository<AuthEntity, AuthEntity, RegisterParams,RegisterParams> {
   final NetworkManager _networkManager;
 
   const RegisterRepository(this._networkManager);
@@ -30,7 +30,7 @@ final class RegisterRepository implements BaseRepository<AuthEntity, AuthEntity,
   }
 
   @override
-  Future<AuthEntity?>? execute(RegisterParams params) {
+  Future<AuthEntity?>? execute({RegisterParams? param}) {
     throw UnimplementedError();
   }
 }

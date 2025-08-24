@@ -7,23 +7,32 @@ mixin MoviesViewModel on State<_MovieList> {
     super.dispose();
   }
 
-  @override
-  void initState() {
-    super.initState();
-    fetchPage(2);
+  Future<void> _addFavorite(int index) async {
+    final movieCubit = context.read<MovieCubit>();
+    final movie = movieCubit.state.moviesEntity?.movies?[index];
+    if (movie != null) {
+      await movieCubit.addFavorite(movie.id!);
+    }
   }
-
-
 
   Future<void> fetchPage(int page) async {
     final movieCubit = context.read<MovieCubit>();
+    final movies = movieCubit.state.moviesEntity?.movies ?? [];
+    final maxPage = movieCubit.state.moviesEntity?.maxPage ?? 1;
+    final currentPage = movieCubit.state.moviesEntity?.currentPage ?? 1;
+    final totalCount = movieCubit.state.moviesEntity?.totalCount ?? 1;
+    if (_isLoading.value) return;
 
-    if (_isLoading.value ||
-        (movieCubit.state.moviesEntity?.movies?.length ?? 0) > page) {
-      return;
+    if (maxPage <= currentPage) return;
+
+    if (totalCount <= page) return;
+
+    final shouldFetch = movies.isNotEmpty && page == movies.length - 2;
+
+    if (shouldFetch) {
+      _isLoading.value = true;
+      await movieCubit.getMovies(currentPage + 1);
+      _isLoading.value = false;
     }
-    _isLoading.value = true;
-    await movieCubit.getMovies(page + 1);
-    _isLoading.value = false;
   }
 }
