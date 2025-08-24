@@ -21,7 +21,7 @@ final class _MovieContent extends StatelessWidget {
           ),
           HorizontalSpace.sixteen(),
           SizedBox(
-            width: context.sized.width - 100,
+            width: context.sized.width - 170,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -30,13 +30,13 @@ final class _MovieContent extends StatelessWidget {
                   title,
                   style: context.general.textTheme.displayLarge,
                 ),
-                VerticalSpace.six(),
+                VerticalSpace.xxs(),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: description.length > 70
-                            ? '${description.substring(0, 70)} '
+                        text: description.length > 55
+                            ? '${description.substring(0, 55)} '
                             : '$description ',
                         style: context.general.textTheme.bodyLarge,
                       ),

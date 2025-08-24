@@ -11,12 +11,15 @@ part 'movie_state.dart';
 @injectable
 class MovieCubit extends Cubit<MovieState> {
   MovieCubit({required this.movieUseCase}) : super(MovieInitial()) {
-    getMovies(2);
+    getMovies(page);
   }
+
+  int page = 1;
 
   final MovieUseCase movieUseCase;
 
   Future<void> getMovies(int page) async {
+    'get movies $page'.logInfo();
     emit(MovieLoading());
     'movie loading'.logInfo();
     try {
