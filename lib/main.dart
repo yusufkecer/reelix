@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reelix/core/index.dart';
 import 'package:reelix/injection/locator.dart';
@@ -12,7 +13,10 @@ Future<void> main() async {
       minTextAdapt: true,
       splitScreenMode: true,
       child: AppLocalization(
-        child: const Reelix(),
+        child: BlocProvider(
+          create: (context) => LanguageBloc(),
+          child: const Reelix(),
+        ),
       ),
     ),
   );
@@ -23,14 +27,18 @@ class Reelix extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: AppUtil.appName,
-      theme: Locator.sl<CustomTheme>().theme,
-      routerConfig: Locator.sl<AppRouter>().config(),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
+    return BlocBuilder<LanguageBloc, LanguageState>(
+      builder: (context, state) {
+        return MaterialApp.router(
+          title: AppUtil.appName,
+          theme: Locator.sl<CustomTheme>().theme,
+          routerConfig: Locator.sl<AppRouter>().config(),
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+        );
+      },
     );
   }
 }

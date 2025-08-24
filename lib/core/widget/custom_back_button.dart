@@ -1,16 +1,21 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reelix/core/index.dart';
 
 @immutable
-final class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({super.key});
+final class CustomLeadingButton extends StatelessWidget {
+  const CustomLeadingButton({
+    required this.onTap,
+    required this.image,
+    super.key,
+  });
+  final void Function()? onTap;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.router.maybePop(),
+      onTap: onTap,
       child: Ink(
         width: SizeValues.fortyFourPointThreeFour.value.w,
         height: SizeValues.fortyFourPointThreeFour.value.h,
@@ -23,7 +28,7 @@ final class CustomBackButton extends StatelessWidget {
           ),
         ),
         child: Image.asset(
-          AssetPath.back.path.pngImage,
+          image,
           width: SizeValues.twentyFour.value.w,
           height: SizeValues.twentyFour.value.h,
         ),

@@ -13,4 +13,7 @@ FavoriteEntity _$FavoriteEntityFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$FavoriteEntityToJson(FavoriteEntity instance) =>
-    <String, dynamic>{'isFavorite': instance.isFavorite, 'message': instance.message};
+    <String, dynamic>{
+      'isFavorite': instance.isFavorite,
+      'message': instance.message,
+    };

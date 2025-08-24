@@ -21,8 +21,10 @@ final class AppLocalization extends EasyLocalization {
     Lang.en.locale,
   ];
 
-  Future<void> updateLanguage({
+  static Future<void> updateLanguage({
     required BuildContext context,
     required Lang value,
-  }) => context.setLocale(value.locale);
+  }) async {
+    await context.setLocale(value.locale);
+  }
 }

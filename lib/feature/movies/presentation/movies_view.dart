@@ -30,7 +30,8 @@ class _MoviesState extends State<Movies> with Dialogs {
   }
 }
 
-class _MovieList extends StatefulWidget {
+@immutable
+final class _MovieList extends StatefulWidget {
   const _MovieList();
 
   @override
@@ -48,13 +49,13 @@ class _MovieListState extends State<_MovieList> with MoviesViewModel {
             return RefreshIndicator(
               color: AppColor.instance.buttonPrimaryColor,
               onRefresh: () async {
-                await fetchPage(0);
+                await _fetchPage(0);
               },
               child: PageView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: state.moviesEntity?.totalCount ?? 0,
                 onPageChanged: (index) async {
-                  await fetchPage(index);
+                  await _fetchPage(index);
                 },
                 itemBuilder: (context, index) {
                   return _isLoading.value || state.moviesEntity?.movies == null

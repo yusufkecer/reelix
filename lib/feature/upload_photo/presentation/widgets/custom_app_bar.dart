@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kartal/kartal.dart';
-import 'package:reelix/core/index.dart';
+part of '../upload_photo_view.dart';
 
 @immutable
-final class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({required this.title, super.key});
+final class _CustomAppBar extends StatelessWidget {
+  const _CustomAppBar({required this.title});
   final String title;
 
   @override
@@ -15,7 +12,10 @@ final class CustomAppBar extends StatelessWidget {
       children: [
         Padding(
           padding: AppPadding.leftTwentyThree(),
-          child: const CustomBackButton(),
+          child: CustomLeadingButton(
+            onTap: () => context.router.maybePop(),
+            image: AssetPath.back.path.pngImage,
+          ),
         ),
         Text(
           title,

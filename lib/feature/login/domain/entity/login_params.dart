@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'login_params.g.dart';
+
+@JsonSerializable()
 @immutable
 final class LoginParams {
   final String email;
@@ -10,10 +14,8 @@ final class LoginParams {
     required this.password,
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      'email': email,
-      'password': password,
-    };
-  }
+  factory LoginParams.fromJson(Map<String, dynamic> json) =>
+      _$LoginParamsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LoginParamsToJson(this);
 }

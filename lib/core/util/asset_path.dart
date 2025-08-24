@@ -27,6 +27,8 @@ enum AssetPath {
   home('home'),
   profile('profile'),
   loading('loading'),
+  diamond('diamond'),
+  world('world'),
   logo('logo');
 
   const AssetPath(this.path);

@@ -2,10 +2,6 @@ part of 'movies_view.dart';
 
 mixin MoviesViewModel on State<_MovieList> {
   final ValueNotifier<bool> _isLoading = ValueNotifier(false);
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   Future<void> _addFavorite(int index) async {
     final movieCubit = context.read<MovieCubit>();
@@ -15,7 +11,7 @@ mixin MoviesViewModel on State<_MovieList> {
     }
   }
 
-  Future<void> fetchPage(int page) async {
+  Future<void> _fetchPage(int page) async {
     final movieCubit = context.read<MovieCubit>();
     final movies = movieCubit.state.moviesEntity?.movies ?? [];
     final maxPage = movieCubit.state.moviesEntity?.maxPage ?? 1;

@@ -35,7 +35,8 @@ final class _RegisterBody extends StatefulWidget {
   State<_RegisterBody> createState() => __RegisterBodyState();
 }
 
-class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterViewMixin {
+class __RegisterBodyState extends State<_RegisterBody>
+    with Dialogs, _RegisterViewMixin {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -50,22 +51,22 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
             ),
             VerticalSpace.forty(),
             CustomTextField(
-              controller: nameController,
+              controller: _nameController,
               hintText: LocaleKeys.auth_register_name.tr(),
               prefixIcon: AssetPath.user.path.svgImage,
             ),
             VerticalSpace.fourteen(),
             CustomTextField(
-              controller: emailController,
+              controller: _emailController,
               hintText: LocaleKeys.auth_email.tr(),
               prefixIcon: AssetPath.mail.path.svgImage,
             ),
             VerticalSpace.fourteen(),
             ValueListenableBuilder<bool>(
-              valueListenable: isObscureNotifier,
+              valueListenable: _isObscureNotifier,
               builder: (context, isObscure, child) {
                 return CustomTextField(
-                  controller: passwordController,
+                  controller: _passwordController,
                   isObscure: isObscure,
                   suffixIcon: AssetPath.hide.path.svgImage,
                   hintText: LocaleKeys.auth_password.tr(),
@@ -76,11 +77,11 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
             ),
             VerticalSpace.fourteen(),
             ValueListenableBuilder<bool>(
-              valueListenable: isObscureNotifier,
+              valueListenable: _isObscureNotifier,
               builder: (context, isObscure, child) {
                 return CustomTextField(
-                  isObscure: isObscureNotifier.value,
-                  controller: confirmPasswordController,
+                  isObscure: _isObscureNotifier.value,
+                  controller: _confirmPasswordController,
                   hintText: LocaleKeys.auth_register_password_again.tr(),
                   prefixIcon: AssetPath.lock.path.svgImage,
                 );
@@ -91,9 +92,9 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
             VerticalSpace.thirtyEight(),
             SizedBox(
               width: context.sized.width,
-              height: 53.h,
+              height: SizeValues.fiftyThree.value.h,
               child: CustomButton(
-                onPressed: onRegisterButtonPressed,
+                onPressed: _onRegisterButtonPressed,
                 child: Text(LocaleKeys.auth_register_register_button.tr()),
               ),
             ),
@@ -103,7 +104,7 @@ class __RegisterBodyState extends State<_RegisterBody> with Dialogs, RegisterVie
             CustomRichText(
               firstText: LocaleKeys.auth_login_register_text.tr(),
               secondText: LocaleKeys.auth_login_register_button.tr(),
-              onSecondTextTap: onLoginButtonTap,
+              onSecondTextTap: _onLoginButtonTap,
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 export 'cache_image.dart';
 export 'custom_alert.dart';
-export 'custom_app_bar.dart';
 export 'custom_back_button.dart';
 export 'custom_button.dart';
 export 'custom_loading.dart';
