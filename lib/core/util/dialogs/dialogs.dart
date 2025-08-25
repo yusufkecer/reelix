@@ -19,7 +19,33 @@ mixin Dialogs {
         title: LocaleKeys.dialog_error.tr(),
         content: message.tr(),
         actions: [
-          TextButton(onPressed: () => context.pop(), child: Text(LocaleKeys.dialog_ok.tr())),
+          TextButton(
+            onPressed: () => context.pop(),
+            child: Text(LocaleKeys.dialog_ok.tr()),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void showSuccessDialog(
+    BuildContext context,
+    String message, {
+    required void Function() onPressed,
+  }) {
+    showDialog<void>(
+      context: context,
+      builder: (context) => CustomAlert(
+        title: LocaleKeys.dialog_success.tr(),
+        content: message.tr(),
+        actions: [
+          TextButton(
+            onPressed: () {
+              onPressed();
+              context.pop();
+            },
+            child: Text(LocaleKeys.dialog_ok.tr()),
+          ),
         ],
       ),
     );

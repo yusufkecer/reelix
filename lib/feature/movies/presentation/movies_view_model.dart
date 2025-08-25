@@ -18,7 +18,6 @@ mixin MoviesViewModel on State<_MovieList> {
 
     final movies = movieCubit.state.moviesEntity?.movies ?? [];
     if (index >= movies.length - 2 && !movieCubit.state.isLoading) {
-      print("fetching page: $currentPage");
       await movieCubit.getMovies(currentPage + 1);
     }
   }

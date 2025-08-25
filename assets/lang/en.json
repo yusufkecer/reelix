@@ -25,7 +25,8 @@
     "dialog": {
         "ok": "OK",
         "cancel": "Cancel",
-        "error": "Error"
+        "error": "Error",
+        "success": "Success"
     },
     "error": {
         "register_error": "Registration failed. Please try again.",

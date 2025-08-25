@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kartal/kartal.dart';
 import 'package:reelix/core/index.dart';
-import 'package:reelix/feature/upload_photo/cubit/upload_image_cubit.dart';
+import 'package:reelix/feature/upload_photo/cubit/upload_photo_cubit.dart';
 import 'package:reelix/injection/locator.dart';
 
 part 'widgets/custom_app_bar.dart';
@@ -28,7 +28,7 @@ class _UploadPhotoState extends State<UploadPhoto> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => Locator.sl<UploadImageCubit>(),
+      create: (context) => Locator.sl<UploadPhotoCubit>(),
       child: const Scaffold(
         body: _UploadPhotoViewBody(),
       ),
@@ -48,13 +48,13 @@ class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody>
     with Dialogs, _UploadPhotoViewModel {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UploadImageCubit, UploadImageState>(
+    return BlocBuilder<UploadPhotoCubit, UploadPhotoState>(
       builder: (context, state) {
-        return BlocListener<UploadImageCubit, UploadImageState>(
+        return BlocListener<UploadPhotoCubit, UploadPhotoState>(
           listener: (context, state) {
-            if (state is UploadImageSuccessWithFile) {
-              selectedImage = state.imageFile;
-            } else if (state is UploadImageFailure) {
+            if (state is UploadPhotoSuccessWithFile) {
+              _selectedImage = state.imageFile;
+            } else if (state is UploadPhotoFailure) {
               showErrorDialog(context, state.message);
             }
           },
@@ -79,17 +79,17 @@ class _UploadPhotoViewBodyState extends State<_UploadPhotoViewBody>
                     ),
                     VerticalSpace.fortySeven(),
                     _SelectPhotoButton(
-                      onTap: onTapUploadButton,
-                      image: selectedImage,
+                      onTap: _onTapUploadButton,
+                      image: _selectedImage,
                     ),
                     VerticalSpace.twoHundredFifty(),
                     SizedBox(
                       height: SizeValues.fifty.value.h,
                       width: context.sized.width,
                       child: CustomButton(
-                        onPressed: (state is UploadImageLoading)
+                        onPressed: (state is UploadPhotoLoading)
                             ? null
-                            : onTapContinueButton,
+                            : _onTapContinueButton,
                         child: Text(LocaleKeys.upload_photo_button.tr()),
                       ),
                     ),

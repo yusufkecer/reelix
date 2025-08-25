@@ -27,13 +27,21 @@ import 'package:reelix/feature/movies/domain/repository/movie_repository.dart'
     as _i214;
 import 'package:reelix/feature/movies/domain/use_case/movie_use_case.dart'
     as _i920;
+import 'package:reelix/feature/profile/cubit/favorite_movie_cubit/favorite_movie_cubit.dart'
+    as _i525;
+import 'package:reelix/feature/profile/cubit/profile_cubit/profile_cubit.dart'
+    as _i407;
+import 'package:reelix/feature/profile/domain/repository/profile_repository.dart'
+    as _i364;
+import 'package:reelix/feature/profile/domain/use_case/profile_use_case.dart'
+    as _i430;
 import 'package:reelix/feature/register/cubit/register_cubit.dart' as _i319;
 import 'package:reelix/feature/register/domain/repository/register_repository.dart'
     as _i766;
 import 'package:reelix/feature/register/domain/use_case/register_use_case.dart'
     as _i442;
-import 'package:reelix/feature/upload_photo/cubit/upload_image_cubit.dart'
-    as _i423;
+import 'package:reelix/feature/upload_photo/cubit/upload_photo_cubit.dart'
+    as _i457;
 import 'package:reelix/feature/upload_photo/domain/repository/upload_photo_repository.dart'
     as _i434;
 import 'package:reelix/feature/upload_photo/domain/use_case/upload_photo_use_case.dart'
@@ -64,6 +72,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i214.MovieRepository>(
       () => _i214.MovieRepository(gh<_i395.NetworkManager>()),
     );
+    gh.factory<_i364.ProfileRepository>(
+      () => _i364.ProfileRepository(gh<_i395.NetworkManager>()),
+    );
     gh.factory<_i766.RegisterRepository>(
       () => _i766.RegisterRepository(gh<_i395.NetworkManager>()),
     );
@@ -75,6 +86,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i442.RegisterUseCase>(
       () => _i442.RegisterUseCase(gh<_i766.RegisterRepository>()),
+    );
+    gh.factory<_i430.ProfileUseCase>(
+      () => _i430.ProfileUseCase(gh<_i364.ProfileRepository>()),
     );
     gh.factory<_i164.LoginUseCase>(
       () => _i164.LoginUseCase(gh<_i63.LoginRepository>()),
@@ -91,11 +105,20 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i395.CacheManager>(),
       ),
     );
-    gh.factory<_i423.UploadImageCubit>(
-      () => _i423.UploadImageCubit(gh<_i406.UploadPhotoUseCase>()),
+    gh.factory<_i525.FavoriteMovieCubit>(
+      () => _i525.FavoriteMovieCubit(gh<_i430.ProfileUseCase>()),
+    );
+    gh.lazySingleton<_i407.ProfileCubit>(
+      () => _i407.ProfileCubit(gh<_i430.ProfileUseCase>()),
     );
     gh.factory<_i898.MovieCubit>(
       () => _i898.MovieCubit(movieUseCase: gh<_i920.MovieUseCase>()),
+    );
+    gh.factory<_i457.UploadPhotoCubit>(
+      () => _i457.UploadPhotoCubit(
+        gh<_i406.UploadPhotoUseCase>(),
+        gh<_i407.ProfileCubit>(),
+      ),
     );
     return this;
   }

@@ -27,7 +27,8 @@
     "dialog": {
         "ok": "Tamam",
         "cancel": "İptal",
-        "error": "Hata"
+        "error": "Hata",
+        "success": "Başarılı"
     },
     "error": {
         "register_error": "Kayıt başarısız oldu. Lütfen tekrar deneyiniz.",

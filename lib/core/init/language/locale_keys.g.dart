@@ -25,6 +25,7 @@ abstract class  LocaleKeys {
   static const dialog_ok = 'dialog.ok';
   static const dialog_cancel = 'dialog.cancel';
   static const dialog_error = 'dialog.error';
+  static const dialog_success = 'dialog.success';
   static const dialog = 'dialog';
   static const error_register_error = 'error.register_error';
   static const error_fill_all_fields = 'error.fill_all_fields';
