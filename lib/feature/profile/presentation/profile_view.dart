@@ -67,27 +67,31 @@ class __ProfileBodyState extends State<_ProfileBody> with _ProfileViewModel {
             ),
             VerticalSpace.twentyThree(),
 
-            Expanded(
-              child: Padding(
-                padding: AppPadding.horizontalThirtyNine(),
-                child: GridView.builder(
-                  padding: EdgeInsets.only(bottom: 95.h),
-                  itemCount: 8,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 16.w,
-                    mainAxisSpacing: 13.h,
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.54,
+            BlocBuilder<FavoriteMovieCubit, FavoriteMovieState>(
+              builder: (context, state) {
+                return Expanded(
+                  child: Padding(
+                    padding: AppPadding.horizontalThirtyNine(),
+                    child: GridView.builder(
+                      padding: EdgeInsets.only(bottom: 95.h),
+                      itemCount: state.movies?.length ?? 0,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisSpacing: 16.w,
+                        mainAxisSpacing: 13.h,
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.54,
+                      ),
+                      itemBuilder: (context, index) {
+                        return MovieCard(
+                          imageUrl: state.movies?[index].posterUrl ?? '',
+                          title: state.movies?[index].title ?? '',
+                          genre: state.movies?[index].genre ?? '',
+                        );
+                      },
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    return const MovieCard(
-                      imageUrl:
-                          'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg',
-                      title: 'Movie Title',
-                    );
-                  },
-                ),
-              ),
+                );
+              },
             ),
           ],
         );

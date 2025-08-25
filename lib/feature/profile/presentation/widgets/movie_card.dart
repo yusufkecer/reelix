@@ -4,7 +4,8 @@ part of '../profile_view.dart';
 final class MovieCard extends StatelessWidget {
   final String imageUrl;
   final String title;
-  const MovieCard({required this.imageUrl, required this.title, super.key});
+  final String genre;
+  const MovieCard({required this.imageUrl, required this.title, required this.genre, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,8 @@ final class MovieCard extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: AppRadius.ten(),
-          child: Image.network(
-            'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg',
+          child: CacheImage(
+            imageUrl: imageUrl,
             width: 153.w,
             height: 213.h,
             fit: BoxFit.cover,
@@ -22,12 +23,12 @@ final class MovieCard extends StatelessWidget {
         ),
         VerticalSpace.sixteen(),
         Text(
-          'Movie Title',
+          title,
           style: context.general.textTheme.displaySmall,
         ),
         VerticalSpace.six(),
         Text(
-          'Movie Description',
+          genre,
           style: context.general.textTheme.bodyMedium?.copyWith(
             color: AppColor.instance.veryDarkWhiteText,
           ),

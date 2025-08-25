@@ -32,20 +32,30 @@ final class ProfileRepository
 
   @override
   Future<List<MovieEntity>?> executeWithParams(MovieEntity? params) async {
-    try {
-      final response = await _networkManager.get<Map<String, dynamic>>(
-        '/user/favorite-movies',
-      );
-      if (response.isNotEmpty) return null;
-      final res = response['data'] as Map<String, dynamic>;
+    final updatedMovies = <MovieEntity>[];
+    final response = await _networkManager.get<Map<String, dynamic>>(
+      '/movie/favorites',
+    );
+    'response: $response'.logInfo();
+    final res = response['response'] as Map<String, dynamic>;
+    if (response.isEmpty && res['code'] != 200) return null;
+    final data = response['data'] as List<dynamic>;
 
-      final movies = (res['movies'] as List<dynamic>)
-          .map((e) => MovieEntity.fromJson(e as Map<String, dynamic>))
-          .toList();
+    final movies = data
+        .map((e) => MovieEntity.fromJson(e as Map<String, dynamic>))
+        .toList();
 
-      return movies;
-    } catch (e) {
-      throw NetworkException(message: e.toString());
+    for (final movieData in movies) {
+      if (movieData.posterUrl != null &&
+          movieData.posterUrl!.startsWith('http://')) {
+        final updatedMovie = movieData.copyWith(
+          posterUrl: movieData.posterUrl!.replaceAll('http://', 'https://'),
+        );
+        updatedMovies.add(updatedMovie);
+      } else {
+        updatedMovies.add(movieData);
+      }
     }
+    return updatedMovies;
   }
 }

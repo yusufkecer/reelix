@@ -27,6 +27,9 @@ final class MovieRepository
     }
 
     final responseData = response['response'] as Map<String, dynamic>;
+    if (responseData['code'] != 200) {
+      return null;
+    }
     final messageEntity = MoviesEntity.fromJson(responseData);
     final data = response['data'] as Map<String, dynamic>;
 

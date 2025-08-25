@@ -6,11 +6,11 @@ extension LoggerExtension on dynamic {
   }
 
   void logInfo([String? info]) {
-    Logger().i(this, error: info);
+    Logger().i(this, error: info, stackTrace: StackTrace.empty);
   }
 
   void logDebug([String? debug]) {
-    Logger().d(this, error: debug);
+    Logger().d(this, error: debug, stackTrace: StackTrace.empty);
   }
 
   void logWarning([String? warning]) {

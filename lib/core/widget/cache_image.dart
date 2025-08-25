@@ -5,13 +5,24 @@ import 'package:reelix/core/index.dart';
 @immutable
 final class CacheImage extends StatelessWidget {
   final String imageUrl;
-  const CacheImage({required this.imageUrl, super.key});
+  final BoxFit? fit;
+  final double? width;
+  final double? height;
+  const CacheImage({
+    required this.imageUrl,
+    this.fit,
+    this.width,
+    this.height,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: imageUrl,
-      fit: BoxFit.cover,
+      fit: fit ?? BoxFit.cover,
+      width: width,
+      height: height,
       placeholder: (context, url) => const Center(
         child: CustomLoading(),
       ),

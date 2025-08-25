@@ -6,20 +6,25 @@ import 'package:reelix/core/index.dart';
 import 'package:reelix/domain/entity/movie_entity.dart';
 import 'package:reelix/feature/movies/domain/entity/movies_entity.dart';
 import 'package:reelix/feature/movies/domain/use_case/movie_use_case.dart';
+import 'package:reelix/feature/profile/cubit/favorite_movie_cubit/favorite_movie_cubit.dart';
 
 part 'movie_state.dart';
 
 @injectable
 class MovieCubit extends Cubit<MovieState> {
-  MovieCubit({required MovieUseCase movieUseCase})
-    : _movieUseCase = movieUseCase,
-      super(MovieInitial()) {
+  MovieCubit({
+    required MovieUseCase movieUseCase,
+    required FavoriteMovieCubit favoriteMovieCubit,
+  }) : _movieUseCase = movieUseCase,
+       _favoriteMovieCubit = favoriteMovieCubit,
+       super(MovieInitial()) {
     getMovies(1);
   }
 
   final List<MovieEntity> _movieList = [];
 
   final MovieUseCase _movieUseCase;
+  final FavoriteMovieCubit _favoriteMovieCubit;
 
   Future<void> getMovies(int page) async {
     emit(state.copyWith(isLoading: true));
@@ -55,7 +60,7 @@ class MovieCubit extends Cubit<MovieState> {
           return movie;
         }).toList(),
       );
-
+      await _favoriteMovieCubit.getFavoriteMovies();
       emit(MovieLoaded(moviesEntity: newMoviesEntity));
     }
   }
