@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:reelix/core/index.dart';
@@ -74,7 +72,6 @@ final class MovieRepository
     final response = await _networkManager.post<Map<String, dynamic>?>(
       '/movie/favorite/$param',
     );
-    log('response: $response');
 
     if (response == null) {
       'response is null'.logInfo();

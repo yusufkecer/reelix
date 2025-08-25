@@ -7,6 +7,7 @@ final class VerticalSpace extends SizedBox {
   /// 4px
   VerticalSpace.xxs({super.key}) : super(height: SizeValues.xxs.value.h);
   VerticalSpace.six({super.key}) : super(height: SizeValues.six.value.h);
+
   /// 8px
   VerticalSpace.xs({super.key}) : super(height: SizeValues.xs.value.h);
 
@@ -23,8 +24,9 @@ final class VerticalSpace extends SizedBox {
   /// 20px
   VerticalSpace.l({super.key}) : super(height: SizeValues.l.value.h);
 
-  /// 24px
-  VerticalSpace.xl({super.key}) : super(height: SizeValues.xl.value.h);
+  /// 23px
+  VerticalSpace.twentyThree({super.key})
+    : super(height: SizeValues.twentyThree.value.h);
 
   /// 24px
   VerticalSpace.twentyFour({super.key})

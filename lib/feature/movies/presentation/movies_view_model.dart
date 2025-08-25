@@ -1,8 +1,6 @@
 part of 'movies_view.dart';
 
 mixin MoviesViewModel on State<_MovieList> {
-  final ValueNotifier<bool> _isLoading = ValueNotifier(false);
-
   Future<void> _addFavorite(int index) async {
     final movieCubit = context.read<MovieCubit>();
     final movie = movieCubit.state.moviesEntity?.movies?[index];
@@ -11,24 +9,16 @@ mixin MoviesViewModel on State<_MovieList> {
     }
   }
 
-  Future<void> _fetchPage(int page) async {
+  Future<void> _fetchPage(int index) async {
     final movieCubit = context.read<MovieCubit>();
-    final movies = movieCubit.state.moviesEntity?.movies ?? [];
-    final maxPage = movieCubit.state.moviesEntity?.maxPage ?? 1;
     final currentPage = movieCubit.state.moviesEntity?.currentPage ?? 1;
-    final totalCount = movieCubit.state.moviesEntity?.totalCount ?? 1;
-    if (_isLoading.value) return;
+    final maxPage = movieCubit.state.moviesEntity?.maxPage ?? 1;
 
-    if (maxPage <= currentPage) return;
+    if (currentPage >= maxPage) return;
 
-    if (totalCount <= page) return;
-
-    final shouldFetch = movies.isNotEmpty && page == movies.length - 2;
-
-    if (shouldFetch) {
-      _isLoading.value = true;
+    final movies = movieCubit.state.moviesEntity?.movies ?? [];
+    if (index >= movies.length - 2 && !movieCubit.state.isLoading) {
       await movieCubit.getMovies(currentPage + 1);
-      _isLoading.value = false;
     }
   }
 }

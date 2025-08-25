@@ -22,6 +22,7 @@ class MovieCubit extends Cubit<MovieState> {
   final MovieUseCase _movieUseCase;
 
   Future<void> getMovies(int page) async {
+    emit(state.copyWith(isLoading: true));
     try {
       'getMovies: $page'.logInfo();
 
@@ -38,6 +39,8 @@ class MovieCubit extends Cubit<MovieState> {
       }
     } on Exception catch (e) {
       emit(MovieError(error: e.toString()));
+    } finally {
+      emit(state.copyWith(isLoading: false));
     }
   }
 

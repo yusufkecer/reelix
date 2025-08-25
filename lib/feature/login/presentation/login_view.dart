@@ -50,14 +50,14 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             VerticalSpace.threeHundred(),
-            TitleSubtitle(
-              title: LocaleKeys.auth_login_title.tr(),
-              subtitle: LocaleKeys.auth_subtitle.tr(),
+            const TitleSubtitle(
+              title: LocaleKeys.auth_login_title,
+              subtitle: LocaleKeys.auth_subtitle,
             ),
             VerticalSpace.forty(),
             CustomTextField(
               controller: _emailController,
-              hintText: LocaleKeys.auth_email.tr(),
+              hintText: LocaleKeys.auth_email,
               prefixIcon: AssetPath.mail.path.svgImage,
             ),
             VerticalSpace.fourteen(),
@@ -67,7 +67,7 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
                 return CustomTextField(
                   controller: _passwordController,
                   isObscure: isObscure,
-                  hintText: LocaleKeys.auth_password.tr(),
+                  hintText: LocaleKeys.auth_password,
                   prefixIcon: AssetPath.lock.path.svgImage,
                   onSuffixIconTap: _onSuffixIconTap,
                   suffixIcon: AssetPath.hide.path.svgImage,
@@ -121,8 +121,8 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
             ),
             VerticalSpace.thirtyTwo(),
             CustomRichText(
-              firstText: LocaleKeys.auth_login_register_text.tr(),
-              secondText: LocaleKeys.auth_login_register_button.tr(),
+              firstText: LocaleKeys.auth_login_register_text,
+              secondText: LocaleKeys.auth_login_register_button,
               onSecondTextTap: _onRegisterButtonTap,
             ),
           ],

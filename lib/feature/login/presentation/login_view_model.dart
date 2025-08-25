@@ -12,8 +12,8 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
     return false;
   }
 
-  void _checkToken() {
-    final token = Locator.sl<CacheManager>().getToken();
+  Future<void> _checkToken() async {
+    final token = await Locator.sl<CacheManager>().getToken();
     if (token != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.router.pushAndPopUntil(
@@ -27,6 +27,7 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
   @override
   void initState() {
     super.initState();
+
     _checkToken();
   }
 
@@ -48,7 +49,7 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
 
   Future<void> _onLoginButtonTap() async {
     if (_checkValues()) {
-      showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
+      showErrorDialog(context, LocaleKeys.error_fill_all_fields);
       return;
     }
     showLoadingDialog(context);
@@ -72,9 +73,9 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
       'login failure ${context.read<LoginCubit>().state}'.logInfo();
       if (context.read<LoginCubit>().state.errorMessage ==
           CustomErrors.invalidCredentials.value) {
-        showErrorDialog(context, LocaleKeys.error_invalid_credentials.tr());
+        showErrorDialog(context, LocaleKeys.error_invalid_credentials);
       } else {
-        showErrorDialog(context, LocaleKeys.error_login_error.tr());
+        showErrorDialog(context, LocaleKeys.error_login_error);
       }
     }
   }

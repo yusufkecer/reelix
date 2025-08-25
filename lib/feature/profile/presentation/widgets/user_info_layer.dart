@@ -2,12 +2,13 @@ part of '../profile_view.dart';
 
 class _UserInfoLayer extends StatelessWidget {
   const _UserInfoLayer({
-    this.imageUrl =
-        'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg',
-    this.fullName = 'John Doe',
+    required this.imageUrl,
+    required this.fullName,
+    required this.id,
   });
   final String imageUrl;
   final String fullName;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -22,26 +23,28 @@ class _UserInfoLayer extends StatelessWidget {
           Row(
             children: [
               ClipOval(
-                child: Image.network(
-                  imageUrl,
-                  height: 62.h,
-                  width: 62.w,
-                  fit: BoxFit.cover,
-                ),
+                child: imageUrl.isNotEmpty
+                    ? Image.network(
+                        imageUrl,
+                        height: 62.h,
+                        width: 62.w,
+                        fit: BoxFit.cover,
+                      )
+                    : const SizedBox.shrink(),
               ),
               SizedBox(width: SizeValues.nine.value.h),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'John Doe',
+                    fullName,
                     style: context.general.textTheme.displayMedium,
                   ),
                   SizedBox(height: SizeValues.five.value.h),
                   Text(
-                    'ID',
+                    'ID ${id.length > 10 ? id.substring(0, 10) : id}...',
                     style: context.general.textTheme.bodyMedium?.copyWith(
-                      color: AppColor.instance.verySoftWhite,
+                      color: AppColor.instance.veryDarkWhiteText,
                     ),
                   ),
                 ],
@@ -59,8 +62,13 @@ class _UserInfoLayer extends StatelessWidget {
                   borderRadius: AppRadius.eight(),
                 ),
               ),
-              onPressed: () {},
-              child: Text(LocaleKeys.profile_add_photo.tr()),
+              onPressed: () {
+                context.pushRoute(const UploadPhotoView());
+              },
+              child: Text(
+                LocaleKeys.profile_add_photo.tr(),
+                style: context.general.textTheme.titleMedium,
+              ),
             ),
           ),
         ],

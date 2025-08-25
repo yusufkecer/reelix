@@ -46,7 +46,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
               children: [
                 _CustomNavbarItem(
                   icon: AssetPath.home.path.svgImage,
-                  label: LocaleKeys.home_navbar_home.tr(),
+                  label: LocaleKeys.home_navbar_home,
                   onTap: widget.onTapHome,
                   currentIndex: 0,
                 ),
@@ -54,7 +54,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
                 _CustomNavbarItem(
                   currentIndex: 1,
                   icon: AssetPath.profile.path.svgImage,
-                  label: LocaleKeys.home_navbar_profile.tr(),
+                  label: LocaleKeys.home_navbar_profile,
                   onTap: widget.onTapProfile,
                 ),
               ],
@@ -106,7 +106,7 @@ final class _CustomNavbarItem extends StatelessWidget {
               ),
               HorizontalSpace.s(),
               Text(
-                label,
+                label.tr(),
                 style: context.general.textTheme.displaySmall,
               ),
             ],

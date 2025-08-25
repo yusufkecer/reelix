@@ -25,7 +25,8 @@
     "dialog": {
         "ok": "OK",
         "cancel": "Cancel",
-        "error": "Error"
+        "error": "Error",
+        "success": "Success"
     },
     "error": {
         "register_error": "Registration failed. Please try again.",
@@ -63,6 +64,7 @@
     },
     "profile": {
         "limited_offer": "Limited Offer",
-        "add_photo": "Add Photo"
+        "add_photo": "Add Photo",
+        "liked_movies": "Movies I Like"
     }
 }

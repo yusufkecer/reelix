@@ -42,7 +42,7 @@ mixin _RegisterViewMixin on State<_RegisterBody>, Dialogs {
 
   Future<void> _onRegisterButtonPressed() async {
     if (!_checkValues()) {
-      showErrorDialog(context, LocaleKeys.error_fill_all_fields.tr());
+      showErrorDialog(context, LocaleKeys.error_fill_all_fields);
       return;
     }
     showLoadingDialog(context);
@@ -65,15 +65,15 @@ mixin _RegisterViewMixin on State<_RegisterBody>, Dialogs {
     if (context.read<RegisterCubit>().state is RegisterFailure) {
       if (context.read<RegisterCubit>().state.errorMessage ==
           CustomErrors.passwordTooShort.value) {
-        showErrorDialog(context, LocaleKeys.error_password_too_short.tr());
+        showErrorDialog(context, LocaleKeys.error_password_too_short);
       } else if (context.read<RegisterCubit>().state.errorMessage ==
           CustomErrors.userExists.value) {
-        showErrorDialog(context, LocaleKeys.error_email_already_in_use.tr());
+        showErrorDialog(context, LocaleKeys.error_email_already_in_use);
       } else if (context.read<RegisterCubit>().state.errorMessage ==
           CustomErrors.invalidEmailFormat.value) {
-        showErrorDialog(context, LocaleKeys.error_email_invalid.tr());
+        showErrorDialog(context, LocaleKeys.error_email_invalid);
       } else {
-        showErrorDialog(context, LocaleKeys.error_register_error.tr());
+        showErrorDialog(context, LocaleKeys.error_register_error);
       }
     }
   }

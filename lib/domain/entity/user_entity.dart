@@ -12,15 +12,18 @@ final class UserEntity extends Equatable implements BaseModel<UserEntity> {
   final String id;
   final String email;
   final String name;
+  final String photoUrl;
 
   const UserEntity({
     required this.id,
     required this.email,
     required this.name,
+    required this.photoUrl,
   });
 
   @override
-  String toString() => 'UserEntity(id: $id, email: $email, name: $name)';
+  String toString() =>
+      'UserEntity(id: $id, email: $email, name: $name, photoUrl: $photoUrl)';
 
   @override
   List<Object?> get props => [id, email, name];
@@ -29,5 +32,6 @@ final class UserEntity extends Equatable implements BaseModel<UserEntity> {
   Map<String, dynamic> toJson() => _$UserEntityToJson(this);
 
   @override
-  factory UserEntity.fromJson(Map<String, dynamic> json) => _$UserEntityFromJson(json);
+  factory UserEntity.fromJson(Map<String, dynamic> json) =>
+      _$UserEntityFromJson(json);
 }

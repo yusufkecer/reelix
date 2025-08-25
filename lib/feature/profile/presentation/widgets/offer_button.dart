@@ -29,7 +29,7 @@ final class _OfferButton extends StatelessWidget {
             ),
             SizedBox(width: SizeValues.xxs.value.w),
             Text(
-              label,
+              label.tr(),
               style: context.general.textTheme.titleSmall,
             ),
           ],

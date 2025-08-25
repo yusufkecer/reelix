@@ -1,10 +1,10 @@
 part of 'upload_photo_view.dart';
 
 mixin _UploadPhotoViewModel on State<_UploadPhotoViewBody>, Dialogs {
-  XFile? selectedImage;
+  XFile? _selectedImage;
 
-  Future<void> onTapUploadButton() async {
-    final uploadImageCubit = context.read<UploadImageCubit>();
+  Future<void> _onTapUploadButton() async {
+    final uploadImageCubit = context.read<UploadPhotoCubit>();
     final source = await showImageSourceSelectionDialog(
       context,
       title: LocaleKeys.upload_photo_image_source_selection_dialog_title.tr(),
@@ -21,13 +21,24 @@ mixin _UploadPhotoViewModel on State<_UploadPhotoViewBody>, Dialogs {
     }
   }
 
-  void onTapContinueButton() {
-    final cubit = context.read<UploadImageCubit>();
-    if (selectedImage != null) {
-      cubit.uploadImage(selectedImage!);
+  Future<void> _onTapContinueButton() async {
+    final cubit = context.read<UploadPhotoCubit>();
+    if (_selectedImage != null) {
+      await cubit.uploadImage(_selectedImage!);
+      if (!mounted) return;
+      if (cubit.state is UploadPhotoSuccess) {
+        showSuccessDialog(
+          context,
+          LocaleKeys.upload_photo_photo_uploaded_successfully.tr(),
+          onPressed: () {
+            context.pop();
+          },
+        );
+      }
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please select an image first')),
+      showErrorDialog(
+        context,
+        LocaleKeys.upload_photo_failed_to_select_image.tr(),
       );
     }
   }

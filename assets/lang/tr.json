@@ -27,7 +27,8 @@
     "dialog": {
         "ok": "Tamam",
         "cancel": "İptal",
-        "error": "Hata"
+        "error": "Hata",
+        "success": "Başarılı"
     },
     "error": {
         "register_error": "Kayıt başarısız oldu. Lütfen tekrar deneyiniz.",
@@ -65,6 +66,7 @@
     },
     "profile": {
         "limited_offer": "Sınırlı Teklif",
-        "add_photo": "Fotoğraf Ekle"
+        "add_photo": "Fotoğraf Ekle",
+        "liked_movies": "Beğendiğim Filmler"
     }
 }

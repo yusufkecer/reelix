@@ -26,9 +26,6 @@ final class HorizontalSpace extends SizedBox {
   /// 20px
   HorizontalSpace.l({super.key}) : super(width: SizeValues.l.value.w);
 
-  /// 24px
-  HorizontalSpace.xl({super.key}) : super(width: SizeValues.xl.value.w);
-
   /// 14px
   HorizontalSpace.fourteen({super.key})
     : super(width: SizeValues.fourteen.value.w);

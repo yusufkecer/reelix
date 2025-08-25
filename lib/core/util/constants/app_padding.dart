@@ -12,6 +12,7 @@ class AppPadding extends EdgeInsets {
   AppPadding.bottomSixteen() : super.only(bottom: 16.h);
   AppPadding.horizontalThirtyNine() : super.symmetric(horizontal: 39.w);
   AppPadding.leftTwentyThree() : super.only(left: 23.43.w);
+  AppPadding.leftForty() : super.only(left: 40.w);
   AppPadding.rightTwentyFive() : super.only(right: 25.w);
   AppPadding.horizontalSixtySeven() : super.symmetric(horizontal: 67.w);
   AppPadding.textFieldPadding() : super.only(left: 25.w, right: 10.w);

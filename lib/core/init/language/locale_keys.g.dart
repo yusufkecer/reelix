@@ -25,6 +25,7 @@ abstract class  LocaleKeys {
   static const dialog_ok = 'dialog.ok';
   static const dialog_cancel = 'dialog.cancel';
   static const dialog_error = 'dialog.error';
+  static const dialog_success = 'dialog.success';
   static const dialog = 'dialog';
   static const error_register_error = 'error.register_error';
   static const error_fill_all_fields = 'error.fill_all_fields';
@@ -56,6 +57,7 @@ abstract class  LocaleKeys {
   static const home = 'home';
   static const profile_limited_offer = 'profile.limited_offer';
   static const profile_add_photo = 'profile.add_photo';
+  static const profile_liked_movies = 'profile.liked_movies';
   static const profile = 'profile';
 
 }
