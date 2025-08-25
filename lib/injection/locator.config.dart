@@ -10,12 +10,10 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
-import 'package:flutter/material.dart' as _i409;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:reelix/core/cache/cache_manager.dart' as _i208;
 import 'package:reelix/core/index.dart' as _i395;
-import 'package:reelix/core/init/language/app_localization.dart' as _i943;
 import 'package:reelix/core/network/network_manager.dart' as _i191;
 import 'package:reelix/core/router/app_router.dart' as _i439;
 import 'package:reelix/core/theme/theme_data.dart' as _i93;
@@ -54,12 +52,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i439.AppRouter>(() => _i439.AppRouter());
     gh.lazySingleton<_i93.CustomTheme>(() => _i93.CustomTheme());
     gh.lazySingleton<_i361.Dio>(() => appModule.dio);
-    gh.lazySingleton<_i943.AppLocalization>(
-      () => _i943.AppLocalization(
-        child: gh<_i409.Widget>(),
-        key: gh<_i409.Key>(),
-      ),
-    );
     gh.lazySingleton<_i191.NetworkManager>(
       () => _i191.NetworkManager(
         dio: gh<_i361.Dio>(),

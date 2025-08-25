@@ -21,7 +21,7 @@ enum SizeValues {
   fortyOne(41),
   fortyFourPointThreeFour(44.34),
   l(20),
-  xl(24),
+
   twentyFour(24),
   twentyEight(28),
   thirty(30),

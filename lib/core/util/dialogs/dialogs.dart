@@ -17,7 +17,7 @@ mixin Dialogs {
       context: context,
       builder: (context) => CustomAlert(
         title: LocaleKeys.dialog_error.tr(),
-        content: message,
+        content: message.tr(),
         actions: [
           TextButton(onPressed: () => context.pop(), child: Text(LocaleKeys.dialog_ok.tr())),
         ],

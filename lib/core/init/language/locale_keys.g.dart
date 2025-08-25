@@ -56,6 +56,7 @@ abstract class  LocaleKeys {
   static const home = 'home';
   static const profile_limited_offer = 'profile.limited_offer';
   static const profile_add_photo = 'profile.add_photo';
+  static const profile_liked_movies = 'profile.liked_movies';
   static const profile = 'profile';
 
 }

@@ -41,7 +41,7 @@ class _UserInfoLayer extends StatelessWidget {
                   Text(
                     'ID',
                     style: context.general.textTheme.bodyMedium?.copyWith(
-                      color: AppColor.instance.verySoftWhite,
+                      color: AppColor.instance.veryDarkWhiteText,
                     ),
                   ),
                 ],
@@ -59,8 +59,13 @@ class _UserInfoLayer extends StatelessWidget {
                   borderRadius: AppRadius.eight(),
                 ),
               ),
-              onPressed: () {},
-              child: Text(LocaleKeys.profile_add_photo.tr()),
+              onPressed: () {
+                context.pushRoute(const UploadPhotoView());
+              },
+              child: Text(
+                LocaleKeys.profile_add_photo.tr(),
+                style: context.general.textTheme.titleMedium,
+              ),
             ),
           ),
         ],

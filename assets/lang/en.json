@@ -63,6 +63,7 @@
     },
     "profile": {
         "limited_offer": "Limited Offer",
-        "add_photo": "Add Photo"
+        "add_photo": "Add Photo",
+        "liked_movies": "Movies I Like"
     }
 }

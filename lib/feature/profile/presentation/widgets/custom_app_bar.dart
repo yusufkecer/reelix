@@ -19,22 +19,22 @@ class _CustomAppBarState extends State<_CustomAppBar> {
         CustomLeadingButton(
           onTap: () {
             AppLocalization.updateLanguage(
-              context: context,
-              value: context.locale == Lang.tr.locale ? Lang.en : Lang.tr,
+              context,
+              context.locale == Lang.tr.locale ? Lang.en : Lang.tr,
             );
           },
           image: AssetPath.world.path.pngImage,
         ),
         SizedBox(width: SizeValues.eightyEight.value.w),
         Text(
-          widget.title,
+          widget.title.tr(),
           style: context.general.textTheme.displayMedium,
           textAlign: TextAlign.center,
         ),
         SizedBox(width: SizeValues.nineteen.value.w),
         _OfferButton(
           onPressed: () {},
-          label: LocaleKeys.profile_limited_offer.tr(),
+          label: LocaleKeys.profile_limited_offer,
         ),
         SizedBox(width: SizeValues.twentyFour.value.w),
       ],

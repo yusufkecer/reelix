@@ -65,6 +65,7 @@
     },
     "profile": {
         "limited_offer": "Sınırlı Teklif",
-        "add_photo": "Fotoğraf Ekle"
+        "add_photo": "Fotoğraf Ekle",
+        "liked_movies": "Beğendiğim Filmler"
     }
 }

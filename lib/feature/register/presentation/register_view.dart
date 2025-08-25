@@ -45,20 +45,20 @@ class __RegisterBodyState extends State<_RegisterBody>
         child: Column(
           children: [
             VerticalSpace.oneHundredThirtyEight(),
-            TitleSubtitle(
-              title: LocaleKeys.auth_register_title.tr(),
-              subtitle: LocaleKeys.auth_subtitle.tr(),
+            const TitleSubtitle(
+              title: LocaleKeys.auth_register_title,
+              subtitle: LocaleKeys.auth_subtitle,
             ),
             VerticalSpace.forty(),
             CustomTextField(
               controller: _nameController,
-              hintText: LocaleKeys.auth_register_name.tr(),
+              hintText: LocaleKeys.auth_register_name,
               prefixIcon: AssetPath.user.path.svgImage,
             ),
             VerticalSpace.fourteen(),
             CustomTextField(
               controller: _emailController,
-              hintText: LocaleKeys.auth_email.tr(),
+              hintText: LocaleKeys.auth_email,
               prefixIcon: AssetPath.mail.path.svgImage,
             ),
             VerticalSpace.fourteen(),
@@ -69,7 +69,7 @@ class __RegisterBodyState extends State<_RegisterBody>
                   controller: _passwordController,
                   isObscure: isObscure,
                   suffixIcon: AssetPath.hide.path.svgImage,
-                  hintText: LocaleKeys.auth_password.tr(),
+                  hintText: LocaleKeys.auth_password,
                   prefixIcon: AssetPath.lock.path.svgImage,
                   onSuffixIconTap: onSuffixIconTap,
                 );
@@ -82,7 +82,7 @@ class __RegisterBodyState extends State<_RegisterBody>
                 return CustomTextField(
                   isObscure: _isObscureNotifier.value,
                   controller: _confirmPasswordController,
-                  hintText: LocaleKeys.auth_register_password_again.tr(),
+                  hintText: LocaleKeys.auth_register_password_again,
                   prefixIcon: AssetPath.lock.path.svgImage,
                 );
               },
@@ -102,8 +102,8 @@ class __RegisterBodyState extends State<_RegisterBody>
             const FastLoginWidget(),
             VerticalSpace.thirtyTwo(),
             CustomRichText(
-              firstText: LocaleKeys.auth_login_register_text.tr(),
-              secondText: LocaleKeys.auth_login_register_button.tr(),
+              firstText: LocaleKeys.auth_login_register_text,
+              secondText: LocaleKeys.auth_login_register_button,
               onSecondTextTap: _onLoginButtonTap,
             ),
           ],

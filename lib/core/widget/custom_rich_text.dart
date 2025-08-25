@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
@@ -26,7 +27,7 @@ final class CustomRichText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: firstText,
+            text: firstText.tr(),
             style:
                 firstTextStyle ??
                 context.general.appTheme.textTheme.bodyMedium?.copyWith(
@@ -37,7 +38,7 @@ final class CustomRichText extends StatelessWidget {
             child: HorizontalSpace.xs(),
           ),
           TextSpan(
-            text: secondText,
+            text: secondText.tr(),
             style:
                 secondTextStyle ??
                 context.general.appTheme.textTheme.bodyMedium?.copyWith(

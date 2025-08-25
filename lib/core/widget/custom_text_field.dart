@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reelix/core/index.dart';
@@ -25,7 +26,7 @@ final class CustomTextField extends StatelessWidget {
       controller: controller,
       obscureText: isObscure,
       decoration: InputDecoration(
-        hintText: hintText,
+        hintText: hintText.tr(),
         prefixIcon: Padding(
           padding: AppPadding.textFieldPadding(),
           child: SvgPicture.asset(prefixIcon),

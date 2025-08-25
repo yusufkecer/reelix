@@ -29,5 +29,6 @@ final class UserEntity extends Equatable implements BaseModel<UserEntity> {
   Map<String, dynamic> toJson() => _$UserEntityToJson(this);
 
   @override
-  factory UserEntity.fromJson(Map<String, dynamic> json) => _$UserEntityFromJson(json);
+  factory UserEntity.fromJson(Map<String, dynamic> json) =>
+      _$UserEntityFromJson(json);
 }

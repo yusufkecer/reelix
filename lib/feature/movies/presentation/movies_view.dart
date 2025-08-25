@@ -20,7 +20,7 @@ final class Movies extends StatefulWidget {
   State<Movies> createState() => _MoviesState();
 }
 
-class _MoviesState extends State<Movies> with Dialogs {
+class _MoviesState extends State<Movies> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -43,79 +43,68 @@ class _MovieListState extends State<_MovieList> with MoviesViewModel {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieCubit, MovieState>(
       builder: (context, state) {
-        return ValueListenableBuilder(
-          valueListenable: _isLoading,
-          builder: (context, value, child) {
-            return RefreshIndicator(
-              color: AppColor.instance.buttonPrimaryColor,
-              onRefresh: () async {
-                await _fetchPage(0);
-              },
-              child: PageView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: state.moviesEntity?.totalCount ?? 0,
-                onPageChanged: (index) async {
-                  await _fetchPage(index);
-                },
-                itemBuilder: (context, index) {
-                  return _isLoading.value || state.moviesEntity?.movies == null
-                      ? Center(
-                          child: ColoredBox(
-                            color: AppColor.instance.primaryColor,
-                            child: const CustomLoading(),
-                          ),
-                        )
-                      : SizedBox.expand(
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              CacheImage(
-                                imageUrl:
-                                    state
-                                        .moviesEntity
-                                        ?.movies?[index]
-                                        .posterUrl ??
-                                    '',
-                              ),
-                              Positioned(
-                                bottom: SizeValues.oneHundredSeventyOne.value.h,
-                                right: SizeValues.sixteen.value.w,
-                                child: _FavoriteButton(
-                                  onTap: () => _addFavorite(index),
-                                  isFavorite:
-                                      state
-                                          .moviesEntity
-                                          ?.movies?[index]
-                                          .isFavorite ??
-                                      false,
-                                ),
-                              ),
-                              Positioned(
-                                bottom: SizeValues.ninetySeven.value.h,
-                                left: SizeValues.sixteen.value.w,
-                                right: SizeValues.sixteen.value.w,
-                                child: _MovieContent(
-                                  title:
-                                      state
-                                          .moviesEntity
-                                          ?.movies?[index]
-                                          .title ??
-                                      '',
-                                  description:
-                                      state
-                                          .moviesEntity
-                                          ?.movies?[index]
-                                          .description ??
-                                      '',
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                },
-              ),
-            );
+        return RefreshIndicator(
+          color: AppColor.instance.buttonPrimaryColor,
+          onRefresh: () async {
+            await _fetchPage(0);
           },
+          child: PageView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: state.moviesEntity?.movies?.length ?? 0,
+            onPageChanged: (index) async {
+              await _fetchPage(index);
+            },
+            itemBuilder: (context, index) {
+              return !state.isLoading
+                  ? SizedBox.expand(
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CacheImage(
+                            imageUrl:
+                                state.moviesEntity?.movies?[index].posterUrl ??
+                                '',
+                          ),
+                          Positioned(
+                            bottom: SizeValues.oneHundredSeventyOne.value.h,
+                            right: SizeValues.sixteen.value.w,
+                            child: _FavoriteButton(
+                              onTap: () => _addFavorite(index),
+                              isFavorite:
+                                  state
+                                      .moviesEntity
+                                      ?.movies?[index]
+                                      .isFavorite ??
+                                  false,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: SizeValues.ninetySeven.value.h,
+                            left: SizeValues.sixteen.value.w,
+                            right: SizeValues.sixteen.value.w,
+                            child: _MovieContent(
+                              title:
+                                  state.moviesEntity?.movies?[index].title ??
+                                  '',
+                              description:
+                                  state
+                                      .moviesEntity
+                                      ?.movies?[index]
+                                      .description ??
+                                  '',
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : Center(
+                      child: ColoredBox(
+                        color: AppColor.instance.primaryColor,
+                        child: const CustomLoading(),
+                      ),
+                    );
+            },
+          ),
         );
       },
     );
