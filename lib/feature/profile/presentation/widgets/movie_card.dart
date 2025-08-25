@@ -5,7 +5,12 @@ final class MovieCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String genre;
-  const MovieCard({required this.imageUrl, required this.title, required this.genre, super.key});
+  const MovieCard({
+    required this.imageUrl,
+    required this.title,
+    required this.genre,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +21,8 @@ final class MovieCard extends StatelessWidget {
           borderRadius: AppRadius.ten(),
           child: CacheImage(
             imageUrl: imageUrl,
-            width: 153.w,
-            height: 213.h,
+            width: SizeValues.oneHundredFiftyThree.value.w,
+            height: SizeValues.twoHundredThirteen.value.h,
             fit: BoxFit.cover,
           ),
         ),

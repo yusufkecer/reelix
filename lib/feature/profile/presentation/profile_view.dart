@@ -47,17 +47,17 @@ class __ProfileBodyState extends State<_ProfileBody> with _ProfileViewModel {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: SizeValues.fifty.value.h),
+            VerticalSpace.fifty(),
             const _CustomAppBar(
               title: LocaleKeys.upload_photo_app_bar_title,
             ),
-            SizedBox(height: SizeValues.thirtySix.value.h),
+            VerticalSpace.thirtySix(),
             _UserInfoLayer(
               id: state.userEntity?.id ?? '',
               imageUrl: state.userEntity?.photoUrl ?? '',
               fullName: state.userEntity?.name ?? '',
             ),
-            SizedBox(height: SizeValues.twentyEight.value.h),
+            VerticalSpace.twentyEight(),
             Padding(
               padding: AppPadding.leftForty(),
               child: Text(

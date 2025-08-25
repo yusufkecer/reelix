@@ -45,9 +45,14 @@ enum SizeValues {
   oneHundredThirtyEight(138),
   ninetySeven(97),
   oneHundredSeventyOne(171),
-
+  oneHundredTwentyOne(121),
   threeHundred(300),
-  twoHundredFifty(372);
+  twoHundredFifty(372),
+  oneHundredEleven(111),
+  thirtyThree(33),
+  sixtyTwo(62),
+  oneHundredFiftyThree(153),
+  twoHundredThirteen(213);
 
   final double value;
 

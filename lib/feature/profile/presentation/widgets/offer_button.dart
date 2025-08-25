@@ -9,8 +9,8 @@ final class _OfferButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 111.w,
-      height: 33.h,
+      width: SizeValues.oneHundredEleven.value.w,
+      height: SizeValues.thirtyThree.value.h,
       child: FilledButton(
         style: FilledButton.styleFrom(
           padding: EdgeInsets.zero,
@@ -21,13 +21,13 @@ final class _OfferButton extends StatelessWidget {
         onPressed: onPressed,
         child: Row(
           children: [
-            SizedBox(width: SizeValues.eleven.value.w),
+            VerticalSpace.eleven(),
             SvgPicture.asset(
               AssetPath.diamond.path.svgImage,
-              width: 14.w,
-              height: 12.h,
+              width: SizeValues.fourteen.value.w,
+              height: SizeValues.ss.value.h,
             ),
-            SizedBox(width: SizeValues.xxs.value.w),
+            VerticalSpace.xxs(),
             Text(
               label.tr(),
               style: context.general.textTheme.titleSmall,

@@ -15,7 +15,7 @@ class _CustomAppBarState extends State<_CustomAppBar> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(width: SizeValues.twentyThree.value.w),
+        VerticalSpace.twentyThree(),
         CustomLeadingButton(
           onTap: () {
             AppLocalization.updateLanguage(
@@ -25,18 +25,18 @@ class _CustomAppBarState extends State<_CustomAppBar> {
           },
           image: AssetPath.world.path.pngImage,
         ),
-        SizedBox(width: SizeValues.eightyEight.value.w),
+        VerticalSpace.eightyEight(),
         Text(
           widget.title.tr(),
           style: context.general.textTheme.displayMedium,
           textAlign: TextAlign.center,
         ),
-        SizedBox(width: SizeValues.nineteen.value.w),
+        VerticalSpace.nineteen(),
         _OfferButton(
           onPressed: () {},
           label: LocaleKeys.profile_limited_offer,
         ),
-        SizedBox(width: SizeValues.twentyFour.value.w),
+        VerticalSpace.twentyFour(),
       ],
     );
   }

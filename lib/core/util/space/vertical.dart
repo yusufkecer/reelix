@@ -6,13 +6,16 @@ import 'package:reelix/core/index.dart';
 final class VerticalSpace extends SizedBox {
   /// 4px
   VerticalSpace.xxs({super.key}) : super(height: SizeValues.xxs.value.h);
+  VerticalSpace.five({super.key}) : super(height: SizeValues.five.value.h);
   VerticalSpace.six({super.key}) : super(height: SizeValues.six.value.h);
 
   /// 8px
   VerticalSpace.xs({super.key}) : super(height: SizeValues.xs.value.h);
+  VerticalSpace.nine({super.key}) : super(height: SizeValues.nine.value.h);
 
   /// 10px
   VerticalSpace.s({super.key}) : super(height: SizeValues.s.value.h);
+  VerticalSpace.eleven({super.key}) : super(height: SizeValues.eleven.value.h);
 
   /// 12px
   VerticalSpace.ss({super.key}) : super(height: SizeValues.ss.value.h);
@@ -32,6 +35,10 @@ final class VerticalSpace extends SizedBox {
   VerticalSpace.twentyFour({super.key})
     : super(height: SizeValues.twentyFour.value.h);
 
+  /// 28px
+  VerticalSpace.twentyEight({super.key})
+    : super(height: SizeValues.twentyEight.value.h);
+
   /// 14px
   VerticalSpace.fourteen({super.key})
     : super(height: SizeValues.fourteen.value.h);
@@ -46,6 +53,14 @@ final class VerticalSpace extends SizedBox {
   /// 35px
   VerticalSpace.thirtyFive({super.key})
     : super(height: SizeValues.thirtyFive.value.h);
+
+  /// 19px
+  VerticalSpace.nineteen({super.key})
+    : super(height: SizeValues.nineteen.value.h);
+
+  /// 36px
+  VerticalSpace.thirtySix({super.key})
+    : super(height: SizeValues.thirtySix.value.h);
 
   /// 37px
   VerticalSpace.thirtySeven({super.key})
@@ -72,6 +87,10 @@ final class VerticalSpace extends SizedBox {
   /// 53px
   VerticalSpace.fiftyThree({super.key})
     : super(height: SizeValues.fiftyThree.value.h);
+
+  /// 88px
+  VerticalSpace.eightyEight({super.key})
+    : super(height: SizeValues.eightyEight.value.h);
 
   /// 138px
   VerticalSpace.oneHundredThirtyEight({super.key})

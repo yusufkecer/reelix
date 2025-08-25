@@ -13,10 +13,7 @@ class _UserInfoLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        right: 26.w,
-        left: 35.w,
-      ),
+      padding: AppPadding.profilePadding(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -26,13 +23,13 @@ class _UserInfoLayer extends StatelessWidget {
                 child: imageUrl.isNotEmpty
                     ? Image.network(
                         imageUrl,
-                        height: 62.h,
-                        width: 62.w,
+                        height: SizeValues.sixtyTwo.value.h,
+                        width: SizeValues.sixtyTwo.value.w,
                         fit: BoxFit.cover,
                       )
                     : const SizedBox.shrink(),
               ),
-              SizedBox(width: SizeValues.nine.value.h),
+              VerticalSpace.nine(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -40,7 +37,7 @@ class _UserInfoLayer extends StatelessWidget {
                     fullName,
                     style: context.general.textTheme.displayMedium,
                   ),
-                  SizedBox(height: SizeValues.five.value.h),
+                  VerticalSpace.five(),
                   Text(
                     'ID ${id.length > 10 ? id.substring(0, 10) : id}...',
                     style: context.general.textTheme.bodyMedium?.copyWith(
@@ -53,8 +50,8 @@ class _UserInfoLayer extends StatelessWidget {
           ),
 
           SizedBox(
-            width: 121.w,
-            height: 36.h,
+            width: SizeValues.oneHundredTwentyOne.value.w,
+            height: SizeValues.thirtySix.value.h,
             child: FilledButton(
               style: FilledButton.styleFrom(
                 padding: EdgeInsets.zero,
