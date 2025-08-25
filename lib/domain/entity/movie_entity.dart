@@ -18,6 +18,8 @@ class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
   final String? posterUrl;
   @JsonKey(name: 'isFavorite')
   final bool? isFavorite;
+  @JsonKey(name: 'Genre')
+  final String? genre;
 
   const MovieEntity({
     this.id,
@@ -25,6 +27,7 @@ class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
     this.description,
     this.posterUrl,
     this.isFavorite,
+    this.genre,
   });
 
   MovieEntity copyWith({
@@ -33,12 +36,14 @@ class MovieEntity extends Equatable implements BaseModel<MovieEntity> {
     String? description,
     String? posterUrl,
     bool? isFavorite,
+    String? genre,
   }) => MovieEntity(
     id: id ?? this.id,
     title: title ?? this.title,
     description: description ?? this.description,
     posterUrl: posterUrl ?? this.posterUrl,
-    isFavorite: isFavorite ?? this.isFavorite,
+    isFavorite: isFavorite ?? this.isFavorite,  
+    genre: genre ?? this.genre,
   );
 
   factory MovieEntity.fromJson(Map<String, dynamic> json) =>

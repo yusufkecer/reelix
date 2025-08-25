@@ -54,3 +54,14 @@ flutter:
     - assets/lottie/
     - assets/lang/
 
+flutter_native_splash:
+  color: "#090909"
+  image: "assets/app_logo/app_logo.png"
+  branding_bottom_padding: 24
+
+  android_12:
+    image: "assets/app_logo/app_logo.png"
+    icon_background_color: "#090909"
+    fullscreen: true
+  web:
+    false

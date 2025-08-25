@@ -105,14 +105,17 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i395.CacheManager>(),
       ),
     );
-    gh.factory<_i525.FavoriteMovieCubit>(
+    gh.lazySingleton<_i525.FavoriteMovieCubit>(
       () => _i525.FavoriteMovieCubit(gh<_i430.ProfileUseCase>()),
     );
     gh.lazySingleton<_i407.ProfileCubit>(
       () => _i407.ProfileCubit(gh<_i430.ProfileUseCase>()),
     );
     gh.factory<_i898.MovieCubit>(
-      () => _i898.MovieCubit(movieUseCase: gh<_i920.MovieUseCase>()),
+      () => _i898.MovieCubit(
+        movieUseCase: gh<_i920.MovieUseCase>(),
+        favoriteMovieCubit: gh<_i525.FavoriteMovieCubit>(),
+      ),
     );
     gh.factory<_i457.UploadPhotoCubit>(
       () => _i457.UploadPhotoCubit(

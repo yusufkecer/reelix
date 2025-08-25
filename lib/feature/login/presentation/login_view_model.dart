@@ -12,23 +12,9 @@ mixin LoginViewMixin on State<_LoginBody>, Dialogs {
     return false;
   }
 
-  Future<void> _checkToken() async {
-    final token = await Locator.sl<CacheManager>().getToken();
-    if (token != null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        context.router.pushAndPopUntil(
-          const HomeView(),
-          predicate: (route) => false,
-        );
-      });
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-
-    _checkToken();
   }
 
   @override

@@ -59,6 +59,22 @@ class RegisterView extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [Splash]
+class SplashView extends PageRouteInfo<void> {
+  const SplashView({List<PageRouteInfo>? children})
+    : super(SplashView.name, initialChildren: children);
+
+  static const String name = 'SplashView';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const Splash();
+    },
+  );
+}
+
+/// generated route for
 /// [UploadPhoto]
 class UploadPhotoView extends PageRouteInfo<void> {
   const UploadPhotoView({List<PageRouteInfo>? children})

@@ -12,6 +12,7 @@ MovieEntity _$MovieEntityFromJson(Map<String, dynamic> json) => MovieEntity(
   description: json['Plot'] as String?,
   posterUrl: json['Poster'] as String?,
   isFavorite: json['isFavorite'] as bool?,
+  genre: json['Genre'] as String?,
 );
 
 Map<String, dynamic> _$MovieEntityToJson(MovieEntity instance) =>
@@ -21,4 +22,5 @@ Map<String, dynamic> _$MovieEntityToJson(MovieEntity instance) =>
       'Plot': instance.description,
       'Poster': instance.posterUrl,
       'isFavorite': instance.isFavorite,
+      'Genre': instance.genre,
     };
