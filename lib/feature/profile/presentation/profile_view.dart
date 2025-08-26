@@ -75,28 +75,50 @@ class __ProfileBodyState extends State<_ProfileBody> with _ProfileViewModel {
 
             BlocBuilder<FavoriteMovieCubit, FavoriteMovieState>(
               builder: (context, state) {
-                return Expanded(
-                  child: Padding(
-                    padding: AppPadding.horizontalThirtyNine(),
-                    child: GridView.builder(
-                      padding: EdgeInsets.only(bottom: 95.h),
-                      itemCount: state.movies?.length ?? 0,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 16.w,
-                        mainAxisSpacing: 13.h,
-                        crossAxisCount: 2,
-                        childAspectRatio: 0.54,
-                      ),
-                      itemBuilder: (context, index) {
-                        return MovieCard(
-                          imageUrl: state.movies?[index].posterUrl ?? '',
-                          title: state.movies?[index].title ?? '',
-                          genre: state.movies?[index].genre ?? '',
-                        );
-                      },
-                    ),
-                  ),
-                );
+                return state.movies?.isEmpty ?? true
+                    ? SizedBox(
+                        height: SizeValues.fourHundred.value.h,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.favorite_border,
+                                size: 60.w,
+                                color: AppColor.instance.white,
+                              ),
+                              VerticalSpace.six(),
+                              Text(
+                                LocaleKeys.profile_no_liked_movies.tr(),
+                                style: context.general.textTheme.displayLarge,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : Expanded(
+                        child: Padding(
+                          padding: AppPadding.horizontalThirtyNine(),
+                          child: GridView.builder(
+                            padding: EdgeInsets.only(bottom: 95.h),
+                            itemCount: state.movies?.length ?? 0,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisSpacing: 16.w,
+                                  mainAxisSpacing: 13.h,
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 0.54,
+                                ),
+                            itemBuilder: (context, index) {
+                              return MovieCard(
+                                imageUrl: state.movies?[index].posterUrl ?? '',
+                                title: state.movies?[index].title ?? '',
+                                genre: state.movies?[index].genre ?? '',
+                              );
+                            },
+                          ),
+                        ),
+                      );
               },
             ),
           ],

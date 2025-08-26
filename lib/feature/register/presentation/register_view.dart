@@ -95,7 +95,10 @@ class __RegisterBodyState extends State<_RegisterBody>
               height: SizeValues.fiftyThree.value.h,
               child: CustomButton(
                 onPressed: _onRegisterButtonPressed,
-                child: Text(LocaleKeys.auth_register_register_button.tr()),
+                child: Text(
+                  LocaleKeys.auth_register_register_button.tr(),
+                  style: context.general.textTheme.displayMedium,
+                ),
               ),
             ),
             VerticalSpace.thirtySeven(),
@@ -103,7 +106,7 @@ class __RegisterBodyState extends State<_RegisterBody>
             VerticalSpace.thirtyTwo(),
             CustomRichText(
               firstText: LocaleKeys.auth_login_register_text,
-              secondText: LocaleKeys.auth_login_register_button,
+              secondText: LocaleKeys.auth_login_login_button,
               onSecondTextTap: _onLoginButtonTap,
             ),
           ],

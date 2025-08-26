@@ -69,6 +69,7 @@
         "limited_offer": "Sınırlı Teklif",
         "add_photo": "Fotoğraf Ekle",
         "liked_movies": "Beğendiğim Filmler",
+        "no_liked_movies": "Beğendiğiniz film bulunamadı.",
         "offer": {
             "token": "Jeton",
             "premium_per_week": "Başına haftalık",

@@ -59,6 +59,7 @@ abstract class  LocaleKeys {
   static const profile_limited_offer = 'profile.limited_offer';
   static const profile_add_photo = 'profile.add_photo';
   static const profile_liked_movies = 'profile.liked_movies';
+  static const profile_no_liked_movies = 'profile.no_liked_movies';
   static const profile_offer_token = 'profile.offer.token';
   static const profile_offer_premium_per_week = 'profile.offer.premium_per_week';
   static const profile_offer_bonus = 'profile.offer.bonus';

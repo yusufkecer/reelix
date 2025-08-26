@@ -99,6 +99,7 @@ class __LoginBodyState extends State<_LoginBody> with Dialogs, LoginViewMixin {
                 onPressed: _onLoginButtonTap,
                 child: Text(
                   LocaleKeys.auth_login_login_button.tr(),
+                  style: context.general.textTheme.displayMedium,
                 ),
               ),
             ),

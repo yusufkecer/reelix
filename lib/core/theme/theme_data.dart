@@ -70,6 +70,11 @@ class CustomTheme implements BaseTheme {
   FilledButtonThemeData get _filledButtonTheme {
     return FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        textStyle: TextStyle(
+          fontSize: AppFontSize.normal.value.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColor.instance.white,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: AppRadius.eighteen(),
         ),

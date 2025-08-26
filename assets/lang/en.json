@@ -67,6 +67,7 @@
         "limited_offer": "Limited Offer",
         "add_photo": "Add Photo",
         "liked_movies": "Movies I Like",
+        "no_liked_movies": "No liked movies found.",
         "offer": {
             "token": "Token",
             "premium_per_week": "Per week",
