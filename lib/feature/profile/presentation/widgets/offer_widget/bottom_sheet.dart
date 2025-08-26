@@ -115,7 +115,6 @@ class _BottomSheet extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             LocaleKeys.profile_offer_see_all_tokens.tr(),
-                            style: context.general.textTheme.bodyMedium,
                           ),
                         ),
                       ),

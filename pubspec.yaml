@@ -8,45 +8,65 @@ version: 1.0.0+1
 environment:
   sdk: ^3.8.1
 
-
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.1.1
+
+  # State Management
+  bloc: ^9.0.0
   equatable: ^2.0.7
-  dio: ^5.9.0
-  flutter_native_splash: ^2.4.6
-  icons_launcher: ^3.0.1
+  flutter_bloc: ^9.1.1
+
+  # Dependency Injection
   get_it: ^8.2.0
-  easy_localization: ^3.0.8
   injectable: ^2.5.1
+
+  # Navigation & Routing
   auto_route: ^10.1.2
+
+  # Network & API
+  dio: ^5.9.0
   json_annotation: ^4.9.0
-  logger: ^2.6.1
-  lottie: ^3.3.1
-  shared_preferences: ^2.5.3
-  infinite_scroll_pagination: ^5.1.0
+
+  # Localization & Environment
+  easy_localization: ^3.0.8
   envied: ^1.2.0
+
+  # UI & Styling
   flutter_screenutil: ^5.9.3
   kartal: ^4.2.0
-  bloc: ^9.0.0
-  image_picker: ^1.2.0
-  flutter_svg: ^2.2.0
+
+  # Icons & Images
   cached_network_image: ^3.4.1
+  flutter_svg: ^2.2.0
+  image_picker: ^1.2.0
+
+  # Animations
+  lottie: ^3.3.1
+
+  # Storage & Caching
+  shared_preferences: ^2.5.3
+
+  # Utilities & Tools
+  infinite_scroll_pagination: ^5.1.0
+  logger: ^2.6.1
+
+  # App Configuration
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  injectable_generator: ^2.8.1
-  build_runner: ^2.7.0
   auto_route_generator: ^10.2.4
+  build_runner: ^2.7.0
+  envied_generator: ^1.2.0
   flutter_lints: ^6.0.0
+  icons_launcher: ^3.0.1
+  injectable_generator: ^2.8.1
   json_serializable: ^6.10.0
   very_good_analysis: ^9.0.0
-  envied_generator: ^1.2.0
 
 flutter:
-
   uses-material-design: true
 
   assets:
@@ -65,3 +85,12 @@ flutter_native_splash:
 
   web:
     false
+
+icons_launcher:
+  image_path: "assets/app_logo/app_logo.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+
