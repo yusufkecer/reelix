@@ -27,6 +27,7 @@ abstract class  LocaleKeys {
   static const dialog_error = 'dialog.error';
   static const dialog_success = 'dialog.success';
   static const dialog = 'dialog';
+  static const error_register_success = 'error.register_success';
   static const error_register_error = 'error.register_error';
   static const error_fill_all_fields = 'error.fill_all_fields';
   static const error_error_message_passwords_not_match = 'error.error_message_passwords_not_match';
@@ -58,6 +59,17 @@ abstract class  LocaleKeys {
   static const profile_limited_offer = 'profile.limited_offer';
   static const profile_add_photo = 'profile.add_photo';
   static const profile_liked_movies = 'profile.liked_movies';
+  static const profile_offer_token = 'profile.offer.token';
+  static const profile_offer_premium_per_week = 'profile.offer.premium_per_week';
+  static const profile_offer_bonus = 'profile.offer.bonus';
+  static const profile_offer_premium_account = 'profile.offer.premium_account';
+  static const profile_offer_more_match = 'profile.offer.more_match';
+  static const profile_offer_be_featured = 'profile.offer.be_featured';
+  static const profile_offer_more_likes = 'profile.offer.more_likes';
+  static const profile_offer_limited_offer_explain = 'profile.offer.limited_offer_explain';
+  static const profile_offer_choose_package = 'profile.offer.choose_package';
+  static const profile_offer_see_all_tokens = 'profile.offer.see_all_tokens';
+  static const profile_offer = 'profile.offer';
   static const profile = 'profile';
 
 }

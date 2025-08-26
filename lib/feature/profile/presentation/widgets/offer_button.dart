@@ -21,13 +21,13 @@ final class _OfferButton extends StatelessWidget {
         onPressed: onPressed,
         child: Row(
           children: [
-            VerticalSpace.eleven(),
+            HorizontalSpace.ss(),
             SvgPicture.asset(
               AssetPath.diamond.path.svgImage,
               width: SizeValues.fourteen.value.w,
               height: SizeValues.ss.value.h,
             ),
-            VerticalSpace.xxs(),
+            HorizontalSpace.xxs(),
             Text(
               label.tr(),
               style: context.general.textTheme.titleSmall,

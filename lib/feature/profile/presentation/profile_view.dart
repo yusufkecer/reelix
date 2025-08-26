@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,10 @@ part 'widgets/offer_button.dart';
 part 'widgets/custom_app_bar.dart';
 part 'widgets/user_info_layer.dart';
 part 'widgets/movie_card.dart';
+part 'widgets/offer_widget/bottom_sheet.dart';
+part 'mixin/bottom_sheet_mixin.dart';
+part 'widgets/offer_widget/bonus.dart';
+part 'widgets/offer_widget/price_card.dart';
 
 @immutable
 final class ProfileView extends StatelessWidget {

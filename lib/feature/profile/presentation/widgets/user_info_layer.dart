@@ -29,7 +29,7 @@ class _UserInfoLayer extends StatelessWidget {
                       )
                     : const SizedBox.shrink(),
               ),
-              VerticalSpace.nine(),
+              HorizontalSpace.nine(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

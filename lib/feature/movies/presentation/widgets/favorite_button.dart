@@ -23,9 +23,7 @@ final class _FavoriteButton extends StatelessWidget {
         ),
         child: ColorFiltered(
           colorFilter: ColorFilter.mode(
-            isFavorite
-                ? AppColor.instance.buttonPrimaryColor
-                : AppColor.instance.white,
+            isFavorite ? AppColor.instance.redColor : AppColor.instance.white,
             BlendMode.srcIn,
           ),
           child: const Icon(

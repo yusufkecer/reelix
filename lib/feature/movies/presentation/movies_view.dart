@@ -44,7 +44,7 @@ class _MovieListState extends State<_MovieList> with MoviesViewModel {
     return BlocBuilder<MovieCubit, MovieState>(
       builder: (context, state) {
         return RefreshIndicator(
-          color: AppColor.instance.buttonPrimaryColor,
+          color: AppColor.instance.redColor,
           onRefresh: () async {
             await _fetchPage(0);
           },

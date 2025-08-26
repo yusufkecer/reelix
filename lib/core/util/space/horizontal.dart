@@ -13,6 +13,17 @@ final class HorizontalSpace extends SizedBox {
   /// 8px
   HorizontalSpace.xs({super.key}) : super(width: SizeValues.xs.value.w);
 
+  /// 9px
+  HorizontalSpace.nine({super.key}) : super(width: SizeValues.nine.value.w);
+
+  /// 23px
+  HorizontalSpace.twentyThree({super.key})
+    : super(width: SizeValues.twentyThree.value.w);
+
+  /// 88px
+  HorizontalSpace.eightyEight({super.key})
+    : super(width: SizeValues.eightyEight.value.w);
+
   /// 10px
   HorizontalSpace.s({super.key}) : super(width: SizeValues.s.value.w);
 
@@ -23,12 +34,20 @@ final class HorizontalSpace extends SizedBox {
   HorizontalSpace.sixteen({super.key})
     : super(width: SizeValues.sixteen.value.w);
 
+  /// 19px
+  HorizontalSpace.nineteen({super.key})
+    : super(width: SizeValues.nineteen.value.w);
+
   /// 20px
   HorizontalSpace.l({super.key}) : super(width: SizeValues.l.value.w);
 
   /// 14px
   HorizontalSpace.fourteen({super.key})
     : super(width: SizeValues.fourteen.value.w);
+
+  /// 24px
+  HorizontalSpace.twentyFour({super.key})
+    : super(width: SizeValues.twentyFour.value.w);
 
   /// 30px
   HorizontalSpace.thirty({super.key}) : super(width: SizeValues.thirty.value.w);
@@ -61,7 +80,7 @@ final class HorizontalSpace extends SizedBox {
 
   /// 250px
   HorizontalSpace.twoHundredFifty({super.key})
-    : super(width: SizeValues.twoHundredFifty.value.w);
+    : super(width: SizeValues.threeHundredSeventyTwo.value.w);
 
   /// 300px
   HorizontalSpace.threeHundred({super.key})

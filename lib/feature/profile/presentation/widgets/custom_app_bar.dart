@@ -9,13 +9,13 @@ final class _CustomAppBar extends StatefulWidget {
   State<_CustomAppBar> createState() => _CustomAppBarState();
 }
 
-class _CustomAppBarState extends State<_CustomAppBar> {
+class _CustomAppBarState extends State<_CustomAppBar> with _BottomSheetMixin {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        VerticalSpace.twentyThree(),
+        HorizontalSpace.twentyThree(),
         CustomLeadingButton(
           onTap: () {
             AppLocalization.updateLanguage(
@@ -25,18 +25,20 @@ class _CustomAppBarState extends State<_CustomAppBar> {
           },
           image: AssetPath.world.path.pngImage,
         ),
-        VerticalSpace.eightyEight(),
+        HorizontalSpace.eightyEight(),
         Text(
           widget.title.tr(),
           style: context.general.textTheme.displayMedium,
           textAlign: TextAlign.center,
         ),
-        VerticalSpace.nineteen(),
+        HorizontalSpace.nineteen(),
         _OfferButton(
-          onPressed: () {},
+          onPressed: () {
+            customBottomSheet(context);
+          },
           label: LocaleKeys.profile_limited_offer,
         ),
-        VerticalSpace.twentyFour(),
+        HorizontalSpace.twentyFour(),
       ],
     );
   }

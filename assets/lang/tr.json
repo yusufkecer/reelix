@@ -31,6 +31,7 @@
         "success": "Başarılı"
     },
     "error": {
+        "register_success": "Kayıt başarılı oldu. Lütfen giriş yapınız.",
         "register_error": "Kayıt başarısız oldu. Lütfen tekrar deneyiniz.",
         "fill_all_fields": "Lütfen tüm alanları doldurunuz.",
         "error_message_passwords_not_match": "Şifreler eşleşmiyor. Lütfen tekrar deneyiniz.",
@@ -67,6 +68,18 @@
     "profile": {
         "limited_offer": "Sınırlı Teklif",
         "add_photo": "Fotoğraf Ekle",
-        "liked_movies": "Beğendiğim Filmler"
+        "liked_movies": "Beğendiğim Filmler",
+        "offer": {
+            "token": "Jeton",
+            "premium_per_week": "Başına haftalık",
+            "bonus": "Alacağınız Bonuslar",
+            "premium_account": "Premium Hesap",
+            "more_match": "Daha Fazla Eşleşme",
+            "be_featured": "Öne Çıkarma",
+            "more_likes": "Daha Fazla Beğeni",
+            "limited_offer_explain": "Jeton paketin’ni seçerek bonus kazanın ve yeni bölümlerin kilidini açın!",
+            "choose_package": "Kilidi açmak için bir jeton paketi seçin",
+            "see_all_tokens": "Tüm Jetonları Gör"
+        }
     }
 }

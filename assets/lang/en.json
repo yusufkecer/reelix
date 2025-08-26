@@ -29,6 +29,7 @@
         "success": "Success"
     },
     "error": {
+        "register_success": "Registration successful. Please login.",
         "register_error": "Registration failed. Please try again.",
         "fill_all_fields": "Please fill in all fields.",
         "error_message_passwords_not_match": "Passwords do not match. Please try again.",
@@ -65,6 +66,18 @@
     "profile": {
         "limited_offer": "Limited Offer",
         "add_photo": "Add Photo",
-        "liked_movies": "Movies I Like"
+        "liked_movies": "Movies I Like",
+        "offer": {
+            "token": "Token",
+            "premium_per_week": "Per week",
+            "bonus": "Receive Bonuses",
+            "premium_account": "Premium Account",
+            "more_match": "More Match",
+            "be_featured": "Be Featured",
+            "more_likes": "More Likes",
+            "limited_offer_explain": "Receive bonus by selecting a Token package and unlock new episodes!",
+            "choose_package": "Choose Package",
+            "see_all_tokens": "See All Tokens"
+        }
     }
 }
