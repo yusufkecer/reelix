@@ -9,6 +9,7 @@ abstract interface class Cache {
   Future<String?>? getToken();
 
   Future<void> delete(String key);
+  Future<void> deleteToken();
 
   Future<void> init();
 }

@@ -11,12 +11,23 @@ class CustomTheme implements BaseTheme {
     return ThemeData(
       useMaterial3: true,
       textButtonTheme: _textButtonTheme,
+      bottomSheetTheme: _bottomSheetTheme,
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: AppColor.instance.white,
       ),
       textTheme: TextTheme(
+        titleLarge: TextStyle(
+          fontSize: AppFontSize.xxLarge.value.sp,
+          fontWeight: FontWeight.w900,
+          color: AppColor.instance.white,
+        ),
         displayLarge: TextStyle(
           fontSize: AppFontSize.large.value.sp,
+          fontWeight: FontWeight.w600,
+          color: AppColor.instance.white,
+        ),
+        labelLarge: TextStyle(
+          fontSize: AppFontSize.extraLarge.value.sp,
           fontWeight: FontWeight.w600,
           color: AppColor.instance.white,
         ),
@@ -58,12 +69,16 @@ class CustomTheme implements BaseTheme {
 
   FilledButtonThemeData get _filledButtonTheme {
     return FilledButtonThemeData(
-      
       style: FilledButton.styleFrom(
+        textStyle: TextStyle(
+          fontSize: AppFontSize.normal.value.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColor.instance.white,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: AppRadius.eighteen(),
         ),
-        backgroundColor: AppColor.instance.buttonPrimaryColor,
+        backgroundColor: AppColor.instance.redColor,
         foregroundColor: AppColor.instance.white,
       ),
     );
@@ -112,6 +127,14 @@ class CustomTheme implements BaseTheme {
         borderSide: BorderSide(
           color: AppColor.instance.verySoftBlack,
         ),
+      ),
+    );
+  }
+
+  BottomSheetThemeData get _bottomSheetTheme {
+    return BottomSheetThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: AppRadius.bottomSheetRadius(),
       ),
     );
   }

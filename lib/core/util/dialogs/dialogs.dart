@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kartal/kartal.dart';
 import 'package:reelix/core/index.dart';
 
 mixin Dialogs {
@@ -21,7 +22,10 @@ mixin Dialogs {
         actions: [
           TextButton(
             onPressed: () => context.pop(),
-            child: Text(LocaleKeys.dialog_ok.tr()),
+            child: Text(
+              LocaleKeys.dialog_ok.tr(),
+              style: context.general.textTheme.bodyMedium,
+            ),
           ),
         ],
       ),
@@ -44,7 +48,10 @@ mixin Dialogs {
               onPressed();
               context.pop();
             },
-            child: Text(LocaleKeys.dialog_ok.tr()),
+            child: Text(
+              LocaleKeys.dialog_ok.tr(),
+              style: context.general.textTheme.bodyMedium,
+            ),
           ),
         ],
       ),

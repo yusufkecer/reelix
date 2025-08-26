@@ -60,7 +60,13 @@ mixin _RegisterViewMixin on State<_RegisterBody>, Dialogs {
 
   void _checkState() {
     if (context.read<RegisterCubit>().state is RegisterSuccess) {
-      'register success'.logInfo();
+      showSuccessDialog(
+        context,
+        LocaleKeys.error_register_success,
+        onPressed: () {
+          context.pop();
+        },
+      );
     }
     if (context.read<RegisterCubit>().state is RegisterFailure) {
       if (context.read<RegisterCubit>().state.errorMessage ==

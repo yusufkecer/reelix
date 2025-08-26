@@ -27,11 +27,24 @@ final class CacheManager implements Cache {
 
   @override
   Future<String?>? getToken() async {
-    return _preferences.getString('token');
+    return _preferences.getString(CacheKeys.token.key);
   }
 
   @override
   Future<void> saveToken(String token) {
-    return _preferences.setString('token', token);
+    return _preferences.setString(CacheKeys.token.key, token);
   }
+
+  @override
+  Future<void> deleteToken() {
+    return _preferences.remove(CacheKeys.token.key);
+  }
+}
+
+enum CacheKeys {
+  token('token');
+
+  const CacheKeys(this.key);
+
+  final String key;
 }

@@ -7,6 +7,7 @@ class AppPadding extends EdgeInsets {
   const AppPadding.allEight() : super.all(8);
   const AppPadding.allNine() : super.all(9);
   const AppPadding.allTen() : super.all(10);
+  const AppPadding.allSixteen() : super.all(16);
   AppPadding.horizontalThirtyFour() : super.symmetric(horizontal: 34.w);
   const AppPadding.allTwentyFour() : super.all(24);
   AppPadding.bottomSixteen() : super.only(bottom: 16.h);
@@ -16,4 +17,5 @@ class AppPadding extends EdgeInsets {
   AppPadding.rightTwentyFive() : super.only(right: 25.w);
   AppPadding.horizontalSixtySeven() : super.symmetric(horizontal: 67.w);
   AppPadding.textFieldPadding() : super.only(left: 25.w, right: 10.w);
+  AppPadding.profilePadding() : super.only(right: 26.w, left: 35.w);
 }

@@ -29,6 +29,11 @@ enum AssetPath {
   loading('loading'),
   diamond('diamond'),
   world('world'),
+  arrow('arrow'),
+  gem('gem'),
+  heart('heart'),
+  multiHeart('multi_heart'),
+  notFound('not_found'),
   logo('logo');
 
   const AssetPath(this.path);
