@@ -51,19 +51,66 @@ Clean Architecture + MVVM + BLoC state management prensipleriyle geliştirilmiş
 Uygulama **Clean Architecture** ve **MVVM** prensiplerine uygun olarak geliştirilmiştir.  
 Katmanlar şu şekilde yapılandırılmıştır:
 
+```
 └── 📁lib
-├── 📁core # Çekirdek katman (base, network, theme, cache, util, widget, services)
-├── 📁domain # Domain katmanı (Entity tanımları)
-├── 📁feature # Feature bazlı modüller
-│ ├── 📁home
-│ ├── 📁login
-│ ├── 📁movies
-│ ├── 📁profile
-│ ├── 📁register
-│ ├── 📁splash
-│ └── 📁upload_photo
-├── 📁injection # Dependency Injection ayarları (get_it, injectable)
-└── main.dart
+    ├── 📁core
+    │   ├── 📁base
+    │   ├── 📁cache
+    │   ├── 📁constants
+    │   ├── 📁enums
+    │   ├── 📁env
+    │   ├── 📁exception
+    │   ├── 📁extension
+    │   ├── 📁init
+    │   │   └── 📁language
+    │   │       └── 📁cubit
+    │   ├── 📁network
+    │   ├── 📁router
+    │   ├── 📁theme
+    │   ├── 📁util
+    │   │   ├── 📁constants
+    │   │   ├── 📁dialogs
+    │   │   ├── 📁model
+    │   │   │   └── 📁network
+    │   │   └── 📁space
+    │   └── 📁widget
+    ├── 📁domain
+    │   └── 📁entity
+    ├── 📁feature
+    │   ├── 📁home
+    │   │   ├── 📁cubit
+    │   │   ├── 📁model
+    │   │   ├── 📁service
+    │   │   └── 📁view
+    │   ├── 📁login
+    │   │   ├── 📁cubit
+    │   │   ├── 📁model
+    │   │   ├── 📁service
+    │   │   └── 📁view
+    │   ├── 📁movies
+    │   │   ├── 📁cubit
+    │   │   ├── 📁model
+    │   │   ├── 📁service
+    │   │   └── 📁view
+    │   ├── 📁profile
+    │   │   ├── 📁cubit
+    │   │   ├── 📁model
+    │   │   ├── 📁service
+    │   │   └── 📁view
+    │   ├── 📁register
+    │   │   ├── 📁cubit
+    │   │   ├── 📁model
+    │   │   ├── 📁service
+    │   │   └── 📁view
+    │   ├── 📁splash
+    │   │   └── 📁view
+    │   └── 📁upload_photo
+    │       ├── 📁cubit
+    │       ├── 📁model
+    │       └── 📁view
+    ├── 📁injection
+    └── main.dart
+```
 
 ## 🧩 Mimari Diyagram
 
@@ -126,8 +173,6 @@ Katmanlar şu şekilde yapılandırılmıştır:
 
 # 📷 Ekran Görüntüleri
 
-<img width="270" height="600" alt="Screenshot_1756248961" src="https://github.com/user-attachments/assets/15fa5712-9a4a-4095-8ab9-c356c7692444" />
-<img width="270" height="600" alt="Screenshot_1756249577" src="https://github.com/user-attachments/assets/05404ec8-a0b9-432f-b7c9-e690f61d2a75" />
 <img width="270" height="600" alt="Screenshot_1756249584" src="https://github.com/user-attachments/assets/ca49cddd-996a-4c1c-a3dd-49becc0cbcd2" />
 <img width="270" height="600" alt="Screenshot_1756249573" src="https://github.com/user-attachments/assets/8193313b-fbd8-4eec-873c-e26c3d2a67bf" />
 <img width="270" height="600" alt="Screenshot_1756248966" src="https://github.com/user-attachments/assets/65a986d3-d134-4f53-aa7f-214e63b67381" />
@@ -136,8 +181,9 @@ Katmanlar şu şekilde yapılandırılmıştır:
 <img width="270" height="600" alt="Screenshot_1756249368" src="https://github.com/user-attachments/assets/fb3b0157-d777-48ff-8224-c069c5be07ed" />
 <img width="270" height="600" alt="Screenshot_1756249613" src="https://github.com/user-attachments/assets/9e44ca7e-1aa9-42b8-8d37-01bf2fd95b3c" />
 <img width="270" height="600" alt="Screenshot_1756249388" src="https://github.com/user-attachments/assets/8752fdfb-2fa7-4252-bcb0-e6442ec17cf1" />
-<img width="270" height="600" alt="Screenshot_1756249398" src="https://github.com/user-attachments/assets/9181a3ce-8736-4de8-bf0b-e2dd81a9fad5" />
-<img width="270" height="600" alt="Screenshot_1756249629" src="https://github.com/user-attachments/assets/da8e0125-e6dd-44d6-b408-ee20fbe40e6e" />
+<img width="270" height="600" alt="Screenshot_1756250563" src="https://github.com/user-attachments/assets/b8f301c1-2df2-4808-a1bf-2b57d8763593" />
+<img width="270" height="600" alt="Screenshot_1756250558" src="https://github.com/user-attachments/assets/090453d5-cb90-4cd0-b359-21d0ee904312" />
+
 
 
 
