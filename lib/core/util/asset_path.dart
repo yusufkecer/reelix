@@ -33,6 +33,7 @@ enum AssetPath {
   gem('gem'),
   heart('heart'),
   multiHeart('multi_heart'),
+  notFound('not_found'),
   logo('logo');
 
   const AssetPath(this.path);

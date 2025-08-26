@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:kartal/kartal.dart';
+import 'package:lottie/lottie.dart';
 import 'package:reelix/core/index.dart';
 import 'package:reelix/feature/profile/cubit/favorite_movie_cubit/favorite_movie_cubit.dart';
 import 'package:reelix/feature/profile/cubit/profile_cubit/profile_cubit.dart';
@@ -82,15 +83,18 @@ class __ProfileBodyState extends State<_ProfileBody> with _ProfileViewModel {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.favorite_border,
-                                size: 60.w,
-                                color: AppColor.instance.white,
+                              Lottie.asset(
+                                AssetPath.notFound.path.lottie,
+                                width: 100.w,
+                                height: 100.h,
                               ),
                               VerticalSpace.six(),
                               Text(
                                 LocaleKeys.profile_no_liked_movies.tr(),
-                                style: context.general.textTheme.displayLarge,
+                                style: context.general.textTheme.displayLarge
+                                    ?.copyWith(
+                                      color: AppColor.instance.white,
+                                    ),
                               ),
                             ],
                           ),
