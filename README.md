@@ -133,8 +133,8 @@ Katmanlar şu şekilde yapılandırılmıştır:
 <img width="270" height="600" alt="Screenshot_1756248966" src="https://github.com/user-attachments/assets/65a986d3-d134-4f53-aa7f-214e63b67381" />
 <img width="270" height="600" alt="Screenshot_1756249372" src="https://github.com/user-attachments/assets/7c7ebac9-15a9-4428-ad75-a80f47429732" />
 <img width="270" height="600" alt="Screenshot_1756249375" src="https://github.com/user-attachments/assets/4d43c3ad-79c8-42db-a524-c0c263d7904d" />
-<img width="270" height="600" alt="Screenshot_1756249368" src="https://github.com/user-attachments/assets/1618c7d6-7f5a-48a5-a3b9-87d00743d390" />
 <img width="270" height="600" alt="Screenshot_1756249368" src="https://github.com/user-attachments/assets/fb3b0157-d777-48ff-8224-c069c5be07ed" />
+<img width="270" height="600" alt="Screenshot_1756249613" src="https://github.com/user-attachments/assets/9e44ca7e-1aa9-42b8-8d37-01bf2fd95b3c" />
 <img width="270" height="600" alt="Screenshot_1756249388" src="https://github.com/user-attachments/assets/8752fdfb-2fa7-4252-bcb0-e6442ec17cf1" />
 <img width="270" height="600" alt="Screenshot_1756249398" src="https://github.com/user-attachments/assets/9181a3ce-8736-4de8-bf0b-e2dd81a9fad5" />
 <img width="270" height="600" alt="Screenshot_1756249629" src="https://github.com/user-attachments/assets/da8e0125-e6dd-44d6-b408-ee20fbe40e6e" />
