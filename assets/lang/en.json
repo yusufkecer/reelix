@@ -19,7 +19,8 @@
                 "agreement_part_1": "User Agreement",
                 "agreement_part_2": "I have read and agree to.",
                 "agreement_part_3": "Please read this agreement before continuing."
-            }
+            },
+            "login_text": "Already have an account?"
         }
     },
     "dialog": {

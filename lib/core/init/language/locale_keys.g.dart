@@ -20,6 +20,7 @@ abstract class  LocaleKeys {
   static const auth_register_agreement_agreement_part_2 = 'auth.register.agreement.agreement_part_2';
   static const auth_register_agreement_agreement_part_3 = 'auth.register.agreement.agreement_part_3';
   static const auth_register_agreement = 'auth.register.agreement';
+  static const auth_register_login_text = 'auth.register.login_text';
   static const auth_register = 'auth.register';
   static const auth = 'auth';
   static const dialog_ok = 'dialog.ok';
