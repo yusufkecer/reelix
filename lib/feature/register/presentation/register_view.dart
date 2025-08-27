@@ -105,7 +105,7 @@ class __RegisterBodyState extends State<_RegisterBody>
             const FastLoginWidget(),
             VerticalSpace.thirtyTwo(),
             CustomRichText(
-              firstText: LocaleKeys.auth_login_register_text,
+              firstText: LocaleKeys.auth_register_login_text,
               secondText: LocaleKeys.auth_login_login_button,
               onSecondTextTap: _onLoginButtonTap,
             ),

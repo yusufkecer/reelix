@@ -41,9 +41,7 @@ final class CustomRichText extends StatelessWidget {
             text: secondText.tr(),
             style:
                 secondTextStyle ??
-                context.general.appTheme.textTheme.bodyMedium?.copyWith(
-                  color: AppColor.instance.white,
-                ),
+                context.general.appTheme.textTheme.bodyMedium,
             recognizer: TapGestureRecognizer()..onTap = onSecondTextTap,
           ),
         ],

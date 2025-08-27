@@ -17,6 +17,7 @@ mixin _SplashViewModel on State<Splash> {
   }
 
   Future<void> _checkToken() async {
+    await Locator.sl<CacheManager>().deleteToken();
     final token = await Locator.sl<CacheManager>().getToken();
     if (token != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
