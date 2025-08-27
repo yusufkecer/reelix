@@ -20,42 +20,51 @@ class CustomTheme implements BaseTheme {
           fontSize: AppFontSize.xxLarge.value.sp,
           fontWeight: FontWeight.w900,
           color: AppColor.instance.white,
+          fontFamily: 'EuclidCircular',
         ),
         displayLarge: TextStyle(
           fontSize: AppFontSize.large.value.sp,
           fontWeight: FontWeight.w600,
           color: AppColor.instance.white,
+          fontFamily: 'EuclidCircular',
         ),
         labelLarge: TextStyle(
           fontSize: AppFontSize.extraLarge.value.sp,
           fontWeight: FontWeight.w600,
           color: AppColor.instance.white,
+          fontFamily: 'EuclidCircular',
         ),
         displaySmall: TextStyle(
           fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w500,
           color: AppColor.instance.white,
+          fontFamily: 'EuclidCircular',
         ),
         displayMedium: TextStyle(
           fontSize: AppFontSize.normal.value.sp,
           fontWeight: FontWeight.w500,
           color: AppColor.instance.white,
+          fontFamily: 'EuclidCircular',
         ),
         bodyLarge: TextStyle(
           fontSize: AppFontSize.medium.value.sp,
           fontWeight: FontWeight.w400,
+          fontFamily: 'EuclidCircular',
         ),
         titleMedium: TextStyle(
           fontSize: AppFontSize.medium.value.sp,
           fontWeight: FontWeight.w700,
+          fontFamily: 'EuclidCircular',
         ),
         titleSmall: TextStyle(
           fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w600,
+          fontFamily: 'EuclidCircular',
         ),
         bodyMedium: TextStyle(
           fontSize: AppFontSize.small.value.sp,
           fontWeight: FontWeight.w400,
+          fontFamily: 'EuclidCircular',
         ),
       ),
 
