@@ -9,6 +9,7 @@ import 'package:reelix/injection/locator.dart';
 
 Future<void> main() async {
   await InitApp.init();
+
   runZonedGuarded(
     () {
       runApp(
