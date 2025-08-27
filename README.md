@@ -9,7 +9,8 @@ Clean Architecture + MVVM + BLoC state management prensipleriyle geliştirilmiş
 
 ### 1. Kimlik Doğrulama
 - Kullanıcı kayıt ve giriş işlemleri  
-- Oturum token'ının güvenli bir şekilde saklanması  
+- Oturum tokenının güvenli bir şekilde saklanması  
+- Kayıtlı oturumun korunması ve uygulamaya giriş yapılması
 - Başarılı giriş sonrası otomatik ana sayfa yönlendirmesi  
 
 ### 2. Ana Sayfa
@@ -27,7 +28,7 @@ Clean Architecture + MVVM + BLoC state management prensipleriyle geliştirilmiş
 ### 4. Navigasyon
 - Bottom Navigation Bar ile sayfalar arası geçiş  
 - Ana sayfa state yönetimi ve korunması  
-- **Navigation Service** ile merkezi yönlendirme yönetimi  
+- **Navigation Service** ile merkezi yönlendirme yönetimi  (`auto_route`)  
 
 ### 5. UI & Tema
 - **Custom Theme** desteği (renk, yazı tipi, boyutlandırma)  
@@ -39,10 +40,15 @@ Clean Architecture + MVVM + BLoC state management prensipleriyle geliştirilmiş
 - **Türkçe** ve **İngilizce** dil desteği  
 - Dinamik dil değiştirme özelliği  
 
-### 7. Diğer Özellikler
+### 7. Firebase Entegrasyonu 🔥
+- **Firebase Crashlytics** →  Crash ve hata takibi
+
+
+### 8. Diğer Özellikler
 - **Logger Service** → Gelişmiş log yönetimi (`logger`)  
 - **Splash Screen** ve **uygulama ikonları** (`flutter_native_splash`, `icons_launcher`)  
 - **Güvenli token yönetimi** (`shared_preferences` + cache layer)  
+
 
 ---
 
@@ -173,17 +179,20 @@ Katmanlar şu şekilde yapılandırılmıştır:
 
 # 📷 Ekran Görüntüleri
 
-<img width="270" height="600" alt="Screenshot_1756249584" src="https://github.com/user-attachments/assets/ca49cddd-996a-4c1c-a3dd-49becc0cbcd2" />
-<img width="270" height="600" alt="Screenshot_1756248961" src="https://github.com/user-attachments/assets/3fba2e85-8bb7-4930-82c1-056f440b8a7a" />
-<img width="270" height="600" alt="Screenshot_1756249573" src="https://github.com/user-attachments/assets/8193313b-fbd8-4eec-873c-e26c3d2a67bf" />
-<img width="270" height="600" alt="Screenshot_1756248966" src="https://github.com/user-attachments/assets/65a986d3-d134-4f53-aa7f-214e63b67381" />
-<img width="270" height="600" alt="Screenshot_1756249372" src="https://github.com/user-attachments/assets/7c7ebac9-15a9-4428-ad75-a80f47429732" />
-<img width="270" height="600" alt="Screenshot_1756249375" src="https://github.com/user-attachments/assets/4d43c3ad-79c8-42db-a524-c0c263d7904d" />
-<img width="270" height="600" alt="Screenshot_1756249368" src="https://github.com/user-attachments/assets/fb3b0157-d777-48ff-8224-c069c5be07ed" />
-<img width="270" height="600" alt="Screenshot_1756249613" src="https://github.com/user-attachments/assets/9e44ca7e-1aa9-42b8-8d37-01bf2fd95b3c" />
-<img width="270" height="600" alt="Screenshot_1756249388" src="https://github.com/user-attachments/assets/8752fdfb-2fa7-4252-bcb0-e6442ec17cf1" />
-<img width="270" height="600" alt="Screenshot_1756250563" src="https://github.com/user-attachments/assets/b8f301c1-2df2-4808-a1bf-2b57d8763593" />
-<img width="270" height="600" alt="Screenshot_1756250558" src="https://github.com/user-attachments/assets/090453d5-cb90-4cd0-b359-21d0ee904312" />
+<img width="270" height="600" alt="Screenshot_1756329935" src="https://github.com/user-attachments/assets/bc10b9d7-a730-4602-bdc4-2dad58ab27fe" />
+<img width="270" height="600" alt="Screenshot_1756329937" src="https://github.com/user-attachments/assets/bebadd51-d0bb-463f-ae92-07f98d003c8c" />
+<img width="270" height="600" alt="Screenshot_1756330007" src="https://github.com/user-attachments/assets/34ba4884-78ac-4626-9173-bc6fda4cd4e5" />
+<img width="270" height="600" alt="Screenshot_1756330010" src="https://github.com/user-attachments/assets/bd5eafe1-19a6-41ea-93b4-1c300db3522f" />
+<img width="270" height="600" alt="Screenshot_1756330102" src="https://github.com/user-attachments/assets/90452437-2674-4aca-ad8a-ee7eff8f6a64" />
+<img width="270" height="600" alt="Screenshot_1756329973" src="https://github.com/user-attachments/assets/3bf80f6c-0960-41dd-928d-89d5c2cc7ac8" />
+<img width="270" height="600" alt="Screenshot_1756329969" src="https://github.com/user-attachments/assets/c9fa995b-75c4-4cbc-91a8-3bd1e1ff326d" />
+<img width="270" height="600" alt="Screenshot_1756330206" src="https://github.com/user-attachments/assets/affa8ac1-0fbf-46e3-a276-3e11922d2f9f" />
+<img width="270" height="600" alt="Screenshot_1756329978" src="https://github.com/user-attachments/assets/2353da44-2ae7-4ab1-bd76-5ee548dff013" />
+<img width="270" height="600" alt="Screenshot_1756329990" src="https://github.com/user-attachments/assets/8775a7be-f105-47b3-a9ab-f2a9a1b6e970" />
+<img width="270" height="600" alt="Screenshot_1756330135" src="https://github.com/user-attachments/assets/59e17c13-66dc-4304-94f4-3cafd2f34675" />
+<img width="270" height="600" alt="Screenshot_1756330156" src="https://github.com/user-attachments/assets/71270a1d-9dbc-4f19-92ad-eb8811c1a2af" />
+<img width="270" height="600" alt="Screenshot_1756329983" src="https://github.com/user-attachments/assets/62f31049-63bc-4169-9079-0f8f33a4cd3f" />
+<img width="270" height="600" alt="Screenshot_1756329992" src="https://github.com/user-attachments/assets/c76d3bd7-88c8-4183-a034-802673d3763a" />
 
 
 
