@@ -174,6 +174,7 @@ Katmanlar şu şekilde yapılandırılmıştır:
 # 📷 Ekran Görüntüleri
 
 <img width="270" height="600" alt="Screenshot_1756249584" src="https://github.com/user-attachments/assets/ca49cddd-996a-4c1c-a3dd-49becc0cbcd2" />
+<img width="270" height="600" alt="Screenshot_1756248961" src="https://github.com/user-attachments/assets/3fba2e85-8bb7-4930-82c1-056f440b8a7a" />
 <img width="270" height="600" alt="Screenshot_1756249573" src="https://github.com/user-attachments/assets/8193313b-fbd8-4eec-873c-e26c3d2a67bf" />
 <img width="270" height="600" alt="Screenshot_1756248966" src="https://github.com/user-attachments/assets/65a986d3-d134-4f53-aa7f-214e63b67381" />
 <img width="270" height="600" alt="Screenshot_1756249372" src="https://github.com/user-attachments/assets/7c7ebac9-15a9-4428-ad75-a80f47429732" />
