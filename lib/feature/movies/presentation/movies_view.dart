@@ -61,37 +61,22 @@ class _MovieListState extends State<_MovieList> with MoviesViewModel {
                         fit: StackFit.expand,
                         children: [
                           CacheImage(
-                            imageUrl:
-                                state.moviesEntity?.movies?[index].posterUrl ??
-                                '',
+                            imageUrl: state.moviesEntity?.movies?[index].posterUrl ?? '',
                           ),
                           Positioned(
                             bottom: SizeValues.oneHundredSeventyOne.value.h,
                             right: SizeValues.sixteen.value.w,
                             child: _FavoriteButton(
                               onTap: () => _addFavorite(index),
-                              isFavorite:
-                                  state
-                                      .moviesEntity
-                                      ?.movies?[index]
-                                      .isFavorite ??
-                                  false,
+                              isFavorite: state.moviesEntity?.movies?[index].isFavorite ?? false,
                             ),
                           ),
                           Positioned(
                             bottom: SizeValues.ninetySeven.value.h,
-                            left: SizeValues.sixteen.value.w,
-                            right: SizeValues.sixteen.value.w,
+                            left: SizeValues.thirtyFive.value.w,
                             child: _MovieContent(
-                              title:
-                                  state.moviesEntity?.movies?[index].title ??
-                                  '',
-                              description:
-                                  state
-                                      .moviesEntity
-                                      ?.movies?[index]
-                                      .description ??
-                                  '',
+                              title: state.moviesEntity?.movies?[index].title ?? '',
+                              description: state.moviesEntity?.movies?[index].description ?? '',
                             ),
                           ),
                         ],
