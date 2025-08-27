@@ -34,6 +34,8 @@ final class MovieCard extends StatelessWidget {
         VerticalSpace.six(),
         Text(
           genre,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: context.general.textTheme.bodyMedium?.copyWith(
             color: AppColor.instance.veryDarkWhiteText,
           ),

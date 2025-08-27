@@ -91,10 +91,9 @@ class __ProfileBodyState extends State<_ProfileBody> with _ProfileViewModel {
                               VerticalSpace.six(),
                               Text(
                                 LocaleKeys.profile_no_liked_movies.tr(),
-                                style: context.general.textTheme.displayLarge
-                                    ?.copyWith(
-                                      color: AppColor.instance.white,
-                                    ),
+                                style: context.general.textTheme.displayLarge?.copyWith(
+                                  color: AppColor.instance.white,
+                                ),
                               ),
                             ],
                           ),
@@ -106,13 +105,12 @@ class __ProfileBodyState extends State<_ProfileBody> with _ProfileViewModel {
                           child: GridView.builder(
                             padding: EdgeInsets.only(bottom: 95.h),
                             itemCount: state.movies?.length ?? 0,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisSpacing: 16.w,
-                                  mainAxisSpacing: 13.h,
-                                  crossAxisCount: 2,
-                                  childAspectRatio: 0.54,
-                                ),
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisSpacing: 16.w,
+                              mainAxisSpacing: 13.h,
+                              crossAxisCount: 2,
+                              childAspectRatio: 0.54,
+                            ),
                             itemBuilder: (context, index) {
                               return MovieCard(
                                 imageUrl: state.movies?[index].posterUrl ?? '',
